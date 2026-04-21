@@ -4,7 +4,7 @@ abbrev: "agentic-ai-ucreq"
 docname: draft-agentic-ai-usecases-requirements-latest
 category: info
 ipr: trust200902
-area: Applications and Real-Time
+# area: Applications and Real-Time
 submissiontype: IETF
 keyword: Internet-Draft
 
