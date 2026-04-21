@@ -1,7 +1,7 @@
 ---
 title: "Agentic AI Use Cases and Requirements"
 abbrev: "agentic-ai-ucreq"
-docname: draft-agentic-ai-usecases-requirements
+docname: draft-agentic-ai-usecases-requirements-latest
 category: info
 ipr: trust200902
 area: Applications and Real-Time
