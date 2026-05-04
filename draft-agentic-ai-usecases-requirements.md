@@ -120,6 +120,35 @@ tasks. This document takes into account related use case and problem
 statement documents including [SCRM], [YAO], [SONG], and [ROSENBERG],
 and existing protocol work including [A2A] and [MCP].
 
+# Terminology
+
+**AI Agent**: An autonomous software entity that perceives its
+environment, maintains internal state, and executes actions to achieve
+specified goals, potentially including communication with other agents
+or invocation of external tools.
+
+**Orchestrator Agent**: An agent that coordinates the activity of other
+agents by decomposing goals into sub-tasks and delegating those
+sub-tasks to appropriate peer agents.
+
+**A2A (Agent-to-Agent) Communication**: Direct or brokered
+communication between two or more AI agents, as distinguished from
+communication between an agent and a human end-user or a conventional
+web service.
+
+**Tool**: external services invoked by the agent to retrieve
+  data or perform operations.
+
+**Tool Agent**: An agent that serves as a proxy or mediator for
+external tools, APIs, databases, or other resources that other agents
+require but cannot directly access.
+
+**Session**: A logical communication context shared between two or more
+agents over a period of time, which may persist across multiple
+individual message exchanges and network connections.
+
+**task**: TBD
+
 # Use Cases
 
 ## Group A: Human-to-Agent Interaction
