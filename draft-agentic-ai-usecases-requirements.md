@@ -86,12 +86,12 @@ informative:
 
 --- abstract
 
-This document describes use cases for agentic AI systems and derives
+This document describes use cases for agentic AI communication systems and derives
 protocol requirements from those use cases.  The requirements are
-intended to guide IETF standardization work on protocols for
+intended to guide IETF standardization work on protocols in the context of
 agent-to-agent communication, agent-to-tool communication, and agent
 identity and authorization, including development of a protocol
-framework and security specifications for agentic AI systems.
+framework for agentic AI communication systems.
 
 --- middle
 
@@ -107,7 +107,7 @@ which tools to invoke, and which agents to collaborate with, based on
 reasoning over its goals and context.
 
 This document presents use cases that illustrate the key interaction
-patterns of agentic AI systems, and derives protocol requirements from
+patterns of agentic communication AI systems, and derives protocol requirements from
 those use cases.  The requirements are intended to drive development
 of protocols, a protocol framework, and security specifications for
 agentic AI systems at the IETF.
