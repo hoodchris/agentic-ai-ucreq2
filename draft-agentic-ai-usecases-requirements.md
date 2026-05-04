@@ -147,7 +147,11 @@ require but cannot directly access.
 agents over a period of time, which may persist across multiple
 individual message exchanges and network connections.
 
-**task**: TBD
+**Task**: TBD
+
+**Client Agent**: TBD
+
+**Peer Agent**: TBD
 
 # Use Cases
 
@@ -455,6 +459,48 @@ agents work on the same problem rather than different subtasks.
 The protocol requirements for this use case are the same as those
 defined in Section 2.8. No additional protocol requirements are
 introduced.
+
+## Tool, Data, and API Mediation Between Agents
+
+### Description
+
+In many multi-agent deployments, access to external resources — APIs,
+databases, enterprise systems, or hardware interfaces — is intentionally
+mediated through a designated tool agent.  Other agents request the
+tool agent to perform actions or retrieve data on their behalf, rather
+than directly invoking external systems.  This architecture allows
+access control, auditing, rate limiting, and schema normalization to be
+applied uniformly at the mediation layer.
+
+### Interaction flow
+
++-------------+                      +-----------+
+| User Client |<-------------------->|   Agent   |
++-------------+   Agent Protocol     |           |
+                                     +-----------+                
+                          |----------------|
+                          v 
+                 +--------------+
+                 |   Mediator   |
+                 +--------------+
+                  /      |      \
+                 v       v       v
+           +--------+ +--------+ +--------+
+           |Agent-1 | |Tool-1 | | Agent-2 |
+           +--------+ +--------+ +--------+
+
+### Protocol Requirements
+- The protocol MUST maintain a clear separation between the identity of
+the requesting agent and the identity of the underlying tool or
+service.  Authorization decisions MUST be made with respect to the
+agent's identity, not the tool's identity, to prevent privilege
+escalation.
+- Error responses MUST include a machine-readable error code, a
+human-readable description, and a flag indicating whether the error is
+transient (and therefore safe to retry) or permanent.  The protocol
+SHOULD define a standard taxonomy of error codes applicable across
+tool invocations.
+
 
 # Security Considerations
 
