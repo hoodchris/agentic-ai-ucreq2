@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-03T02:27:20.169503+00:00",
+  "timestamp": "2026-05-05T02:14:17.029518+00:00",
   "repo": "tireddy2/agentic-ai-ucreq2",
   "labels": [
     {
@@ -49,6 +49,98 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
-  "pulls": []
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOSIVa8M8AAAABBNrAGQ",
+      "title": "Need to define what is AI system / Ai communication system",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/2",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-04T12:06:12Z",
+      "updatedAt": "2026-05-04T12:06:12Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOSIVa8M8AAAABBNrSdw",
+      "title": "Need a terminology section to define specific terms like \"task\", \"action\"",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/3",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-04T12:06:52Z",
+      "updatedAt": "2026-05-04T12:06:52Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOSIVa8M8AAAABBNsoEA",
+      "title": "Deep Search is this a Usecase?",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/4",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://github.com/tireddy2/agentic-ai-ucreq2/blob/6ba1377425cb74c4b0f1cf921aea60ed325d15e8/draft-agentic-ai-usecases-requirements.md?plain=1#L226\n\nI am not sure about this usecase. It seems like a variation from other use cases and also does not seems to fit into the current categorization of the use cases as I can see other use cases can also have a requirement on bulk data transfer. I suggest to remove it and move the requirement in  agent-agent category.",
+      "createdAt": "2026-05-04T12:10:09Z",
+      "updatedAt": "2026-05-04T12:10:09Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOSIVa8M8AAAABBNxvVw",
+      "title": "do we need to focus on user to agent communication in the use cases?",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/5",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "There has been lots of discussions on whether and how much IETF protocol can do when it comes to Human interaction. This becomes a controversial topic the moment we touch on trust model, how much human should be in the look. Hence, we need to see what is the minimum use case we have when we have Human in the loop. And if the current use cases can be converted to the agent to agent communication. ",
+      "createdAt": "2026-05-04T12:22:50Z",
+      "updatedAt": "2026-05-04T12:22:50Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOSIVa8M7X_9WN",
+      "title": "Updated the abstract , added terminology section and added a new mediator case",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/1",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-04T12:05:37Z",
+      "updatedAt": "2026-05-04T12:37:36Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "6ba1377425cb74c4b0f1cf921aea60ed325d15e8",
+      "headRepository": null,
+      "headRefName": "main",
+      "headRefOid": "df87170bac17ef701726b5c8ff828a14424c7f4d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
