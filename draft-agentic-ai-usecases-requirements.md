@@ -86,12 +86,12 @@ informative:
 
 --- abstract
 
-This document describes use cases for agentic AI systems and derives
+This document describes use cases for agentic AI communication systems and derives
 protocol requirements from those use cases.  The requirements are
-intended to guide IETF standardization work on protocols for
+intended to guide IETF standardization work on protocols in the context of
 agent-to-agent communication, agent-to-tool communication, and agent
 identity and authorization, including development of a protocol
-framework and security specifications for agentic AI systems.
+framework for agentic AI communication systems.
 
 --- middle
 
@@ -107,7 +107,7 @@ which tools to invoke, and which agents to collaborate with, based on
 reasoning over its goals and context.
 
 This document presents use cases that illustrate the key interaction
-patterns of agentic AI systems, and derives protocol requirements from
+patterns of agentic communication AI systems, and derives protocol requirements from
 those use cases.  The requirements are intended to drive development
 of protocols, a protocol framework, and security specifications for
 agentic AI systems at the IETF.
@@ -119,6 +119,39 @@ patterns, where agents collaborate with each other to complete
 tasks. This document takes into account related use case and problem
 statement documents including [SCRM], [YAO], [SONG], and [ROSENBERG],
 and existing protocol work including [A2A] and [MCP].
+
+# Terminology
+
+**AI Agent**: An autonomous software entity that perceives its
+environment, maintains internal state, and executes actions to achieve
+specified goals, potentially including communication with other agents
+or invocation of external tools.
+
+**Orchestrator Agent**: An agent that coordinates the activity of other
+agents by decomposing goals into sub-tasks and delegating those
+sub-tasks to appropriate peer agents.
+
+**A2A (Agent-to-Agent) Communication**: Direct or brokered
+communication between two or more AI agents, as distinguished from
+communication between an agent and a human end-user or a conventional
+web service.
+
+**Tool**: external services invoked by the agent to retrieve
+  data or perform operations.
+
+**Tool Agent**: An agent that serves as a proxy or mediator for
+external tools, APIs, databases, or other resources that other agents
+require but cannot directly access.
+
+**Session**: A logical communication context shared between two or more
+agents over a period of time, which may persist across multiple
+individual message exchanges and network connections.
+
+**Task**: TBD
+
+**Client Agent**: TBD
+
+**Peer Agent**: TBD
 
 # Use Cases
 
@@ -426,6 +459,48 @@ agents work on the same problem rather than different subtasks.
 The protocol requirements for this use case are the same as those
 defined in Section 2.8. No additional protocol requirements are
 introduced.
+
+## Tool, Data, and API Mediation Between Agents
+
+### Description
+
+In many multi-agent deployments, access to external resources — APIs,
+databases, enterprise systems, or hardware interfaces — is intentionally
+mediated through a designated tool agent.  Other agents request the
+tool agent to perform actions or retrieve data on their behalf, rather
+than directly invoking external systems.  This architecture allows
+access control, auditing, rate limiting, and schema normalization to be
+applied uniformly at the mediation layer.
+
+### Interaction flow
+
++-------------+                      +-----------+
+| User Client |<-------------------->|   Agent   |
++-------------+   Agent Protocol     |           |
+                                     +-----------+                
+                          |----------------|
+                          v 
+                 +--------------+
+                 |   Mediator   |
+                 +--------------+
+                  /      |      \
+                 v       v       v
+           +--------+ +--------+ +--------+
+           |Agent-1 | |Tool-1 | | Agent-2 |
+           +--------+ +--------+ +--------+
+
+### Protocol Requirements
+- The protocol MUST maintain a clear separation between the identity of
+the requesting agent and the identity of the underlying tool or
+service.  Authorization decisions MUST be made with respect to the
+agent's identity, not the tool's identity, to prevent privilege
+escalation.
+- Error responses MUST include a machine-readable error code, a
+human-readable description, and a flag indicating whether the error is
+transient (and therefore safe to retry) or permanent.  The protocol
+SHOULD define a standard taxonomy of error codes applicable across
+tool invocations.
+
 
 # Security Considerations
 
