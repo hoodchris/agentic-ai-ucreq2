@@ -31,44 +31,36 @@ informative:
   A2A:
     title: "Agent2Agent Protocol Specification"
     target: https://a2a-protocol.org/latest/specification/
-    
   MCP:
     title: "Model Context Protocol Specification"
     target: https://modelcontextprotocol.io/specification/2025-11-25
-    
 
   RFC6749:
     title: "The OAuth 2.0 Authorization Framework"
     target: https://www.rfc-editor.org/rfc/rfc6749
-    
 
   RFC9635:
     title: "Grant Negotiation and Authorization Protocol (GNAP)"
     target: https://www.rfc-editor.org/rfc/rfc9635
-    
 
   SCRM:
     title: "Agentic AI Use Cases"
     target: https://datatracker.ietf.org/doc/draft-scrm-aiproto-usecases
-    
   ROSENBERG:
     title: "Framework, Use Cases and Requirements for AI Agent Protocols"
     target: https://datatracker.ietf.org/doc/draft-rosenberg-aiproto-framework
-    
 
   YAO:
     title: "Problem Space Analysis of AI Agent Protocols in IETF"
     target: https://datatracker.ietf.org/doc/draft-yao-catalist-problem-space-analysis
-    
 
   SONG:
     title: "Problem Statement and Requirements for Dynamic Multi-agent Secured Collaboration"
     target: https://datatracker.ietf.org/doc/draft-song-dmsc-problem-statement
-    
   KLRC:
     title: "AI Agent Authentication and Authorization"
-    target: https://datatracker.ietf.org/doc/draft-klrc-aiagent-auth   
- 
+    target: https://datatracker.ietf.org/doc/draft-klrc-aiagent-auth
+
 
 --- abstract
 
@@ -300,7 +292,7 @@ The subagent executes the task autonomously and sends progress
 notifications to the orchestrator. At certain points the subagent
 pauses and requests explicit authorization from the orchestrator
 before proceeding. The orchestrator may relay this authorization
-request or resolve it autonomously based on policy. 
+request or resolve it autonomously based on policy.
 
 This pattern is reflected in the In-Task Authorization mechanism
 defined in [A2A].
@@ -381,7 +373,7 @@ independently and exchanging intermediate reasoning outputs to
 converge on a collective conclusion. A coordinator agent distributes
 the problem to all participating agents, collects their reasoning
 outputs, and drives the convergence process across multiple rounds
-until a consensus conclusion is reached. Unlike Section B.3, all 
+until a consensus conclusion is reached. Unlike Section B.3, all
 agents work on the same problem rather than different subtasks.
 
 ### Interaction Flow
@@ -416,7 +408,7 @@ architecture allows access control, auditing, rate limiting, and
 schema normalization to be applied uniformly at the mediation layer.
 
 This pattern is reflected in the MCP server architecture defined
-in [MCP]. 
+in [MCP].
 
 ### Interaction Flow
 
@@ -438,8 +430,8 @@ v       v       v
 
 ### Additional Protocol Requirements
 
-The protocol requirements for this use case are the same as those 
-defined for Section B.1. No additional protocol requirements 
+The protocol requirements for this use case are the same as those
+defined for Section B.1. No additional protocol requirements
 are introduced.
 
 # Security Considerations
