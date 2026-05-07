@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-05T02:14:17.029518+00:00",
+  "timestamp": "2026-05-07T02:27:21.694958+00:00",
   "repo": "tireddy2/agentic-ai-ucreq2",
   "labels": [
     {
@@ -55,64 +55,96 @@
       "id": "I_kwDOSIVa8M8AAAABBNrAGQ",
       "title": "Need to define what is AI system / Ai communication system",
       "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "zaheduzzaman",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-05-04T12:06:12Z",
-      "updatedAt": "2026-05-04T12:06:12Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-05-06T13:02:21Z",
+      "closedAt": "2026-05-06T13:02:21Z",
+      "comments": [
+        {
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "body": "Done. ",
+          "createdAt": "2026-05-06T13:02:21Z",
+          "updatedAt": "2026-05-06T13:02:21Z"
+        }
+      ]
     },
     {
       "number": 3,
       "id": "I_kwDOSIVa8M8AAAABBNrSdw",
       "title": "Need a terminology section to define specific terms like \"task\", \"action\"",
       "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/3",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "zaheduzzaman",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-05-04T12:06:52Z",
-      "updatedAt": "2026-05-04T12:06:52Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-05-06T13:02:09Z",
+      "closedAt": "2026-05-06T13:02:09Z",
+      "comments": [
+        {
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "body": "Updated draft to address the comment.",
+          "createdAt": "2026-05-06T13:02:09Z",
+          "updatedAt": "2026-05-06T13:02:09Z"
+        }
+      ]
     },
     {
       "number": 4,
       "id": "I_kwDOSIVa8M8AAAABBNsoEA",
       "title": "Deep Search is this a Usecase?",
       "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "zaheduzzaman",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "https://github.com/tireddy2/agentic-ai-ucreq2/blob/6ba1377425cb74c4b0f1cf921aea60ed325d15e8/draft-agentic-ai-usecases-requirements.md?plain=1#L226\n\nI am not sure about this usecase. It seems like a variation from other use cases and also does not seems to fit into the current categorization of the use cases as I can see other use cases can also have a requirement on bulk data transfer. I suggest to remove it and move the requirement in  agent-agent category.",
       "createdAt": "2026-05-04T12:10:09Z",
-      "updatedAt": "2026-05-04T12:10:09Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-05-06T13:01:41Z",
+      "closedAt": "2026-05-06T13:01:41Z",
+      "comments": [
+        {
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "body": "Removed the use case. ",
+          "createdAt": "2026-05-06T13:01:41Z",
+          "updatedAt": "2026-05-06T13:01:41Z"
+        }
+      ]
     },
     {
       "number": 5,
       "id": "I_kwDOSIVa8M8AAAABBNxvVw",
       "title": "do we need to focus on user to agent communication in the use cases?",
       "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "zaheduzzaman",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "There has been lots of discussions on whether and how much IETF protocol can do when it comes to Human interaction. This becomes a controversial topic the moment we touch on trust model, how much human should be in the look. Hence, we need to see what is the minimum use case we have when we have Human in the loop. And if the current use cases can be converted to the agent to agent communication. ",
       "createdAt": "2026-05-04T12:22:50Z",
-      "updatedAt": "2026-05-04T12:22:50Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-05-06T13:03:32Z",
+      "closedAt": "2026-05-06T13:03:32Z",
+      "comments": [
+        {
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "body": "Agreed, minimized text related to interaction with human.  ",
+          "createdAt": "2026-05-06T13:03:32Z",
+          "updatedAt": "2026-05-06T13:03:32Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -121,26 +153,256 @@
       "id": "PR_kwDOSIVa8M7X_9WN",
       "title": "Updated the abstract , added terminology section and added a new mediator case",
       "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/1",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "zaheduzzaman",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-05-04T12:05:37Z",
-      "updatedAt": "2026-05-04T12:37:36Z",
+      "updatedAt": "2026-05-06T09:08:03Z",
       "baseRepository": "tireddy2/agentic-ai-ucreq2",
       "baseRefName": "main",
       "baseRefOid": "6ba1377425cb74c4b0f1cf921aea60ed325d15e8",
       "headRepository": null,
       "headRefName": "main",
       "headRefOid": "df87170bac17ef701726b5c8ff828a14424c7f4d",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-05-06T05:44:53Z",
+      "mergedAt": "2026-05-06T05:44:53Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "a261f9dd6acd86edc17908dbfa633bfd08275b4a"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M78DUAF",
+          "commit": {
+            "abbreviatedOid": "df87170"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-05T14:02:36Z",
+          "updatedAt": "2026-05-05T14:02:36Z",
+          "comments": [
+            {
+              "originalPosition": 40,
+              "body": "I propose to modify it as follows:\nA2A (Agent-to-Agent) Communication: Direct or brokered communication between two or more AI agents, where brokered communication involves an intermediary agent or coordination service, as distinguished from communication between an agent and a human end-user or between an agent and a tool.",
+              "createdAt": "2026-05-05T14:02:36Z",
+              "updatedAt": "2026-05-05T14:02:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M78DiJY",
+          "commit": {
+            "abbreviatedOid": "df87170"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-05T14:09:24Z",
+          "updatedAt": "2026-05-05T14:09:25Z",
+          "comments": [
+            {
+              "originalPosition": 98,
+              "body": "I propose to modify the requirements as follows (to align with the rest of the sections):\n\n### Additional Protocol Requirements\n\n| REQ-ID   | Description |\n|----------|-------------|\n| B3-AA-1  | The protocol is required to maintain a clear separation between the identity of the requesting agent and the identity of the sub-agent or tool being invoked. Authorization decisions are required to be made with respect to the requesting agent's identity to prevent privilege escalation. |\n| B3-AA-2  | Error responses are required to include a machine-readable error code, a human-readable description, and an indication of whether the error is transient or permanent. The protocol is recommended to define a standard taxonomy of error codes applicable across agent and tool invocations. |",
+              "createdAt": "2026-05-05T14:09:25Z",
+              "updatedAt": "2026-05-05T14:09:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M78DjGu",
+          "commit": {
+            "abbreviatedOid": "df87170"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "I proposed changes to the text. ",
+          "createdAt": "2026-05-05T14:09:53Z",
+          "updatedAt": "2026-05-05T14:09:53Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOSIVa8M78aEPU",
+          "commit": {
+            "abbreviatedOid": "df87170"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-06T09:07:19Z",
+          "updatedAt": "2026-05-06T09:07:19Z",
+          "comments": [
+            {
+              "originalPosition": 40,
+              "body": "Ok with me",
+              "createdAt": "2026-05-06T09:07:19Z",
+              "updatedAt": "2026-05-06T09:07:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M78aFl6",
+          "commit": {
+            "abbreviatedOid": "df87170"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-06T09:08:03Z",
+          "updatedAt": "2026-05-06T09:08:03Z",
+          "comments": [
+            {
+              "originalPosition": 98,
+              "body": "can you make a PR with these changes?",
+              "createdAt": "2026-05-06T09:08:03Z",
+              "updatedAt": "2026-05-06T09:08:03Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOSIVa8M7Ys-Lg",
+      "title": "Address comments from Zahed",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/6",
+      "state": "MERGED",
+      "author": "tireddy2",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-06T09:15:34Z",
+      "updatedAt": "2026-05-06T13:01:19Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "a261f9dd6acd86edc17908dbfa633bfd08275b4a",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "tireddy2-patch-1",
+      "headRefOid": "8296f66c6a98eb882868b42479a0c03e198e8f81",
+      "closedAt": "2026-05-06T13:01:19Z",
+      "mergedAt": "2026-05-06T13:01:19Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "76a2d4fa43531a27f5681e1adeccf9633b9266ea"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M78aVGG",
+          "commit": {
+            "abbreviatedOid": "2cbd55d"
+          },
+          "author": "github-actions",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-06T09:16:12Z",
+          "updatedAt": "2026-05-06T09:16:13Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "````suggestion\n\n````",
+              "createdAt": "2026-05-06T09:16:12Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 24,
+              "body": "````suggestion\n\n````",
+              "createdAt": "2026-05-06T09:16:12Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 32,
+              "body": "````suggestion\n\n````",
+              "createdAt": "2026-05-06T09:16:12Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 41,
+              "body": "````suggestion\n\n````",
+              "createdAt": "2026-05-06T09:16:12Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 50,
+              "body": "````suggestion\n\n````",
+              "createdAt": "2026-05-06T09:16:13Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 58,
+              "body": "````suggestion\n\n````",
+              "createdAt": "2026-05-06T09:16:13Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 66,
+              "body": "````suggestion\n\n````",
+              "createdAt": "2026-05-06T09:16:13Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 74,
+              "body": "````suggestion\n\n````",
+              "createdAt": "2026-05-06T09:16:13Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 78,
+              "body": "````suggestion\n    target: https://datatracker.ietf.org/doc/draft-klrc-aiagent-auth\n\n````",
+              "createdAt": "2026-05-06T09:16:13Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 421,
+              "body": "````suggestion\nrequest or resolve it autonomously based on policy.\n````",
+              "createdAt": "2026-05-06T09:16:13Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 512,
+              "body": "````suggestion\nuntil a consensus conclusion is reached. Unlike Section B.3, all\n````",
+              "createdAt": "2026-05-06T09:16:13Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 545,
+              "body": "````suggestion\nin [MCP].\n````",
+              "createdAt": "2026-05-06T09:16:13Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            },
+            {
+              "originalPosition": 593,
+              "body": "````suggestion\nThe protocol requirements for this use case are the same as those\ndefined for Section B.1. No additional protocol requirements\n````",
+              "createdAt": "2026-05-06T09:16:13Z",
+              "updatedAt": "2026-05-06T09:16:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M78etOp",
+          "commit": {
+            "abbreviatedOid": "8296f66"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM, Please merge.",
+          "createdAt": "2026-05-06T12:13:20Z",
+          "updatedAt": "2026-05-06T12:13:20Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
