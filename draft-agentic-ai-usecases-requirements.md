@@ -274,8 +274,8 @@ session between the orchestrator and each subagent is required to
 support persistent session identifiers and session resumption in
 the event of network interruption.
 
-This pattern is described in [ROSENBERG] and reflected in [A2A], and
-is implemented in deployed multi-agent frameworks including
+This pattern is described in [ROSENBERG] and reflected in [A2A], and 
+is implemented in deployed multi-agent frameworks including 
 [AUTOGEN], [LANGCHAIN], and [OPENAI-AGENTS].
 
 ### Actors
