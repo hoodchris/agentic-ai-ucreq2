@@ -112,11 +112,11 @@ requirements from those use cases. The requirements are intended to
 drive development of protocols, a protocol framework, and security
 specifications for agentic AI systems.
 
-The use cases in this document cover interaction
-patterns for agentic AI communication systems. This document takes
-into account related use case and problem statement documents
-including [SCRM], [YAO], [SONG], and [ROSENBERG], and existing
-protocol work including [A2A] and [MCP].
+The use cases in this document cover interaction patterns for
+agentic AI communication systems. This document takes into account
+related use case and problem statement documents including [SCRM],
+[YAO], [SONG], and [ROSENBERG], and existing protocol work including
+[A2A] and [MCP].
 
 # Terminology {#terminology}
 
@@ -163,7 +163,6 @@ further to other agents without routing through the initiating agent.
 agent and may itself delegate further to other agents.
 
 # Use Cases {#usecases}
-
 
 ## Simple Single-Agent Task {#simple-single-agent}
 
@@ -254,9 +253,17 @@ subtasks and delegating them asynchronously to one or more subagents.
 The orchestrator decides which subagents to invoke, sequences the
 delegation, and aggregates results to continue task execution. Each
 subagent executes its subtask independently and reports results back
-to the orchestrator. The session between the orchestrator and each
-subagent is required to support persistent session identifiers and
-session resumption in the event of network interruption.
+to the orchestrator.
+
+AI models are stateless by nature — each inference
+call processes only what is explicitly provided in the context
+window, with no persistent memory between calls. The application
+layer is responsible for maintaining task context across calls by
+carrying conversation history, intermediate results, and task
+state. Session continuity is therefore required to preserve this
+accumulated context across network interruptions, ensuring that a
+reconnecting agent can restore the prior task context without
+having to reconstruct it from scratch.
 
 This pattern is described in [ROSENBERG] and reflected in [A2A],
 and is implemented in deployed multi-agent frameworks including
@@ -396,6 +403,7 @@ requirements are introduced.
 |----------|-------------|
 | B3-IAD-1 | The protocol is required to support multi-hop delegation chains, where an agent that receives a delegated subtask may itself delegate further to other agents. At each hop, the delegating agent is required to present a credential that does not exceed the authorization scope of the credential it received. |
 | B3-IAD-2 | The protocol is required to preserve the identity of the originating entity across all hops in the delegation chain, such that any agent in the chain can determine the identity of the entity that originally authorized the task. |
+| B3-IAD-3 | The protocol is required to support transferable credentials that carry the original authorization constraints across all hops in the delegation chain. Each receiving agent is required to be able to cryptographically verify that the credential presented to it was issued by the delegating agent and that the chain of delegation traces back to the original authorization. |
 
 ## Cooperative Reasoning and Consensus Formation {#cooperative-reasoning}
 
@@ -464,15 +472,14 @@ behalf, rather than directly invoking external systems. This
 architecture allows access control, auditing, rate limiting, and
 schema normalization to be applied uniformly at the mediation layer.
 
-The mediator agent may also serve as an adapter
-between the agent protocol and non-agent systems or other services
-that do not natively support agent communication protocols, or
-between different agent communication protocols such as translating
-between the agentic protocol suite being developed at the IETF and
-existing protocols such as [MCP] and [A2A]. In this role, the
-mediator is responsible for protocol translation and for presenting
-the appropriate credentials to the target system on behalf of the
-requesting agent.
+The mediator agent may also serve as an adapter between the agent
+protocol and non-agent systems or other services that do not natively
+support agent communication protocols, or between different agent
+communication protocols such as translating between the agentic
+protocol suite being developed at the IETF and existing protocols
+such as [MCP] and [A2A]. In this role, the mediator is responsible
+for protocol translation and for presenting the appropriate
+credentials to the target system on behalf of the requesting agent.
 
 The mediator may additionally act as a router, dispatching requests
 to appropriate agents or tools based on the content and context of
@@ -509,11 +516,7 @@ v       v       v
 
 | REQ-ID   | Description |
 |----------|-------------|
-| B5-AA-1  | The protocol is required to define error response types
-for request validation failure and protocol translation failure,
-distinct from authorization failure. A request validation failure
-is returned when a request is rejected due to potential unintended
-or irreversible side effects. |
+| B5-AA-1  | The protocol is required to define error response types for request validation failure and protocol translation failure, distinct from authorization failure. A request validation failure is returned when a request is rejected due to potential unintended or irreversible side effects. |
 
 # Security Considerations {#security}
 
@@ -529,5 +532,5 @@ This document has no IANA actions.
 # Acknowledgements
 {:numbered="false"}
 
-Thanks to Julien Maisonneuve, Parisa Foroughi, Borislava Gajic and Sina Khatibi for
-the discussion and comments.
+Thanks to Julien Maisonneuve, Parisa Foroughi, Borislava Gajic and
+Sina Khatibi for the discussion and comments.
