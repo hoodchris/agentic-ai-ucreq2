@@ -5,7 +5,7 @@
 Network Working Group                                           T. Reddy
 Internet-Draft                                                 Z. Sarker
 Intended status: Informational                                     Nokia
-Expires: 9 November 2026                                      8 May 2026
+Expires: 10 November 2026                                     9 May 2026
 
 
                  Agentic AI Use Cases and Requirements
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 November 2026.
+   This Internet-Draft will expire on 10 November 2026.
 
 Copyright Notice
 
@@ -64,39 +64,37 @@ Table of Contents
    1.  Introduction
    2.  Terminology
    3.  Use Cases
-     3.1.  Group A: Human-to-Agent Interaction
-     3.2.  Simple Single-Agent Task
+     3.1.  Simple Single-Agent Task
+       3.1.1.  Description
+       3.1.2.  Actors
+       3.1.3.  Interaction Flow
+       3.1.4.  Agent Protocol Requirements
+       3.1.5.  Tool Invocation Protocol Requirements
+       3.1.6.  Identity, Authentication, and Delegation Requirements
+     3.2.  Orchestrator and Subagent Collaboration
        3.2.1.  Description
        3.2.2.  Actors
        3.2.3.  Interaction Flow
-       3.2.4.  Agent Protocol Requirements
-       3.2.5.  Tool Invocation Protocol Requirements
-       3.2.6.  Identity, Authentication, and Delegation Requirements
-     3.3.  Group B: Agent-to-Agent Interaction
-     3.4.  Orchestrator and Subagent Collaboration
+       3.2.4.  Agent-to-Agent Protocol Requirements
+       3.2.5.  Identity and Authentication Requirements
+     3.3.  Long-Running Delegated Task with Authorization Checkpoint
+       3.3.1.  Description
+       3.3.2.  Interaction Flow
+       3.3.3.  Additional Agent-to-Agent Protocol Requirements
+     3.4.  Peer Collaborative Multi-Agent Problem Solving
        3.4.1.  Description
        3.4.2.  Actors
        3.4.3.  Interaction Flow
-       3.4.4.  Agent-to-Agent Protocol Requirements
-       3.4.5.  Identity and Authentication Requirements
-     3.5.  Long-Running Delegated Task with Authorization Checkpoint
+       3.4.4.  Protocol Requirements
+       3.4.5.  Additional Identity and Authorization Requirements
+     3.5.  Cooperative Reasoning and Consensus Formation
        3.5.1.  Description
        3.5.2.  Interaction Flow
-       3.5.3.  Additional Agent-to-Agent Protocol Requirements
-     3.6.  Peer Collaborative Multi-Agent Problem Solving
+       3.5.3.  Protocol Requirements
+     3.6.  Tool, Data, and API Mediation Between Agents
        3.6.1.  Description
-       3.6.2.  Actors
-       3.6.3.  Interaction Flow
-       3.6.4.  Protocol Requirements
-       3.6.5.  Additional Identity and Authorization Requirements
-     3.7.  Cooperative Reasoning and Consensus Formation
-       3.7.1.  Description
-       3.7.2.  Interaction Flow
-       3.7.3.  Protocol Requirements
-     3.8.  Tool, Data, and API Mediation Between Agents
-       3.8.1.  Description
-       3.8.2.  Interaction Flow
-       3.8.3.  Additional Protocol Requirements
+       3.6.2.  Interaction Flow
+       3.6.3.  Additional Protocol Requirements
    4.  Security Considerations
    5.  IANA Considerations
    Acknowledgements
@@ -120,14 +118,11 @@ Table of Contents
    drive development of protocols, a protocol framework, and security
    specifications for agentic AI systems.
 
-   The use cases are organized into two groups.  Group A covers the
-   minimum interaction pattern necessary to establish the baseline
-   protocol interface between a user and an agent.  Group B covers
-   Agent-to-Agent interaction patterns, where agents collaborate with
-   each other to complete tasks.  This document takes into account
-   related use case and problem statement documents including [SCRM],
-   [YAO], [SONG], and [ROSENBERG], and existing protocol work including
-   [A2A] and [MCP].
+   The use cases in this document cover interaction patterns for agentic
+   AI communication systems.  This document takes into account related
+   use case and problem statement documents including [SCRM], [YAO],
+   [SONG], and [ROSENBERG], and existing protocol work including [A2A]
+   and [MCP].
 
 2.  Terminology
 
@@ -176,19 +171,9 @@ Table of Contents
 
 3.  Use Cases
 
-3.1.  Group A: Human-to-Agent Interaction
+3.1.  Simple Single-Agent Task
 
-   This group covers the minimum interaction pattern necessary to
-   establish the baseline protocol interface between a user and an
-   agent.  How much oversight is appropriate in a given deployment is a
-   policy decision outside the scope of protocol standardization.  The
-   protocol requirements in this group are scoped to the message types
-   and transport properties needed to support task submission and
-   response delivery.
-
-3.2.  Simple Single-Agent Task
-
-3.2.1.  Description
+3.1.1.  Description
 
    A user submits a task to an AI agent via a client application.  The
    agent executes the task by invoking one or more tools and returns
@@ -207,7 +192,7 @@ Table of Contents
 
    This interaction pattern is described in [ROSENBERG] and [SCRM].
 
-3.2.2.  Actors
+3.1.2.  Actors
 
    *  User: the entity that initiates and directs the task via a client
       application.
@@ -218,7 +203,7 @@ Table of Contents
    *  Tool(s): external services invoked by the agent to retrieve data
       or perform operations.
 
-3.2.3.  Interaction Flow
+3.1.3.  Interaction Flow
 
    +-------------+                      +-----------+
    | User Client |<-------------------->|   Agent   |
@@ -234,7 +219,7 @@ Table of Contents
                                          | Tool(s)|
                                          +--------+
 
-3.2.4.  Agent Protocol Requirements
+3.1.4.  Agent Protocol Requirements
 
    +=========+=========================================================+
    | REQ-ID  | Description                                             |
@@ -273,7 +258,7 @@ Table of Contents
 
                                   Table 1
 
-3.2.5.  Tool Invocation Protocol Requirements
+3.1.5.  Tool Invocation Protocol Requirements
 
        +=========+================================================+
        | REQ-ID  | Description                                    |
@@ -302,7 +287,7 @@ Table of Contents
 
                                  Table 2
 
-3.2.6.  Identity, Authentication, and Delegation Requirements
+3.1.6.  Identity, Authentication, and Delegation Requirements
 
     +==========+======================================================+
     | REQ-ID   | Description                                          |
@@ -331,11 +316,9 @@ Table of Contents
 
                                   Table 3
 
-3.3.  Group B: Agent-to-Agent Interaction
+3.2.  Orchestrator and Subagent Collaboration
 
-3.4.  Orchestrator and Subagent Collaboration
-
-3.4.1.  Description
+3.2.1.  Description
 
    An orchestrator agent acts as a controller, decomposing a task into
    subtasks and delegating them asynchronously to one or more subagents.
@@ -350,7 +333,7 @@ Table of Contents
    is implemented in deployed multi-agent frameworks including
    [AUTOGEN], [LANGCHAIN], and [OPENAI-AGENTS].
 
-3.4.2.  Actors
+3.2.2.  Actors
 
    *  Orchestrator: an agent that acts as a controller, decomposes a
       task, delegates subtasks to subagents, and aggregates results.
@@ -358,7 +341,7 @@ Table of Contents
    *  Subagent: an agent that receives a delegated subtask, executes it,
       and returns results to the orchestrator.
 
-3.4.3.  Interaction Flow
+3.2.3.  Interaction Flow
 
    +---------------------+                        +------------+
    | Orchestrator Agent  |---Task Delegation----->| Subagent-1 |
@@ -370,7 +353,7 @@ Table of Contents
    |                     |<--Result Reporting-----|            |
    +---------------------+                        +------------+
 
-3.4.4.  Agent-to-Agent Protocol Requirements
+3.2.4.  Agent-to-Agent Protocol Requirements
 
    +=========+========================================================+
    | REQ-ID  | Description                                            |
@@ -406,7 +389,7 @@ Table of Contents
 
                                  Table 4
 
-3.4.5.  Identity and Authentication Requirements
+3.2.5.  Identity and Authentication Requirements
 
             +==========+=====================================+
             | REQ-ID   | Description                         |
@@ -422,9 +405,9 @@ Table of Contents
 
                                  Table 5
 
-3.5.  Long-Running Delegated Task with Authorization Checkpoint
+3.3.  Long-Running Delegated Task with Authorization Checkpoint
 
-3.5.1.  Description
+3.3.1.  Description
 
    An orchestrator agent delegates a long-running task to a subagent.
    The subagent executes the task autonomously and sends progress
@@ -436,7 +419,7 @@ Table of Contents
    This pattern is reflected in the In-Task Authorization mechanism
    defined in [A2A].
 
-3.5.2.  Interaction Flow
+3.3.2.  Interaction Flow
 
    +---------------------+                        +------------+
    | Orchestrator Agent  |---Task Delegation----->| Subagent   |
@@ -446,7 +429,7 @@ Table of Contents
    |                     |<--Result Reporting-----|            |
    +---------------------+                        +------------+
 
-3.5.3.  Additional Agent-to-Agent Protocol Requirements
+3.3.3.  Additional Agent-to-Agent Protocol Requirements
 
      +=========+====================================================+
      | REQ-ID  | Description                                        |
@@ -475,9 +458,9 @@ Table of Contents
 
                                  Table 6
 
-3.6.  Peer Collaborative Multi-Agent Problem Solving
+3.4.  Peer Collaborative Multi-Agent Problem Solving
 
-3.6.1.  Description
+3.4.1.  Description
 
    A task requires coordinated problem solving across multiple agents,
    where no single agent has full authority or capability to complete
@@ -489,7 +472,7 @@ Table of Contents
    interface.
 
    This use case introduces multi-hop delegation chains that are not
-   present in Section 3.4.  Each agent in the chain may delegate further
+   present in Section 3.2.  Each agent in the chain may delegate further
    to other agents, and authorization scope is required to be
    progressively constrained at each hop.
    [I-D.ietf-oauth-identity-chaining] and
@@ -498,14 +481,14 @@ Table of Contents
 
    This use case is described in [A2A] and [ROSENBERG].
 
-3.6.2.  Actors
+3.4.2.  Actors
 
    *  Initiating Agent: as defined in Section 2.
 
    *  Peer Agents: AI agents that receive delegated subtasks and may
       themselves delegate further to other agents.
 
-3.6.3.  Interaction Flow
+3.4.3.  Interaction Flow
 
    +------------------+
    | Initiating Agent |
@@ -521,13 +504,13 @@ Table of Contents
     |Agent-4 |
     +--------+
 
-3.6.4.  Protocol Requirements
+3.4.4.  Protocol Requirements
 
    The protocol requirements for this use case are the same as those
-   defined for Section 3.4.  No additional protocol requirements are
+   defined for Section 3.2.  No additional protocol requirements are
    introduced.
 
-3.6.5.  Additional Identity and Authorization Requirements
+3.4.5.  Additional Identity and Authorization Requirements
 
    +==========+========================================================+
    | REQ-ID   | Description                                            |
@@ -550,16 +533,16 @@ Table of Contents
 
                                   Table 7
 
-3.7.  Cooperative Reasoning and Consensus Formation
+3.5.  Cooperative Reasoning and Consensus Formation
 
-3.7.1.  Description
+3.5.1.  Description
 
    A set of peer agents is tasked with analyzing a shared problem
    independently and exchanging intermediate reasoning outputs to
    converge on a collective conclusion.  A coordinator agent distributes
    the problem to all participating agents, collects their reasoning
    outputs, and drives the convergence process across multiple rounds
-   until a consensus conclusion is reached.  Unlike Section 3.6, all
+   until a consensus conclusion is reached.  Unlike Section 3.4, all
    agents work on the same problem rather than different subtasks.
 
    Two communication topologies are possible.  In the first, agents
@@ -568,9 +551,9 @@ Table of Contents
    communicate directly with each other to exchange intermediate
    reasoning outputs without routing through the coordinator.  The
    second topology introduces the same multi-hop authorization
-   requirements defined in Section 3.6.
+   requirements defined in Section 3.4.
 
-3.7.2.  Interaction Flow
+3.5.2.  Interaction Flow
 
    The coordinator-mediated topology:
 
@@ -594,15 +577,15 @@ Table of Contents
               |Agent-1 |<->|Agent-2|<->|Agent-3|
               +--------+ +--------+ +--------+
 
-3.7.3.  Protocol Requirements
+3.5.3.  Protocol Requirements
 
    The protocol requirements for this use case are the same as those
-   defined for Section 3.4.  No additional protocol requirements are
+   defined for Section 3.2.  No additional protocol requirements are
    introduced.
 
-3.8.  Tool, Data, and API Mediation Between Agents
+3.6.  Tool, Data, and API Mediation Between Agents
 
-3.8.1.  Description
+3.6.1.  Description
 
    In many multi-agent deployments, access to external resources — APIs,
    databases, enterprise systems, or hardware interfaces — is
@@ -614,15 +597,27 @@ Table of Contents
 
    The mediator agent may also serve as an adapter between the agent
    protocol and non-agent systems or other services that do not natively
-   support agent communication protocols.  In this role, the mediator is
-   responsible for protocol translation and for presenting the
-   appropriate credentials to the non-agent system on behalf of the
-   requesting agent.
+   support agent communication protocols, or between different agent
+   communication protocols such as translating between the agentic
+   protocol suite being developed at the IETF and existing protocols
+   such as [MCP] and [A2A].  In this role, the mediator is responsible
+   for protocol translation and for presenting the appropriate
+   credentials to the target system on behalf of the requesting agent.
+
+   The mediator may additionally act as a router, dispatching requests
+   to appropriate agents or tools based on the content and context of
+   the request, without requiring the requesting agent to have prior
+   knowledge of which agent or tool is most appropriate.
+
+   The mediator may also validate agent requests before invocation,
+   checking whether the action being requested matches the authorization
+   granted to the agent and whether execution would cause unintended or
+   irreversible side effects.
 
    This pattern is reflected in the MCP server architecture defined in
-   [MCP].
+   [MCP] and the agent routing patterns discussed in [A2A].
 
-3.8.2.  Interaction Flow
+3.6.2.  Interaction Flow
 
    +--------------+
    |    Agent     |
@@ -638,11 +633,14 @@ Table of Contents
    |Agent-1 | |Tool-1  | |Agent-2 |
    +--------+ +--------+ +--------+
 
-3.8.3.  Additional Protocol Requirements
+3.6.3.  Additional Protocol Requirements
 
-   The protocol requirements for this use case are the same as those
-   defined for Section 3.4.  No additional protocol requirements are
-   introduced.
+   | REQ-ID | Description | |----------|-------------| | B5-AA-1 | The
+   protocol is required to define error response types for request
+   validation failure and protocol translation failure, distinct from
+   authorization failure.  A request validation failure is returned when
+   a request is rejected due to potential unintended or irreversible
+   side effects. |
 
 4.  Security Considerations
 
@@ -657,8 +655,8 @@ Table of Contents
 
 Acknowledgements
 
-   Thanks to Julien Maisonneuve, Parisa Foroughi and Sina Khatibi for
-   the discussion and comments.
+   Thanks to Julien Maisonneuve, Parisa Foroughi, Borislava Gajic and
+   Sina Khatibi for the discussion and comments.
 
 Informative References
 
