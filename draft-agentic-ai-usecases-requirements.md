@@ -509,7 +509,11 @@ v       v       v
 
 | REQ-ID   | Description |
 |----------|-------------|
-| B5-AA-1  | The protocol is required to define error response types that distinguish at minimum: authorization failure, semantic validation failure, and protocol translation failure. Each error response is required to include a human-readable description of the failure. |
+| B5-AA-1  | The protocol is required to define error response types
+for request validation failure and protocol translation failure,
+distinct from authorization failure. A request validation failure
+is returned when a request is rejected due to potential unintended
+or irreversible side effects. |
 
 # Security Considerations {#security}
 
