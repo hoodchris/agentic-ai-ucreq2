@@ -482,7 +482,7 @@ knowledge of which agent or tool is most appropriate.
 The mediator may also validate agent requests before invocation,
 checking whether the action being requested matches the
 authorization granted to the agent and whether execution would
-cause unintended or irreversible side effects. 
+cause unintended or irreversible side effects.
 
 This pattern is reflected in the MCP server architecture defined
 in [MCP] and the agent routing patterns discussed in [A2A].
