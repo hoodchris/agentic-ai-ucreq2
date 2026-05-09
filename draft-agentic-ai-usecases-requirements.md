@@ -112,14 +112,11 @@ requirements from those use cases. The requirements are intended to
 drive development of protocols, a protocol framework, and security
 specifications for agentic AI systems.
 
-The use cases are organized into two groups. Group A covers the
-minimum interaction pattern necessary to establish the baseline
-protocol interface between a user and an agent. Group B covers
-Agent-to-Agent interaction patterns, where agents collaborate with
-each other to complete tasks. This document takes into account
-related use case and problem statement documents including [SCRM],
-[YAO], [SONG], and [ROSENBERG], and existing protocol work including
-[A2A] and [MCP].
+The use cases in this document cover interaction
+patterns for agentic AI communication systems. This document takes
+into account related use case and problem statement documents
+including [SCRM], [YAO], [SONG], and [ROSENBERG], and existing
+protocol work including [A2A] and [MCP].
 
 # Terminology {#terminology}
 
@@ -167,15 +164,6 @@ agent and may itself delegate further to other agents.
 
 # Use Cases {#usecases}
 
-## Group A: Human-to-Agent Interaction {#group-a}
-
-This group covers the minimum interaction pattern necessary to
-establish the baseline protocol interface between a user and an agent.
-How much oversight is appropriate in a given deployment is a policy
-decision outside the scope of protocol standardization. The protocol
-requirements in this group are scoped to the message types and
-transport properties needed to support task submission and response
-delivery.
 
 ## Simple Single-Agent Task {#simple-single-agent}
 
@@ -189,13 +177,12 @@ is required to support multiple input and output modalities, and
 the client and agent are required to be able to negotiate which
 modalities are active for the session.
 
-This use case covers the protocol interface between
-the client application and the agent. The interaction between the
-user and the client application is out of scope. This use case
-assumes that the user communicates with the agent via a client
-application; direct communication between a user and an agent
-without an intermediary client application is not covered in this
-use case.
+This use case covers the protocol interface between the client
+application and the agent. The interaction between the user and
+the client application is out of scope. This use case assumes that
+the user communicates with the agent via a client application;
+direct communication between a user and an agent without an
+intermediary client application is not covered in this use case.
 
 This interaction pattern is described in [ROSENBERG] and [SCRM].
 
@@ -258,24 +245,21 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 | A1-IAD-3 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. |
 | A1-IAD-4 | All agent and tool invocation protocol traffic is required to be encrypted and integrity-protected in transit. |
 
-## Group B: Agent-to-Agent Interaction {#group-b}
-
 ## Orchestrator and Subagent Collaboration {#orchestrator-subagent}
 
 ### Description
 
-An orchestrator agent acts as a controller,
-decomposing a task into subtasks and delegating them asynchronously
-to one or more subagents. The orchestrator decides which subagents
-to invoke, sequences the delegation, and aggregates results to
-continue task execution. Each subagent executes its subtask
-independently and reports results back to the orchestrator. The
-session between the orchestrator and each subagent is required to
-support persistent session identifiers and session resumption in
-the event of network interruption.
+An orchestrator agent acts as a controller, decomposing a task into
+subtasks and delegating them asynchronously to one or more subagents.
+The orchestrator decides which subagents to invoke, sequences the
+delegation, and aggregates results to continue task execution. Each
+subagent executes its subtask independently and reports results back
+to the orchestrator. The session between the orchestrator and each
+subagent is required to support persistent session identifiers and
+session resumption in the event of network interruption.
 
-This pattern is described in [ROSENBERG] and reflected in [A2A], and
-is implemented in deployed multi-agent frameworks including
+This pattern is described in [ROSENBERG] and reflected in [A2A],
+and is implemented in deployed multi-agent frameworks including
 [AUTOGEN], [LANGCHAIN], and [OPENAI-AGENTS].
 
 ### Actors
@@ -426,13 +410,13 @@ until a consensus conclusion is reached. Unlike
 {{peer-collaborative}}, all agents work on the same problem rather
 than different subtasks.
 
-Two communication topologies are possible. In the
-first, agents communicate only through the coordinator, which acts
-as the central hub for all message exchange. In the second, agents
-may also communicate directly with each other to exchange
-intermediate reasoning outputs without routing through the
-coordinator. The second topology introduces the same multi-hop
-authorization requirements defined in {{peer-collaborative}}.
+Two communication topologies are possible. In the first, agents
+communicate only through the coordinator, which acts as the central
+hub for all message exchange. In the second, agents may also
+communicate directly with each other to exchange intermediate
+reasoning outputs without routing through the coordinator. The
+second topology introduces the same multi-hop authorization
+requirements defined in {{peer-collaborative}}.
 
 ### Interaction Flow
 
@@ -482,13 +466,26 @@ schema normalization to be applied uniformly at the mediation layer.
 
 The mediator agent may also serve as an adapter
 between the agent protocol and non-agent systems or other services
-that do not natively support agent communication protocols. In this
-role, the mediator is responsible for protocol translation and for
-presenting the appropriate credentials to the non-agent system on
-behalf of the requesting agent.
+that do not natively support agent communication protocols, or
+between different agent communication protocols such as translating
+between the agentic protocol suite being developed at the IETF and
+existing protocols such as [MCP] and [A2A]. In this role, the
+mediator is responsible for protocol translation and for presenting
+the appropriate credentials to the target system on behalf of the
+requesting agent.
+
+The mediator may additionally act as a router, dispatching requests
+to appropriate agents or tools based on the content and context of
+the request, without requiring the requesting agent to have prior
+knowledge of which agent or tool is most appropriate.
+
+The mediator may also validate agent requests before invocation,
+checking whether the action being requested matches the
+authorization granted to the agent and whether execution would
+cause unintended or irreversible side effects. 
 
 This pattern is reflected in the MCP server architecture defined
-in [MCP].
+in [MCP] and the agent routing patterns discussed in [A2A].
 
 ### Interaction Flow
 
@@ -510,9 +507,9 @@ v       v       v
 
 ### Additional Protocol Requirements
 
-The protocol requirements for this use case are the same as those
-defined for {{orchestrator-subagent}}. No additional protocol
-requirements are introduced.
+| REQ-ID   | Description |
+|----------|-------------|
+| B5-AA-1  | The protocol is required to define error response types that distinguish at minimum: authorization failure, semantic validation failure, and protocol translation failure. Each error response is required to include a human-readable description of the failure. |
 
 # Security Considerations {#security}
 
@@ -528,6 +525,5 @@ This document has no IANA actions.
 # Acknowledgements
 {:numbered="false"}
 
-Thanks to Julien Maisonneuve, Parisa Foroughi and Sina Khatibi for the discussion and comments.
-
-
+Thanks to Julien Maisonneuve, Parisa Foroughi, Borislava Gajic and Sina Khatibi for
+the discussion and comments.
