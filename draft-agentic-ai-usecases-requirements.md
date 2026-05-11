@@ -25,6 +25,7 @@ author:
     ins: Z. Sarker
     name: Zaheduzzaman Sarker
     organization: Nokia
+    country: Sweden
     email: zaheduzzaman.sarker@nokia.com
 
 informative:
@@ -168,12 +169,12 @@ agent and may itself delegate further to other agents.
 
 ### Description
 
-A user submits a task to an AI agent via a client application. The
+A user submits a task to an AI agent directly or via a client application. The
 agent executes the task by invoking one or more tools and returns
 results to the user. The tools invoked by the agent may reside in
-the same or a different administrative domain. The agent protocol
+the same or a different administrative domain. The agent
 is required to support multiple input and output modalities, and
-the client and agent are required to be able to negotiate which
+the user and agent are required to be able to negotiate which
 modalities are active for the session.
 
 This use case covers the protocol interface between the client
@@ -200,13 +201,12 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 
 ~~~
 +-------------+                      +-----------+
-| User Client |<-------------------->|   Agent   |
-+-------------+   Agent Protocol     |           |
+|    Use      |<-------------------->|   Agent   |
++-------------+       Protocol       |           |
                                      |           |
                                      +-----------+
                                            |
-                                    Tool   |
-                                Invocation |
+                                           |
                                  Protocol  |
                                            v
                                       +--------+
@@ -218,31 +218,20 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 
 | REQ-ID  | Description |
 |---------|-------------|
-| A1-SP-1 | The agent protocol is required to be a standard application-layer protocol that allows any client to communicate with any agent service. |
-| A1-SP-2 | The agent protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing. |
-| A1-SP-3 | The protocol is required to define a task cancellation message that the client can issue at any point during task execution. |
-| A1-SP-4 | The protocol is required to define structured error message types that distinguish at minimum: transport failure, authentication failure, authorization failure, tool invocation failure, and agent processing failure. |
-| A1-SP-5 | The agent protocol is required to support multiple input and output modalities. |
-| A1-SP-6 | The agent protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session. |
-| A1-SP-7 | The protocol is required to support agent-initiated notifications to the client during task execution. |
+| A1-1  | The protocol is required to allows any client to communicate with any agent service. |
+| A1-2  | The protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing. |
+| A1-3  | The protocol is required to define a task cancellation message that the client can issue at any point during task execution. |
+| A1-4  | The protocol is required to define structured error message types that distinguish at minimum: transport failure, authentication failure, authorization failure, tool invocation failure, and agent processing failure. |
+| A1-5  | The protocol is required to support multiple input and output modalities. |
+| A1-6  | The protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session. |
+| A1-7  | The protocol is required to support agent-initiated notifications to the client during task execution. |
+| A1-8  | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. |
+| A1-9  | The protocol is required to support bulk transfer of large results from a tool to the agent. |
+| A1-10 | The protocol is required to support mutual authentication between the client and the agent. |
+| A1-11 | All protocol traffic is required to be encrypted and integrity-protected in transit. |
+| A1-12 | The protocol is required to support mutual authentication between the agent and the tool provider, ensuring the agent authenticates to the tool provider and the tool provider authenticates to the agent. |
+| A1-13 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. |
 
-### Tool Invocation Protocol Requirements
-
-| REQ-ID  | Description |
-|---------|-------------|
-| A1-TI-1 | A protocol is required to be defined for agent-to-tool invocation, including request, response, and error message types. |
-| A1-TI-2 | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. |
-| A1-TI-3 | The protocol is required to define error message types for tool invocations that distinguish at minimum: tool unavailability, authorization failure, timeout, and tool-internal error. |
-| A1-TI-4 | The tool invocation protocol is required to support bulk transfer of large results from a tool to the agent. |
-
-### Identity, Authentication, and Delegation Requirements
-
-| REQ-ID   | Description |
-|----------|-------------|
-| A1-IAD-1 | The agent protocol is required to support mutual authentication between the client and the agent. |
-| A1-IAD-2 | The tool invocation protocol is required to support mutual authentication between the agent and the tool provider, ensuring the agent authenticates to the tool provider and the tool provider authenticates to the agent. |
-| A1-IAD-3 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. |
-| A1-IAD-4 | All agent and tool invocation protocol traffic is required to be encrypted and integrity-protected in transit. |
 
 ## Orchestrator and Subagent Collaboration {#orchestrator-subagent}
 
