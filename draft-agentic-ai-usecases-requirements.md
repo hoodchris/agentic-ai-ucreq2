@@ -357,9 +357,6 @@ This use case introduces multi-hop delegation chains that are not
 present in {{orchestrator-subagent}}. Each agent in the chain may
 delegate further to other agents, and authorization scope is required
 to be progressively constrained at each hop.
-{{I-D.ietf-oauth-identity-chaining}} and
-{{I-D.ietf-oauth-transaction-tokens}} are relevant in-progress work
-in the OAuth WG.
 
 This use case is described in [A2A] and [ROSENBERG].
 
