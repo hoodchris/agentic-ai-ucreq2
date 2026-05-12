@@ -256,7 +256,7 @@ agent executes the respective subtask independently and reports results back
 to the orchestrator.
 
 It should be noted that AI models are stateless by nature — each inference
-call processes only what is explicitly provided with a particulat context, 
+call processes only what is explicitly provided with a particulat context,
 with no persistent memory between calls. The application
 layer is responsible for maintaining the context across the calls by
 carrying conversation history, intermediate results, and task
