@@ -318,7 +318,7 @@ The delegated agents executes the task autonomously and sends progress
 notifications to the orchestrator. At any certain point one or more delegated
 agents pause and request explicit authorization from the orchestrator
 before proceeding further. The orchestrator may relay this authorization
-request to the invoker ( user ) or resolve it autonomously based on policy.
+request to the invoker (user or agent) or resolve it autonomously based on policy.
 
 This pattern is reflected in the In-Task Authorization mechanism
 defined in [A2A].
