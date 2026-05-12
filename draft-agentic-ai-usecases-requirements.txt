@@ -428,9 +428,9 @@ Table of Contents
 3.3.2.  Interaction Flow
 
    +---------------------+                        +------------+
-   | Orchestrator Agent  |---Task Delegation----->| Subagent   |
+   | Orchestrator Agent  |---Task Delegation----->|            |
    |                     |<--Progress Notif.------|            |
-   |                     |<--Authz Checkpoint-----|            |
+   |                     |<--Authz Checkpoint-----|  Agent(s)  |
    |                     |---Authz Response------>|            |
    |                     |<--Result Reporting-----|            |
    +---------------------+                        +------------+
