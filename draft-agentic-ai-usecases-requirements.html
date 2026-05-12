@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Reddy &amp; Sarker</td>
-<td class="center">Expires 12 November 2026</td>
+<td class="center">Expires 13 November 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-agentic-ai-usecases-requirements-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-05-11" class="published">11 May 2026</time>
+<time datetime="2026-05-12" class="published">12 May 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-12">12 November 2026</time></dd>
+<dd class="expires"><time datetime="2026-11-13">13 November 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1124,7 +1124,7 @@ protocol framework for agentic AI communication systems.<a href="#section-abstra
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 12 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 13 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1555,15 +1555,15 @@ or perform operations.<a href="#section-3.1.2-1.3.1" class="pilcrow">¶</a></p>
 <a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-description-2" class="section-name selfRef">Description</a>
           </h4>
 <p id="section-3.2.1-1">An orchestrator agent acts as a controller, decomposing a task into
-subtasks and delegating them asynchronously to one or more subagents.
-The orchestrator decides which subagents to invoke, sequences the
+subtasks and delegating them asynchronously to one or more other agents.
+The orchestrator decides which other agents to invoke, sequences the
 delegation, and aggregates results to continue task execution. Each
-subagent executes its subtask independently and reports results back
+agent executes the respective subtask independently and reports results back
 to the orchestrator.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.1-2">AI models are stateless by nature — each inference
-call processes only what is explicitly provided in the context
-window, with no persistent memory between calls. The application
-layer is responsible for maintaining task context across calls by
+<p id="section-3.2.1-2">It should be noted that AI models are stateless by nature — each inference
+call processes only what is explicitly provided with a particulat context,
+with no persistent memory between calls. The application
+layer is responsible for maintaining the context across the calls by
 carrying conversation history, intermediate results, and task
 state. Session continuity is therefore required to preserve this
 accumulated context across network interruptions, ensuring that a
@@ -1584,10 +1584,6 @@ and is implemented in deployed multi-agent frameworks including
               <p id="section-3.2.2-1.1.1">Orchestrator: an agent that acts as a controller, decomposes a
 task, delegates subtasks to subagents, and aggregates results.<a href="#section-3.2.2-1.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.2.2-1.2">
-              <p id="section-3.2.2-1.2.1">Subagent: an agent that receives a delegated subtask, executes it,
-and returns results to the orchestrator.<a href="#section-3.2.2-1.2.1" class="pilcrow">¶</a></p>
-</li>
           </ul>
 </section>
 </div>
@@ -1599,12 +1595,12 @@ and returns results to the orchestrator.<a href="#section-3.2.2-1.2.1" class="pi
 <div class="alignLeft art-text artwork" id="section-3.2.3-1">
 <pre>
 +---------------------+                        +------------+
-| Orchestrator Agent  |---Task Delegation-----&gt;| Subagent-1 |
+| Orchestrator Agent  |---Task Delegation-----&gt;| Agent-1 |
 |                     |&lt;--Result Reporting-----|            |
 |                     |                        +------------+
 |                     |
 |                     |                        +------------+
-|                     |---Task Delegation-----&gt;| Subagent-2 |
+|                     |---Task Delegation-----&gt;| Agent-2 |
 |                     |&lt;--Result Reporting-----|            |
 +---------------------+                        +------------+
 </pre><a href="#section-3.2.3-1" class="pilcrow">¶</a>
