@@ -249,16 +249,16 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 ### Description
 
 An orchestrator agent acts as a controller, decomposing a task into
-subtasks and delegating them asynchronously to one or more subagents.
-The orchestrator decides which subagents to invoke, sequences the
+subtasks and delegating them asynchronously to one or more other agents.
+The orchestrator decides which other agents to invoke, sequences the
 delegation, and aggregates results to continue task execution. Each
-subagent executes its subtask independently and reports results back
+agent executes the respective subtask independently and reports results back
 to the orchestrator.
 
-AI models are stateless by nature — each inference
-call processes only what is explicitly provided in the context
-window, with no persistent memory between calls. The application
-layer is responsible for maintaining task context across calls by
+It should be noted that AI models are stateless by nature — each inference
+call processes only what is explicitly provided with a particulat context, 
+with no persistent memory between calls. The application
+layer is responsible for maintaining the context across the calls by
 carrying conversation history, intermediate results, and task
 state. Session continuity is therefore required to preserve this
 accumulated context across network interruptions, ensuring that a
@@ -274,19 +274,16 @@ and is implemented in deployed multi-agent frameworks including
 - Orchestrator: an agent that acts as a controller, decomposes a
   task, delegates subtasks to subagents, and aggregates results.
 
-- Subagent: an agent that receives a delegated subtask, executes it,
-  and returns results to the orchestrator.
-
 ### Interaction Flow
 
 ~~~
 +---------------------+                        +------------+
-| Orchestrator Agent  |---Task Delegation----->| Subagent-1 |
+| Orchestrator Agent  |---Task Delegation----->| Agent-1 |
 |                     |<--Result Reporting-----|            |
 |                     |                        +------------+
 |                     |
 |                     |                        +------------+
-|                     |---Task Delegation----->| Subagent-2 |
+|                     |---Task Delegation----->| Agent-2 |
 |                     |<--Result Reporting-----|            |
 +---------------------+                        +------------+
 ~~~
