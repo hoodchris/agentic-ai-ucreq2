@@ -5,7 +5,7 @@
 Network Working Group                                           T. Reddy
 Internet-Draft                                                 Z. Sarker
 Intended status: Informational                                     Nokia
-Expires: 12 November 2026                                    11 May 2026
+Expires: 13 November 2026                                    12 May 2026
 
 
                  Agentic AI Use Cases and Requirements
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 November 2026.
+   This Internet-Draft will expire on 13 November 2026.
 
 Copyright Notice
 
@@ -218,68 +218,84 @@ Table of Contents
 
 3.1.4.  Agent Protocol Requirements
 
-     +========+======================================================+
-     | REQ-ID | Description                                          |
-     +========+======================================================+
-     | A1-1   | The protocol is required to allows any client to     |
-     |        | communicate with any agent service.                  |
-     +--------+------------------------------------------------------+
-     | A1-2   | The protocol is required to support incremental      |
-     |        | streaming of agent output, allowing partial results  |
-     |        | to be delivered to the client before the agent has   |
-     |        | completed processing.                                |
-     +--------+------------------------------------------------------+
-     | A1-3   | The protocol is required to define a task            |
-     |        | cancellation message that the client can issue at    |
-     |        | any point during task execution.                     |
-     +--------+------------------------------------------------------+
-     | A1-4   | The protocol is required to define structured error  |
-     |        | message types that distinguish at minimum: transport |
-     |        | failure, authentication failure, authorization       |
-     |        | failure, tool invocation failure, and agent          |
-     |        | processing failure.                                  |
-     +--------+------------------------------------------------------+
-     | A1-5   | The protocol is required to support multiple input   |
-     |        | and output modalities.                               |
-     +--------+------------------------------------------------------+
-     | A1-6   | The protocol is required to support modality         |
-     |        | negotiation at session setup, allowing the client    |
-     |        | and agent to agree on which modalities are active    |
-     |        | for the session.                                     |
-     +--------+------------------------------------------------------+
-     | A1-7   | The protocol is required to support agent-initiated  |
-     |        | notifications to the client during task execution.   |
-     +--------+------------------------------------------------------+
-     | A1-8   | The protocol is required to support concurrent       |
-     |        | invocation of multiple tools within a single agent   |
-     |        | task, where tools may be operated by distinct        |
-     |        | providers across different administrative domains,   |
-     |        | each with independent authentication and             |
-     |        | authorization requirements.                          |
-     +--------+------------------------------------------------------+
-     | A1-9   | The protocol is required to support bulk transfer of |
-     |        | large results from a tool to the agent.              |
-     +--------+------------------------------------------------------+
-     | A1-10  | The protocol is required to support mutual           |
-     |        | authentication between the client and the agent.     |
-     +--------+------------------------------------------------------+
-     | A1-11  | All protocol traffic is required to be encrypted and |
-     |        | integrity-protected in transit.                      |
-     +--------+------------------------------------------------------+
-     | A1-12  | The protocol is required to support mutual           |
-     |        | authentication between the agent and the tool        |
-     |        | provider, ensuring the agent authenticates to the    |
-     |        | tool provider and the tool provider authenticates to |
-     |        | the agent.                                           |
-     +--------+------------------------------------------------------+
-     | A1-13  | A delegation mechanism is required to be defined by  |
-     |        | which an agent presents to a tool provider a         |
-     |        | credential attesting the authorization for the       |
-     |        | requested tool access, without exposing the client's |
-     |        | primary credentials.  This mechanism may be based on |
-     |        | or extend an existing authorization framework such   |
-     |        | as OAuth 2.0 [RFC6749] or GNAP [RFC9635].            |
-     +--------+------------------------------------------------------+
+    +========+=======================================+================+
+    | REQ-ID | Description                           | Tag            |
+    +========+=======================================+================+
+    | A1-1   | The protocol is required to allows    | Discovery,     |
+    |        | any client to communicate with any    | Authentication |
+    |        | agent service.                        |                |
+    +--------+---------------------------------------+----------------+
+    | A1-2   | The protocol is required to support   | Transport      |
+    |        | incremental streaming of agent        |                |
+    |        | output, allowing partial results to   |                |
+    |        | be delivered to the client before the |                |
+    |        | agent has completed processing.       |                |
+    +--------+---------------------------------------+----------------+
+    | A1-3   | The protocol is required to define a  | Transport      |
+    |        | task cancellation message that the    |                |
+    |        | client can issue at any point during  |                |
+    |        | task execution.                       |                |
+    +--------+---------------------------------------+----------------+
+    | A1-4   | The protocol is required to define    | Transport      |
+    |        | structured error message types that   |                |
+    |        | distinguish at minimum: transport     |                |
+    |        | failure, authentication failure,      |                |
+    |        | authorization failure, tool           |                |
+    |        | invocation failure, and agent         |                |
+    |        | processing failure.                   |                |
+    +--------+---------------------------------------+----------------+
+    | A1-5   | The protocol is required to support   | Transport      |
+    |        | multiple input and output modalities. |                |
+    +--------+---------------------------------------+----------------+
+    | A1-6   | The protocol is required to support   | Discovery,     |
+    |        | modality negotiation at session       | Transport      |
+    |        | setup, allowing the client and agent  |                |
+    |        | to agree on which modalities are      |                |
+    |        | active for the session.               |                |
+    +--------+---------------------------------------+----------------+
+    | A1-7   | The protocol is required to support   | Transport      |
+    |        | agent-initiated notifications to the  |                |
+    |        | client during task execution.         |                |
+    +--------+---------------------------------------+----------------+
+    | A1-8   | The protocol is required to support   | Discovery,     |
+    |        | concurrent invocation of multiple     | Transport,     |
+    |        | tools within a single agent task,     | Security       |
+    |        | where tools may be operated by        |                |
+    |        | distinct providers across different   |                |
+    |        | administrative domains, each with     |                |
+    |        | independent authentication and        |                |
+    |        | authorization requirements.           |                |
+    +--------+---------------------------------------+----------------+
+    | A1-9   | The protocol is required to support   | Transport      |
+    |        | bulk transfer of large results from a |                |
+    |        | tool to the agent.                    |                |
+    +--------+---------------------------------------+----------------+
+    | A1-10  | The protocol is required to support   | Security,      |
+    |        | mutual authentication between the     | Authentication |
+    |        | client and the agent.                 |                |
+    +--------+---------------------------------------+----------------+
+    | A1-11  | All protocol traffic is required to   | Security       |
+    |        | be encrypted and integrity-protected  |                |
+    |        | in transit.                           |                |
+    +--------+---------------------------------------+----------------+
+    | A1-12  | The protocol is required to support   | Authentication |
+    |        | mutual authentication between the     |                |
+    |        | agent and the tool provider, ensuring |                |
+    |        | the agent authenticates to the tool   |                |
+    |        | provider and the tool provider        |                |
+    |        | authenticates to the agent.           |                |
+    +--------+---------------------------------------+----------------+
+    | A1-13  | A delegation mechanism is required to | Authentication |
+    |        | be defined by which an agent presents |                |
+    |        | to a tool provider a credential       |                |
+    |        | attesting the authorization for the   |                |
+    |        | requested tool access, without        |                |
+    |        | exposing the client's primary         |                |
+    |        | credentials.  This mechanism may be   |                |
+    |        | based on or extend an existing        |                |
+    |        | authorization framework such as OAuth |                |
+    |        | 2.0 [RFC6749] or GNAP [RFC9635].      |                |
+    +--------+---------------------------------------+----------------+
 
                                   Table 1
 
