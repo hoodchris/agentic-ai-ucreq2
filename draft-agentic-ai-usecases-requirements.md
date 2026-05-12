@@ -324,9 +324,9 @@ defined in [A2A].
 
 ~~~
 +---------------------+                        +------------+
-| Orchestrator Agent  |---Task Delegation----->| Subagent   |
+| Orchestrator Agent  |---Task Delegation----->|            |
 |                     |<--Progress Notif.------|            |
-|                     |<--Authz Checkpoint-----|            |
+|                     |<--Authz Checkpoint-----|  Agent(s)  |
 |                     |---Authz Response------>|            |
 |                     |<--Result Reporting-----|            |
 +---------------------+                        +------------+
