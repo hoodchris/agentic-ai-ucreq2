@@ -164,6 +164,16 @@ agent and may itself delegate further to other agents.
 
 # Use Cases {#usecases}
 
+## Common Requirements
+
+The following baseline requirements apply to both agent-to-agent and agent-to-tool protocol interactions across all use cases and are not repeated per use case.
+
+| REQ-ID | Description |
+|--------|-------------|
+| CMN-1  | Mutual authentication is required between all communicating parties. |
+| CMN-2  | All protocol traffic is required to be encrypted and integrity-protected in transit. |
+| CMN-3  | Structured error responses are required, distinguishing at minimum: authentication failure, authorization failure, timeout, and internal error. |
+
 ## Simple Single-Agent Task {#simple-single-agent}
 
 ### Description
@@ -221,7 +231,7 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 | A1-SP-1 | The agent protocol is required to be a standard application-layer protocol that allows any client to communicate with any agent service. |
 | A1-SP-2 | The agent protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing. |
 | A1-SP-3 | The protocol is required to define a task cancellation message that the client can issue at any point during task execution. |
-| A1-SP-4 | The protocol is required to define structured error message types that distinguish at minimum: transport failure, authentication failure, authorization failure, tool invocation failure, and agent processing failure. |
+| A1-SP-4 | The protocol is required to define structured error message types that distinguish transport failure, tool invocation failure, and agent processing failure, in addition to the common error types defined in CMN-3. |
 | A1-SP-5 | The agent protocol is required to support multiple input and output modalities. |
 | A1-SP-6 | The agent protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session. |
 | A1-SP-7 | The protocol is required to support agent-initiated notifications to the client during task execution. |
@@ -232,17 +242,13 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 |---------|-------------|
 | A1-TI-1 | A protocol is required to be defined for agent-to-tool invocation, including request, response, and error message types. |
 | A1-TI-2 | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. |
-| A1-TI-3 | The protocol is required to define error message types for tool invocations that distinguish at minimum: tool unavailability, authorization failure, timeout, and tool-internal error. |
-| A1-TI-4 | The tool invocation protocol is required to support bulk transfer of large results from a tool to the agent. |
+| A1-TI-3 | The tool invocation protocol is required to support bulk transfer of large results from a tool to the agent. |
 
 ### Identity, Authentication, and Delegation Requirements
 
 | REQ-ID   | Description |
 |----------|-------------|
-| A1-IAD-1 | The agent protocol is required to support mutual authentication between the client and the agent. |
-| A1-IAD-2 | The tool invocation protocol is required to support mutual authentication between the agent and the tool provider, ensuring the agent authenticates to the tool provider and the tool provider authenticates to the agent. |
-| A1-IAD-3 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. |
-| A1-IAD-4 | All agent and tool invocation protocol traffic is required to be encrypted and integrity-protected in transit. |
+| A1-IAD-1 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. |
 
 ## Orchestrator and Subagent Collaboration {#orchestrator-subagent}
 
@@ -302,16 +308,9 @@ and is implemented in deployed multi-agent frameworks including
 | B1-AA-5  | The protocol is required to define a task cancellation message that the orchestrator can send to a subagent to abort a delegated subtask. |
 | B1-AA-6  | The protocol is required to support persistent session identifiers that survive network interruption, and is required to define a session resumption message by which an agent re-attaches to an interrupted session restoring the prior task context. |
 
-### Identity and Authentication Requirements
+### [CHANGE] Tool Invocation Requirements
 
-| REQ-ID   | Description |
-|----------|-------------|
-| B1-IAD-1 | The protocol is required to support mutual authentication between the orchestrator and each subagent. |
-| B1-IAD-2 | All agent-to-agent protocol traffic is required to be encrypted and integrity-protected in transit. |
-
-### Tool Invocation Requirements
-
-The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-4) are also applicable to this use case, as subagents may invoke external tools during subtask execution.
+The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-3) are also applicable to this use case, as subagents may invoke external tools during subtask execution.
 
 ## Long-Running Delegated Task with Authorization Checkpoint {#authz-checkpoint}
 
@@ -347,13 +346,13 @@ defined in [A2A].
 | B2-AA-2  | The protocol is required to define an authorization checkpoint message by which a subagent pauses task execution and requests explicit authorization from the orchestrator before proceeding. The message is required to include sufficient context for the authorizing party to make an informed decision, including the action to be taken and its potential consequences. |
 | B2-AA-3  | The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. The protocol is required to support a response timeout, after which the subagent treats the request as denied and halts the affected subtask. |
 
-### dentity, Authentication, and Delegation Requirements
+### [CHANGE] Identity, Authentication, and Delegation Requirements
 
-The identity, authentication, and delegation requirements defined for {{orchestrator-subagent}} (B1-IAD-1 and B1-IAD-2) are also applicable to this use case.
+The identity, authentication, and delegation requirements defined for {{orchestrator-subagent}} are covered by CMN-1 and CMN-2.
 
-### Tool Invocation Requirements
+### [CHANGE] Tool Invocation Requirements
 
-The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-4) are also applicable to this use case, as subagents may invoke external tools during task execution.
+The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-3) are also applicable to this use case, as subagents may invoke external tools during task execution.
 
 ## Peer Collaborative Multi-Agent Problem Solving {#peer-collaborative}
 
@@ -417,9 +416,9 @@ requirements are introduced.
 | B3-IAD-2 | The protocol is required to preserve the identity of the originating entity across all hops in the delegation chain, such that any agent in the chain can determine the identity of the entity that originally authorized the task. |
 | B3-IAD-3 | The protocol is required to support transferable credentials that carry the original authorization constraints across all hops in the delegation chain. Each receiving agent is required to be able to cryptographically verify that the credential presented to it was issued by the delegating agent and that the chain of delegation traces back to the original authorization. |
 
-### Tool Invocation Requirements
+### [CHANGE] Tool Invocation Requirements
 
-The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-4) are also applicable to this use case, as peer agents may invoke external tools during subtask execution.
+The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-3) are also applicable to this use case, as peer agents may invoke external tools during subtask execution.
 
 ## Cooperative Reasoning and Consensus Formation {#cooperative-reasoning}
 
@@ -476,13 +475,13 @@ The protocol requirements for this use case are the same as those
 defined for {{orchestrator-subagent}}. No additional protocol
 requirements are introduced.
 
-### Identity, Authentication, and Delegation Requirements
+### [CHANGE] Identity, Authentication, and Delegation Requirements
 
-The identity, authentication, and delegation requirements defined for {{orchestrator-subagent}} (B1-IAD-1 and B1-IAD-2) are also applicable to this use case. In the direct agent-to-agent topology, the multi-hop delegation requirements defined for {{peer-collaborative}} (B3-IAD-1 through B3-IAD-3) are additionally applicable.
+The identity, authentication, and delegation requirements defined for {{orchestrator-subagent}} are covered by CMN-1 and CMN-2. In the direct agent-to-agent topology, the multi-hop delegation requirements defined for {{peer-collaborative}} (B3-IAD-1 through B3-IAD-3) are additionally applicable.
 
-### Tool Invocation Requirements
+### [CHANGE] Tool Invocation Requirements
 
-The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-4) are also applicable to this use case, as participating agents may invoke external tools during the reasoning process.
+The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-3) are also applicable to this use case, as participating agents may invoke external tools during the reasoning process.
 
 ## Tool, Data, and API Mediation Between Agents {#tool-mediation}
 
@@ -542,13 +541,13 @@ v       v       v
 |----------|-------------|
 | B5-AA-1  | The protocol is required to define error response types for request validation failure and protocol translation failure, distinct from authorization failure. A request validation failure is returned when a request is rejected due to potential unintended or irreversible side effects. |
 
-### Identity, Authentication, and Delegation Requirements
+### [CHANGE] Identity, Authentication, and Delegation Requirements
 
-The identity, authentication, and delegation requirements defined for {{orchestrator-subagent}} (B1-IAD-1 and B1-IAD-2) are also applicable to this use case. The delegation requirements defined for {{simple-single-agent}} (A1-IAD-3) are additionally applicable, as the mediator agent is required to present appropriate credentials to downstream agents and tools on behalf of the requesting agent.
+The common requirements CMN-1 and CMN-2 apply to this use case. The delegation requirement defined for {{simple-single-agent}} (A1-IAD-1) is additionally applicable, as the mediator agent is required to present appropriate credentials to downstream agents and tools on behalf of the requesting agent.
 
-### Tool Invocation Requirements
+### [CHANGE] Tool Invocation Requirements
 
-The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-4) are also applicable to this use case. The mediator agent acts as the invoking party for all downstream tool invocations.
+The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-3) are also applicable to this use case. The mediator agent acts as the invoking party for all downstream tool invocations.
 
 # Security Considerations {#security}
 
