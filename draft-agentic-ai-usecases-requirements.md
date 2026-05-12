@@ -216,21 +216,21 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 
 ### Agent Protocol Requirements
 
-| REQ-ID  | Description |
-|---------|-------------|
-| A1-1  | The protocol is required to allows any client to communicate with any agent service. |
-| A1-2  | The protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing. |
-| A1-3  | The protocol is required to define a task cancellation message that the client can issue at any point during task execution. |
-| A1-4  | The protocol is required to define structured error message types that distinguish at minimum: transport failure, authentication failure, authorization failure, tool invocation failure, and agent processing failure. |
-| A1-5  | The protocol is required to support multiple input and output modalities. |
-| A1-6  | The protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session. |
-| A1-7  | The protocol is required to support agent-initiated notifications to the client during task execution. |
-| A1-8  | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. |
-| A1-9  | The protocol is required to support bulk transfer of large results from a tool to the agent. |
-| A1-10 | The protocol is required to support mutual authentication between the client and the agent. |
-| A1-11 | All protocol traffic is required to be encrypted and integrity-protected in transit. |
-| A1-12 | The protocol is required to support mutual authentication between the agent and the tool provider, ensuring the agent authenticates to the tool provider and the tool provider authenticates to the agent. |
-| A1-13 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. |
+| REQ-ID  | Description | Tag |
+|---------|-------------|-----|
+| A1-1  | The protocol is required to allows any client to communicate with any agent service. | Discovery, Authentication |
+| A1-2  | The protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing. | Transport |
+| A1-3  | The protocol is required to define a task cancellation message that the client can issue at any point during task execution. | Transport |
+| A1-4  | The protocol is required to define structured error message types that distinguish at minimum: transport failure, authentication failure, authorization failure, tool invocation failure, and agent processing failure. | Transport |
+| A1-5  | The protocol is required to support multiple input and output modalities. | Transport |
+| A1-6  | The protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session. | Discovery, Transport |
+| A1-7  | The protocol is required to support agent-initiated notifications to the client during task execution. | Transport |
+| A1-8  | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. | Discovery, Transport, Security |
+| A1-9  | The protocol is required to support bulk transfer of large results from a tool to the agent. | Transport |
+| A1-10 | The protocol is required to support mutual authentication between the client and the agent. | Security, Authentication |
+| A1-11 | All protocol traffic is required to be encrypted and integrity-protected in transit. | Security |
+| A1-12 | The protocol is required to support mutual authentication between the agent and the tool provider, ensuring the agent authenticates to the tool provider and the tool provider authenticates to the agent. | Authentication | 
+| A1-13 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. | Authentication |
 
 
 ## Orchestrator and Subagent Collaboration {#orchestrator-subagent}
