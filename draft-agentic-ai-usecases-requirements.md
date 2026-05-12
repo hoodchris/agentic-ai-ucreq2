@@ -309,6 +309,10 @@ and is implemented in deployed multi-agent frameworks including
 | B1-IAD-1 | The protocol is required to support mutual authentication between the orchestrator and each subagent. |
 | B1-IAD-2 | All agent-to-agent protocol traffic is required to be encrypted and integrity-protected in transit. |
 
+### Tool Invocation Requirements
+
+The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-4) are also applicable to this use case, as subagents may invoke external tools during subtask execution.
+
 ## Long-Running Delegated Task with Authorization Checkpoint {#authz-checkpoint}
 
 ### Description
@@ -342,6 +346,14 @@ defined in [A2A].
 | B2-AA-1  | The protocol is required to support agent-initiated progress notifications to the delegating agent during task execution. |
 | B2-AA-2  | The protocol is required to define an authorization checkpoint message by which a subagent pauses task execution and requests explicit authorization from the orchestrator before proceeding. The message is required to include sufficient context for the authorizing party to make an informed decision, including the action to be taken and its potential consequences. |
 | B2-AA-3  | The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. The protocol is required to support a response timeout, after which the subagent treats the request as denied and halts the affected subtask. |
+
+### dentity, Authentication, and Delegation Requirements
+
+The identity, authentication, and delegation requirements defined for {{orchestrator-subagent}} (B1-IAD-1 and B1-IAD-2) are also applicable to this use case.
+
+### Tool Invocation Requirements
+
+The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-4) are also applicable to this use case, as subagents may invoke external tools during task execution.
 
 ## Peer Collaborative Multi-Agent Problem Solving {#peer-collaborative}
 
@@ -405,6 +417,10 @@ requirements are introduced.
 | B3-IAD-2 | The protocol is required to preserve the identity of the originating entity across all hops in the delegation chain, such that any agent in the chain can determine the identity of the entity that originally authorized the task. |
 | B3-IAD-3 | The protocol is required to support transferable credentials that carry the original authorization constraints across all hops in the delegation chain. Each receiving agent is required to be able to cryptographically verify that the credential presented to it was issued by the delegating agent and that the chain of delegation traces back to the original authorization. |
 
+### Tool Invocation Requirements
+
+The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-4) are also applicable to this use case, as peer agents may invoke external tools during subtask execution.
+
 ## Cooperative Reasoning and Consensus Formation {#cooperative-reasoning}
 
 ### Description
@@ -459,6 +475,14 @@ The direct agent-to-agent topology:
 The protocol requirements for this use case are the same as those
 defined for {{orchestrator-subagent}}. No additional protocol
 requirements are introduced.
+
+### Identity, Authentication, and Delegation Requirements
+
+The identity, authentication, and delegation requirements defined for {{orchestrator-subagent}} (B1-IAD-1 and B1-IAD-2) are also applicable to this use case. In the direct agent-to-agent topology, the multi-hop delegation requirements defined for {{peer-collaborative}} (B3-IAD-1 through B3-IAD-3) are additionally applicable.
+
+### Tool Invocation Requirements
+
+The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-4) are also applicable to this use case, as participating agents may invoke external tools during the reasoning process.
 
 ## Tool, Data, and API Mediation Between Agents {#tool-mediation}
 
@@ -517,6 +541,14 @@ v       v       v
 | REQ-ID   | Description |
 |----------|-------------|
 | B5-AA-1  | The protocol is required to define error response types for request validation failure and protocol translation failure, distinct from authorization failure. A request validation failure is returned when a request is rejected due to potential unintended or irreversible side effects. |
+
+### Identity, Authentication, and Delegation Requirements
+
+The identity, authentication, and delegation requirements defined for {{orchestrator-subagent}} (B1-IAD-1 and B1-IAD-2) are also applicable to this use case. The delegation requirements defined for {{simple-single-agent}} (A1-IAD-3) are additionally applicable, as the mediator agent is required to present appropriate credentials to downstream agents and tools on behalf of the requesting agent.
+
+### Tool Invocation Requirements
+
+The agent-to-tool invocation requirements defined for {{simple-single-agent}} (A1-TI-1 through A1-TI-4) are also applicable to this use case. The mediator agent acts as the invoking party for all downstream tool invocations.
 
 # Security Considerations {#security}
 
