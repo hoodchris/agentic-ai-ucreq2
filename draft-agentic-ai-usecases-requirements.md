@@ -229,7 +229,7 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 | A1-9  | The protocol is required to support bulk transfer of large results from a tool to the agent. | Transport |
 | A1-10 | The protocol is required to support mutual authentication between the client and the agent. | Security, Authentication |
 | A1-11 | All protocol traffic is required to be encrypted and integrity-protected in transit. | Security |
-| A1-12 | The protocol is required to support mutual authentication between the agent and the tool provider, ensuring the agent authenticates to the tool provider and the tool provider authenticates to the agent. | Authentication | 
+| A1-12 | The protocol is required to support mutual authentication between the agent and the tool provider, ensuring the agent authenticates to the tool provider and the tool provider authenticates to the agent. | Authentication |
 | A1-13 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. | Authentication |
 
 
