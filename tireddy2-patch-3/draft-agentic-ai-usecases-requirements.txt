@@ -77,35 +77,32 @@ Table of Contents
        3.3.2.  Actors
        3.3.3.  Interaction Flow
        3.3.4.  Agent-to-Agent Protocol Requirements
-       3.3.5.  [CHANGE] Tool Invocation Requirements
+       3.3.5.  Tool Invocation Requirements
      3.4.  Long-Running Delegated Task with Authorization Checkpoint
        3.4.1.  Description
        3.4.2.  Interaction Flow
        3.4.3.  Additional Agent-to-Agent Protocol Requirements
-       3.4.4.  [CHANGE] Identity, Authentication, and Delegation
-               Requirements
-       3.4.5.  [CHANGE] Tool Invocation Requirements
+       3.4.4.  Identity, Authentication, and Delegation Requirements
+       3.4.5.  Tool Invocation Requirements
      3.5.  Peer Collaborative Multi-Agent Problem Solving
        3.5.1.  Description
        3.5.2.  Actors
        3.5.3.  Interaction Flow
        3.5.4.  Protocol Requirements
        3.5.5.  Additional Identity and Authorization Requirements
-       3.5.6.  [CHANGE] Tool Invocation Requirements
+       3.5.6.  Tool Invocation Requirements
      3.6.  Cooperative Reasoning and Consensus Formation
        3.6.1.  Description
        3.6.2.  Interaction Flow
        3.6.3.  Protocol Requirements
-       3.6.4.  [CHANGE] Identity, Authentication, and Delegation
-               Requirements
-       3.6.5.  [CHANGE] Tool Invocation Requirements
+       3.6.4.  Identity, Authentication, and Delegation Requirements
+       3.6.5.  Tool Invocation Requirements
      3.7.  Tool, Data, and API Mediation Between Agents
        3.7.1.  Description
        3.7.2.  Interaction Flow
        3.7.3.  Additional Protocol Requirements
-       3.7.4.  [CHANGE] Identity, Authentication, and Delegation
-               Requirements
-       3.7.5.  [CHANGE] Tool Invocation Requirements
+       3.7.4.  Identity, Authentication, and Delegation Requirements
+       3.7.5.  Tool Invocation Requirements
    4.  Security Considerations
    5.  IANA Considerations
    Acknowledgements
@@ -409,7 +406,7 @@ Table of Contents
 
                                  Table 5
 
-3.3.5.  [CHANGE] Tool Invocation Requirements
+3.3.5.  Tool Invocation Requirements
 
    The agent-to-tool invocation requirements defined for Section 3.2
    (A1-TI-1 through A1-TI-3) are also applicable to this use case, as
@@ -468,12 +465,12 @@ Table of Contents
 
                                  Table 6
 
-3.4.4.  [CHANGE] Identity, Authentication, and Delegation Requirements
+3.4.4.  Identity, Authentication, and Delegation Requirements
 
    The identity, authentication, and delegation requirements defined for
    Section 3.3 are covered by CMN-1 and CMN-2.
 
-3.4.5.  [CHANGE] Tool Invocation Requirements
+3.4.5.  Tool Invocation Requirements
 
    The agent-to-tool invocation requirements defined for Section 3.2
    (A1-TI-1 through A1-TI-3) are also applicable to this use case, as
@@ -562,7 +559,7 @@ Table of Contents
 
                                  Table 7
 
-3.5.6.  [CHANGE] Tool Invocation Requirements
+3.5.6.  Tool Invocation Requirements
 
    The agent-to-tool invocation requirements defined for Section 3.2
    (A1-TI-1 through A1-TI-3) are also applicable to this use case, as
@@ -618,14 +615,14 @@ Table of Contents
    defined for Section 3.3.  No additional protocol requirements are
    introduced.
 
-3.6.4.  [CHANGE] Identity, Authentication, and Delegation Requirements
+3.6.4.  Identity, Authentication, and Delegation Requirements
 
    The identity, authentication, and delegation requirements defined for
    Section 3.3 are covered by CMN-1 and CMN-2.  In the direct agent-to-
    agent topology, the multi-hop delegation requirements defined for
    Section 3.5 (B3-IAD-1 through B3-IAD-3) are additionally applicable.
 
-3.6.5.  [CHANGE] Tool Invocation Requirements
+3.6.5.  Tool Invocation Requirements
 
    The agent-to-tool invocation requirements defined for Section 3.2
    (A1-TI-1 through A1-TI-3) are also applicable to this use case, as
@@ -697,7 +694,7 @@ Table of Contents
 
                                  Table 8
 
-3.7.4.  [CHANGE] Identity, Authentication, and Delegation Requirements
+3.7.4.  Identity, Authentication, and Delegation Requirements
 
    The common requirements CMN-1 and CMN-2 apply to this use case.  The
    delegation requirement defined for Section 3.2 (A1-IAD-1) is
@@ -705,7 +702,7 @@ Table of Contents
    appropriate credentials to downstream agents and tools on behalf of
    the requesting agent.
 
-3.7.5.  [CHANGE] Tool Invocation Requirements
+3.7.5.  Tool Invocation Requirements
 
    The agent-to-tool invocation requirements defined for Section 3.2
    (A1-TI-1 through A1-TI-3) are also applicable to this use case.  The
