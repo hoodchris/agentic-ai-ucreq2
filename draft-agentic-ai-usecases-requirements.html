@@ -1687,12 +1687,12 @@ task, delegates subtasks to subagents, and aggregates results.<a href="#section-
           <h4 id="name-description-3">
 <a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-description-3" class="section-name selfRef">Description</a>
           </h4>
-<p id="section-3.3.1-1">An orchestrator agent delegates a long-running task to a subagent.
-The subagent executes the task autonomously and sends progress
-notifications to the orchestrator. At certain points the subagent
-pauses and requests explicit authorization from the orchestrator
-before proceeding. The orchestrator may relay this authorization
-request or resolve it autonomously based on policy.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.1-1">An orchestrator agent delegates a long-running task to other agents.
+The delegated agents executes the task autonomously and sends progress
+notifications to the orchestrator. At any certain point one or more delegated
+agents pause and request explicit authorization from the orchestrator
+before proceeding further. The orchestrator may relay this authorization
+request to the invoker (user or agent) or resolve it autonomously based on policy.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.3.1-2">This pattern is reflected in the In-Task Authorization mechanism
 defined in <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>.<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
 </section>
