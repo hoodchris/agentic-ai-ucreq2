@@ -198,17 +198,22 @@ Table of Contents
    |        | encrypted and integrity-protected in   |                |
    |        | transit.                               |                |
    +--------+----------------------------------------+----------------+
-   | CMN-3  | Structured error responses are         | Transport      |
-   |        | required, distinguishing at minimum:   |                |
-   |        | authentication failure, authorization  |                |
-   |        | failure, timeout, and internal error.  |                |
-   +--------+----------------------------------------+----------------+
-   | CMN-4  | Structured error responses are         | Security       |
+   | CMN-3  | Structured error responses are         | Security       |
    |        | required to include a policy violation |                |
    |        | type, reported by the orchestrator or  |                |
    |        | mediator when an agent performs an     |                |
    |        | action that exceeds or contradicts the |                |
    |        | scope delegated to it.                 |                |
+   +--------+----------------------------------------+----------------+
+   | CMN-4  | Structured error responses are         | Transport      |
+   |        | required, distinguishing at minimum:   |                |
+   |        | authentication failure, authorization  |                |
+   |        | failure, timeout, and internal error.  |                |
+   +--------+----------------------------------------+----------------+
+   | CMN-5  | The protocol provides a means to       | Transport      |
+   |        | signal task priority so that critical- |                |
+   |        | path tasks can be scheduled ahead of   |                |
+   |        | lower-priority ones.                   |                |
    +--------+----------------------------------------+----------------+
 
                                  Table 1
