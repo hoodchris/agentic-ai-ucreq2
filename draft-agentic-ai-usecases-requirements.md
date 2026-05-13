@@ -383,6 +383,7 @@ requirements are introduced.
 | B3-1  | The protocol is required to support multi-hop delegation chains, where an agent that receives a delegated subtask may itself delegate further to other agents. At each hop, the delegating agent is required to present a credential that does not exceed the authorization scope of the credential it received. | Authentication, Security |
 | B3-2  | The protocol is required to preserve the identity of the originating entity across all hops in the delegation chain, such that any agent in the chain can determine the identity of the entity that originally authorized the task. | Authentication, Security |
 | B3-3  | The protocol is required to support transferable credentials that carry the original authorization constraints across all hops in the delegation chain. Each receiving agent is required to be able to cryptographically verify that the credential presented to it was issued by the delegating agent and that the chain of delegation traces back to the original authorization. | Authentication, Security |
+| B3-4  | The protocol is require to enable Agents to have access to a discovery mechanism that allows them to locate peer agents/tools and retrieve structured descriptions of their capabilities | Discovery |
 
 ## Cooperative Reasoning and Consensus Formation {#cooperative-reasoning}
 
