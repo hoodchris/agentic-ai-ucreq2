@@ -136,7 +136,7 @@ between an agent and a tool.
 **Tool**: An external service invoked by an agent to retrieve data or
 perform operations.
 
-**Tool Agent**: An agent that serves as a proxy or mediator for
+**Mediator Agent**: An agent that serves as a proxy or mediator for
 external tools, APIs, databases, or other resources that other agents
 require but cannot directly access.
 
@@ -268,6 +268,9 @@ and is implemented in deployed multi-agent frameworks including
 - Orchestrator: an agent that acts as a controller, decomposes a
   task, delegates subtasks to agents, and aggregates results.
 
+- Agent: an autonomous software service that receives the task,
+  invokes tools, and returns results.
+
 ### Interaction Flow
 
 ~~~
@@ -306,6 +309,14 @@ request to the invoker (user or agent) or resolve it autonomously based on polic
 
 This pattern is reflected in the In-Task Authorization mechanism
 defined in [A2A].
+
+### Actors
+
+- Orchestrator: an agent that acts as a controller, decomposes a
+  task, delegates subtasks to agents, and aggregates results.
+
+- Agent: an autonomous software service that receives the task,
+  invokes tools, and returns results.
 
 ### Interaction Flow
 
@@ -407,6 +418,15 @@ reasoning outputs without routing through the coordinator. The
 second topology introduces the same multi-hop authorization
 requirements defined in {{peer-collaborative}}.
 
+### Actors
+
+- Coordinator: An agent that operates by distributing tasks, aggregating
+  their outputs, and iteratively driving them toward
+  a consensus result.
+
+- Peer Agents: AI agents that receive delegated subtasks and may
+  themselves delegate further to other agents.
+
 ### Interaction Flow
 
 The coordinator-mediated topology:
@@ -447,8 +467,8 @@ requirements are introduced.
 
 In many multi-agent deployments, access to external resources —
 APIs, databases, enterprise systems, or hardware interfaces — is
-intentionally mediated through a designated tool agent. Other agents
-request the tool agent to perform actions or retrieve data on their
+intentionally mediated through a designated mediator agent. Other agents
+request the mediator agent to perform actions or retrieve data on their
 behalf, rather than directly invoking external systems. This
 architecture allows access control, auditing, rate limiting, and
 schema normalization to be applied uniformly at the mediation layer.
@@ -476,6 +496,17 @@ Note that mediating can be a function within an orchestrator.
 
 This pattern is reflected in the MCP server architecture defined
 in [MCP] and the agent routing patterns discussed in [A2A].
+
+### Actors
+
+- Agent: an autonomous software service that receives the task,
+  invokes tools, and returns results.
+  
+- Mediator:  An agent that acts as a controlled gateway to external
+  systems, performing actions and data access on behalf of other agents.
+
+- Tool(s): external services invoked by the agent to retrieve data
+  or perform operations.
 
 ### Interaction Flow
 
