@@ -472,6 +472,8 @@ checking whether the action being requested matches the
 authorization granted to the agent and whether execution would
 cause unintended or irreversible side effects.
 
+Note that mediating can be a function within an orchestrator.
+
 This pattern is reflected in the MCP server architecture defined
 in [MCP] and the agent routing patterns discussed in [A2A].
 
