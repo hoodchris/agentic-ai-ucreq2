@@ -169,8 +169,11 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 |--------|-------------|-----|
 | CMN-1  | Mutual authentication is required between all communicating parties. | Authentication |
 | CMN-2  | All protocol traffic is required to be encrypted and integrity-protected in transit. | Security |
-| CMN-3  | Structured error responses are required, distinguishing at minimum: authentication failure, authorization failure, timeout, and internal error. | Transport |
-| CMN-4  | Structured error responses are required to include a policy violation type, reported by the orchestrator or mediator when an agent performs an action that exceeds or contradicts the scope delegated to it. | Security |
+| CMN-3  | Structured error responses are required to include a policy violation type, reported by the orchestrator or mediator when an agent performs an action that exceeds or contradicts the scope delegated to it. | Security |
+| CMN-4  | Structured error responses are required, distinguishing at minimum: authentication failure, authorization failure, timeout, and internal error. | Transport |
+| CMN-5  | The protocol provides a means to signal task priority so that critical-path tasks can be scheduled ahead of lower-priority ones. | Transport |
+
+
 
 # Use Cases {#usecases}
 
