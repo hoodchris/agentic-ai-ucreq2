@@ -235,6 +235,7 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 | A1-8  | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. | Discovery, Transport, Security |
 | A1-9  | The protocol is required to support bulk transfer of large data between communicating parties, applicable to both agent-to-tool and agent-to-agent interactions. | Transport |
 | A1-10 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. | Authentication |
+| A1-11|The protocol is required to maintain a clear separation between the identity of the requesting agent and the identity of the underlying tool or service. Authorization decisions are made with respect to the agent's identity, not the tool's identity, to prevent privilege escalation | Authenticaton |
 
 ## Orchestrator and agent Collaboration {#orchestrator-agent}
 
