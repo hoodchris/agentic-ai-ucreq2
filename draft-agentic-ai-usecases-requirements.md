@@ -211,9 +211,7 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 ~~~
 +------+                      +-----------+
 | User |<-------------------->|   Agent   |
-+------+       Protocol       |           |
-                              |           |
-                              +-----------+
++------+       Protocol       +-----------+
                                     |
                                     |
                           Protocol  |
@@ -272,12 +270,12 @@ and is implemented in deployed multi-agent frameworks including
 
 ~~~
 +---------------------+                        +------------+
-| Orchestrator Agent  |---Task Delegation----->| Agent-1 |
+| Orchestrator Agent  |---Task Delegation----->|   Agent-1  |
 |                     |<--Result Reporting-----|            |
 |                     |                        +------------+
 |                     |
 |                     |                        +------------+
-|                     |---Task Delegation----->| Agent-2 |
+|                     |---Task Delegation----->|   Agent-2  |
 |                     |<--Result Reporting-----|            |
 +---------------------+                        +------------+
 ~~~
