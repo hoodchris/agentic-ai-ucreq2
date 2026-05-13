@@ -200,7 +200,7 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 
 ~~~
 +--------------- +                       +-----------+
-| User/app/agent |<--------------------> |   Agent   |
+| App/agent |<--------------------> |   Agent   |
 +------------ ---+        Protocol       +-----------+
                                                |
                                      Protocol  |
