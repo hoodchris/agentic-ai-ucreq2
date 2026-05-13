@@ -209,16 +209,15 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 ### Interaction Flow
 
 ~~~
-+------+                      +-----------+
-| User |<-------------------->|   Agent   |
-+------+       Protocol       +-----------+
-                                    |
-                                    |
-                          Protocol  |
-                                    v
-                               +--------+
-                               | Tool(s)|
-                               +--------+
++--------------- +                       +-----------+
+| App/agent      |<--------------------> |   Agent   |
++------------ ---+        Protocol       +-----------+
+                                               |
+                                     Protocol  |
+                                               v
+                                          +---------+
+                                          | Tool(s) |
+                                          +---------+
 ~~~
 
 ### Protocol Requirements {#a1-protocol-requirements}
