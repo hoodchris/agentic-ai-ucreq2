@@ -166,7 +166,7 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 
 - **Discovery**: Requirements related to locating, advertising, or selecting agents, tools, or capabilities.
 - **Transport**: Requirements related to message delivery, streaming, cancellation, session management, and data transfer.
-- **Security**: Requirements related to confidentiality, integrity, and authorization. 
+- **Security**: Requirements related to confidentiality, integrity, and authorization.
 - **Authentication**: Requirements related to identity verification and credential delegation.
 
 | REQ-ID | Description | Tag |
