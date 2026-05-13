@@ -199,19 +199,15 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 ### Interaction Flow
 
 ~~~
-+-------------+                      +-----------+
-| User Client |<-------------------->|   Agent   |
-+-------------+   Agent Protocol     |           |
-                                     |           |
-                                     +-----------+
-                                           |
-                                    Tool   |
-                                Invocation |
-                                 Protocol  |
-                                           v
-                                      +--------+
-                                      | Tool(s)|
-                                      +--------+
++--------------- +                       +-----------+
+| User/app/agent |<--------------------> |   Agent   |
++------------ ---+        Protocol       +-----------+
+                                               |
+                                     Protocol  |
+                                               v
+                                          +---------+
+                                          | Tool(s) |
+                                          +---------+
 ~~~
 
 ### Agent Protocol Requirements
