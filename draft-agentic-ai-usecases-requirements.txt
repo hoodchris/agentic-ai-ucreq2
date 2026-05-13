@@ -249,16 +249,15 @@ Table of Contents
 
 4.1.3.  Interaction Flow
 
-   +------+                      +-----------+
-   | User |<-------------------->|   Agent   |
-   +------+       Protocol       +-----------+
-                                       |
-                                       |
-                             Protocol  |
-                                       v
-                                  +--------+
-                                  | Tool(s)|
-                                  +--------+
+   +--------------- +                       +-----------+
+   | App/agent      |<--------------------> |   Agent   |
+   +------------ ---+        Protocol       +-----------+
+                                                  |
+                                        Protocol  |
+                                                  v
+                                             +---------+
+                                             | Tool(s) |
+                                             +---------+
 
 4.1.4.  Protocol Requirements
 
