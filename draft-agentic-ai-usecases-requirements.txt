@@ -251,9 +251,7 @@ Table of Contents
 
    +------+                      +-----------+
    | User |<-------------------->|   Agent   |
-   +------+       Protocol       |           |
-                                 |           |
-                                 +-----------+
+   +------+       Protocol       +-----------+
                                        |
                                        |
                              Protocol  |
@@ -363,12 +361,12 @@ Table of Contents
 4.2.3.  Interaction Flow
 
    +---------------------+                        +------------+
-   | Orchestrator Agent  |---Task Delegation----->| Agent-1 |
+   | Orchestrator Agent  |---Task Delegation----->|   Agent-1  |
    |                     |<--Result Reporting-----|            |
    |                     |                        +------------+
    |                     |
    |                     |                        +------------+
-   |                     |---Task Delegation----->| Agent-2 |
+   |                     |---Task Delegation----->|   Agent-2  |
    |                     |<--Result Reporting-----|            |
    +---------------------+                        +------------+
 
