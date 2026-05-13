@@ -156,7 +156,7 @@ agent and may itself delegate further to other agents.
 
 **Modality**: A category of data format used for input or output in
 agent communication, such as text, audio, image, or video. A session
-may support one or more modalities simultaneously. 
+may support one or more modalities simultaneously.
 
 # Common Requirements {#common-requirements}
 
