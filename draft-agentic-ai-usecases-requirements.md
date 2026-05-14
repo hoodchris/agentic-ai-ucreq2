@@ -501,7 +501,6 @@ in [MCP] and the agent routing patterns discussed in [A2A].
 
 - Agent: an autonomous software service that receives the task,
   invokes tools, and returns results.
-  
 - Mediator:  An agent that acts as a controlled gateway to external
   systems, performing actions and data access on behalf of other agents.
 
