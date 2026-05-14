@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-12T02:32:44.613957+00:00",
+  "timestamp": "2026-05-14T02:39:45.378280+00:00",
   "repo": "tireddy2/agentic-ai-ucreq2",
   "labels": [
     {
@@ -217,6 +217,164 @@
           "updatedAt": "2026-05-09T06:18:53Z"
         }
       ]
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOSIVa8M8AAAABB-D19g",
+      "title": "simple use case ambiguity",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/13",
+      "state": "CLOSED",
+      "author": "jmaisonne",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The first simple use case describes the relation between the \"user client\" and the \"agent\" as an \"agent protocol\" while it is more an user-agent protocol, which might not bear the same requirements as a protocol between agents (which could also be called agent protocol).",
+      "createdAt": "2026-05-12T07:36:20Z",
+      "updatedAt": "2026-05-13T13:08:29Z",
+      "closedAt": "2026-05-13T13:08:28Z",
+      "comments": [
+        {
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I have a pull request to resolve this. https://github.com/tireddy2/agentic-ai-ucreq2/pull/11",
+          "createdAt": "2026-05-12T08:00:39Z",
+          "updatedAt": "2026-05-12T08:00:39Z"
+        },
+        {
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "body": "Fixed. ",
+          "createdAt": "2026-05-13T13:08:28Z",
+          "updatedAt": "2026-05-13T13:08:28Z"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "I_kwDOSIVa8M8AAAABB-E7gw",
+      "title": "input modalities",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/14",
+      "state": "CLOSED",
+      "author": "jmaisonne",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "in A1-SP-5 \"multiple input and output modalities\" is not very clear, suggest rewording\nAlso suggest to add \"modality\" in the terminology if usages continues.",
+      "createdAt": "2026-05-12T07:39:04Z",
+      "updatedAt": "2026-05-13T13:08:48Z",
+      "closedAt": "2026-05-13T13:08:48Z",
+      "comments": [
+        {
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "body": "Fixed. ",
+          "createdAt": "2026-05-13T13:08:48Z",
+          "updatedAt": "2026-05-13T13:08:48Z"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "I_kwDOSIVa8M8AAAABB-OCkA",
+      "title": "subagent in terminology ?",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/15",
+      "state": "CLOSED",
+      "author": "jmaisonne",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "subagent is not defined in terminology, while peer agent is",
+      "createdAt": "2026-05-12T08:00:32Z",
+      "updatedAt": "2026-05-12T13:59:23Z",
+      "closedAt": "2026-05-12T13:59:23Z",
+      "comments": [
+        {
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "body": "Removed subagent from terminology. ",
+          "createdAt": "2026-05-12T13:59:23Z",
+          "updatedAt": "2026-05-12T13:59:23Z"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "id": "I_kwDOSIVa8M8AAAABB-XsNA",
+      "title": "Discovery of Agents",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/16",
+      "state": "CLOSED",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Our uses case rely on the agents to be discovered. We need to revise the description of use-cases to address the requirement for discovery of agents in dynamic environment.",
+      "createdAt": "2026-05-12T08:22:43Z",
+      "updatedAt": "2026-05-13T13:36:09Z",
+      "closedAt": "2026-05-13T13:36:09Z",
+      "comments": []
+    },
+    {
+      "number": 17,
+      "id": "I_kwDOSIVa8M8AAAABB-_Ppw",
+      "title": "Rename subagent",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/17",
+      "state": "CLOSED",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://github.com/tireddy2/agentic-ai-ucreq2/blob/44703a3b776097adb75547cffaa89cf73abdf671/draft-agentic-ai-usecases-requirements.md?plain=1#L316\n\nInstead of subagent we can write distribute to other agents. ",
+      "createdAt": "2026-05-12T10:02:06Z",
+      "updatedAt": "2026-05-12T13:58:51Z",
+      "closedAt": "2026-05-12T13:58:51Z",
+      "comments": [
+        {
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "body": "check the PR : https://github.com/tireddy2/agentic-ai-ucreq2/pull/18",
+          "createdAt": "2026-05-12T10:07:06Z",
+          "updatedAt": "2026-05-12T10:07:06Z"
+        },
+        {
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "body": "and PR : #19 ",
+          "createdAt": "2026-05-12T13:31:46Z",
+          "updatedAt": "2026-05-12T13:31:46Z"
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "id": "I_kwDOSIVa8M8AAAABCAU1ng",
+      "title": "Add text to why this mediator is not an orchastetor or if an orchastetor can be an mediator as well.",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/21",
+      "state": "CLOSED",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://github.com/tireddy2/agentic-ai-ucreq2/blob/44703a3b776097adb75547cffaa89cf73abdf671/draft-agentic-ai-usecases-requirements.md?plain=1#L465",
+      "createdAt": "2026-05-12T13:30:45Z",
+      "updatedAt": "2026-05-13T13:36:01Z",
+      "closedAt": "2026-05-13T13:36:01Z",
+      "comments": []
+    },
+    {
+      "number": 27,
+      "id": "I_kwDOSIVa8M8AAAABCIRrSQ",
+      "title": "Correlation identifier",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/27",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Do we need correlation identifiers? to related all the subtasks to a particular task. If not how we can do that?",
+      "createdAt": "2026-05-13T12:30:30Z",
+      "updatedAt": "2026-05-13T12:30:30Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -623,26 +781,735 @@
       "id": "PR_kwDOSIVa8M7aP-5O",
       "title": "Updated use case 1",
       "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/11",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "zaheduzzaman",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "I believe, it would be easier if we don't separate the requirements into separate categories. I merged the requirements and also have updated the figure and requirements ( some of them were not consistent  ). When I merged them, I could so also get rid of some repeated requirements. \r\n\r\nLets take this as an example to see if this is a better way to represent the requirements.",
       "createdAt": "2026-05-11T12:36:26Z",
-      "updatedAt": "2026-05-11T12:36:26Z",
+      "updatedAt": "2026-05-13T11:50:18Z",
       "baseRepository": "tireddy2/agentic-ai-ucreq2",
       "baseRefName": "main",
       "baseRefOid": "44703a3b776097adb75547cffaa89cf73abdf671",
       "headRepository": "tireddy2/agentic-ai-ucreq2",
       "headRefName": "zaheduzzaman-patch-1",
-      "headRefOid": "32e339fe325a3b32ea140e46ae30f752505bf6bd",
+      "headRefOid": "34cefa6345c52cc5b08612394dff23e355ac40db",
+      "closedAt": "2026-05-13T11:49:53Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "body": "I think two distinct protocols are needed. Agent-to-tool is a stateless request-response invocation, while agent-to-agent requires bidirectional messaging, session continuity, and multi-hop delegation. I prefer to keep them separate. ",
+          "createdAt": "2026-05-12T02:49:03Z",
+          "updatedAt": "2026-05-12T02:49:03Z"
+        },
+        {
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Why would we need two distinct protocols? the request/response or bi-directional would depend on application nature and should be handled by the applications if needed. I would say a generic protocol for agent to agent and agent to tool would help streamlining things here.. and the nature of the interactions among them would decide by the business relationships and deployment topology.   ",
+          "createdAt": "2026-05-12T07:54:57Z",
+          "updatedAt": "2026-05-12T07:54:57Z"
+        },
+        {
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Taken care by PR #12 ",
+          "createdAt": "2026-05-13T11:50:17Z",
+          "updatedAt": "2026-05-13T11:50:17Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M7-ruVF",
+          "commit": {
+            "abbreviatedOid": "194147b"
+          },
+          "author": "github-actions",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T13:50:14Z",
+          "updatedAt": "2026-05-12T13:50:14Z",
+          "comments": [
+            {
+              "originalPosition": 76,
+              "body": "````suggestion\n| A1-12 | The protocol is required to support mutual authentication between the agent and the tool provider, ensuring the agent authenticates to the tool provider and the tool provider authenticates to the agent. | Authentication |\n````",
+              "createdAt": "2026-05-12T13:50:14Z",
+              "updatedAt": "2026-05-12T13:50:14Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDOSIVa8M7agFkC",
+      "title": "Address comments from Zahed",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/12",
+      "state": "MERGED",
+      "author": "tireddy2",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-12T02:52:02Z",
+      "updatedAt": "2026-05-13T11:50:53Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "804088a919d3c29e09c799b75e3aa4ce407e49f8",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "tireddy2-patch-3",
+      "headRefOid": "c86b8522fcf367bd4367b24927689873bea0f25a",
+      "closedAt": "2026-05-13T11:50:53Z",
+      "mergedAt": "2026-05-13T11:50:53Z",
+      "mergedBy": "zaheduzzaman",
+      "mergeCommit": {
+        "oid": "b053ba0f258277c7d3a0f3ebbb476c0ea57e94b6"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M7-h01P",
+          "commit": {
+            "abbreviatedOid": "cd331a4"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T07:56:28Z",
+          "updatedAt": "2026-05-12T07:56:28Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "These common requirements might be a good idea. However, I am still not sure we need other categories. ",
+              "createdAt": "2026-05-12T07:56:28Z",
+              "updatedAt": "2026-05-12T07:56:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M7-h4Bp",
+          "commit": {
+            "abbreviatedOid": "cd331a4"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T07:57:57Z",
+          "updatedAt": "2026-05-12T07:57:57Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "another error message type would be when any agent violates the agreement between the human user and the initiator agent.",
+              "createdAt": "2026-05-12T07:57:57Z",
+              "updatedAt": "2026-05-12T07:57:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M7-h7a_",
+          "commit": {
+            "abbreviatedOid": "cd331a4"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T07:59:28Z",
+          "updatedAt": "2026-05-12T07:59:28Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "This is a common requirement to me. you never know what type of response the agent would also return.",
+              "createdAt": "2026-05-12T07:59:28Z",
+              "updatedAt": "2026-05-12T07:59:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M7-tCEc",
+          "commit": {
+            "abbreviatedOid": "cd331a4"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T14:23:52Z",
+          "updatedAt": "2026-05-12T14:23:52Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "It seems more like a policy violation and how would the agent self-report ? ",
+              "createdAt": "2026-05-12T14:23:52Z",
+              "updatedAt": "2026-05-12T14:23:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M7_KUKK",
+          "commit": {
+            "abbreviatedOid": "07d2c68"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-13T11:06:23Z",
+          "updatedAt": "2026-05-13T11:06:23Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "Fixed. ",
+              "createdAt": "2026-05-13T11:06:23Z",
+              "updatedAt": "2026-05-13T11:06:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M7_KmXc",
+          "commit": {
+            "abbreviatedOid": "cd331a4"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-13T11:17:49Z",
+          "updatedAt": "2026-05-13T11:17:50Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "Added a requirement to discuss it. ",
+              "createdAt": "2026-05-13T11:17:49Z",
+              "updatedAt": "2026-05-13T11:17:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M7_Kmvw",
+          "commit": {
+            "abbreviatedOid": "cd331a4"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-13T11:18:00Z",
+          "updatedAt": "2026-05-13T11:18:00Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "Agreed. ",
+              "createdAt": "2026-05-13T11:18:00Z",
+              "updatedAt": "2026-05-13T11:18:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M7_LgfY",
+          "commit": {
+            "abbreviatedOid": "c86b852"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM, Thanks!!",
+          "createdAt": "2026-05-13T11:49:14Z",
+          "updatedAt": "2026-05-13T11:49:14Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOSIVa8M7anvDr",
+      "title": "removed \"subagent\"",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/18",
+      "state": "MERGED",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-12T10:06:21Z",
+      "updatedAt": "2026-05-12T13:50:52Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "44703a3b776097adb75547cffaa89cf73abdf671",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-2",
+      "headRefOid": "a0d3f4cd99cbb78ef26513db88cd197d80737e9c",
+      "closedAt": "2026-05-12T13:50:52Z",
+      "mergedAt": "2026-05-12T13:50:52Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "1bc9a915193853aeca1b14367aa013f9f00682ef"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M7-lf5_",
+          "commit": {
+            "abbreviatedOid": "fb44fc1"
+          },
+          "author": "github-actions",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T10:07:03Z",
+          "updatedAt": "2026-05-12T10:07:03Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "````suggestion\ncall processes only what is explicitly provided with a particulat context,\n````",
+              "createdAt": "2026-05-12T10:07:03Z",
+              "updatedAt": "2026-05-12T10:07:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M7-rvFP",
+          "commit": {
+            "abbreviatedOid": "a0d3f4c"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-12T13:50:34Z",
+          "updatedAt": "2026-05-12T13:50:34Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOSIVa8M7an1V1",
+      "title": "removed sub agent from long -running usecase",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/19",
+      "state": "MERGED",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-12T10:10:35Z",
+      "updatedAt": "2026-05-12T13:56:53Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "44703a3b776097adb75547cffaa89cf73abdf671",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-3",
+      "headRefOid": "7f053aba85ff3fa8ccab72dae88cd9c1f70ea711",
+      "closedAt": "2026-05-12T13:56:52Z",
+      "mergedAt": "2026-05-12T13:56:52Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "0299191f1d41cd9f6ccd70b8129b9cbfc932a710"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M7-r7Bw",
+          "commit": {
+            "abbreviatedOid": "22b3958"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-12T13:56:16Z",
+          "updatedAt": "2026-05-12T13:56:26Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\nrequest to the invoker (user or agent) or resolve it autonomously based on policy.\n```",
+              "createdAt": "2026-05-12T13:56:17Z",
+              "updatedAt": "2026-05-12T13:56:26Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOSIVa8M7asOvX",
+      "title": "Removed unnecessary information on existing or potential work",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/20",
+      "state": "MERGED",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We might want to add Editor's note with such information.",
+      "createdAt": "2026-05-12T13:28:07Z",
+      "updatedAt": "2026-05-12T13:57:32Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "44703a3b776097adb75547cffaa89cf73abdf671",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-4",
+      "headRefOid": "4ae286894eb1640bc78bdf2e49251d2a5deec1b4",
+      "closedAt": "2026-05-12T13:57:32Z",
+      "mergedAt": "2026-05-12T13:57:32Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "6932161ff6bdab2f55efd6f4d0e0317b00c86011"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M7-r9kH",
+          "commit": {
+            "abbreviatedOid": "4ae2868"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-12T13:57:23Z",
+          "updatedAt": "2026-05-12T13:57:23Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOSIVa8M7bA4yR",
+      "title": "updated the use case 1 figure",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/22",
+      "state": "MERGED",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-13T07:46:22Z",
+      "updatedAt": "2026-05-13T13:22:23Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "719adde08ab95a66416cdba1a1c977403b39cd46",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-5",
+      "headRefOid": "f294db8c13138428204dbe1ff165e52e81d6954e",
+      "closedAt": "2026-05-13T13:22:22Z",
+      "mergedAt": "2026-05-13T13:22:22Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "425368d5ce169a47785fb9aebf8bbbb243b674ad"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M7_OkzE",
+          "commit": {
+            "abbreviatedOid": "b04f3e4"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-13T13:21:00Z",
+          "updatedAt": "2026-05-13T13:21:15Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "```suggestion\n| App/agent |<--------------------> |   Agent   |\n```",
+              "createdAt": "2026-05-13T13:21:00Z",
+              "updatedAt": "2026-05-13T13:21:15Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOSIVa8M7bGxiS",
+      "title": "Agent and tool ID separation requirement.",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/23",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-13T12:06:46Z",
+      "updatedAt": "2026-05-13T12:06:46Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "719adde08ab95a66416cdba1a1c977403b39cd46",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-6",
+      "headRefOid": "6506a1f4c86a5038e67e11dcd5b24f9e131a2f34",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDOSIVa8M7bHBnC",
+      "title": "Added discovery related requirement",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/24",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-13T12:17:39Z",
+      "updatedAt": "2026-05-13T12:17:39Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "719adde08ab95a66416cdba1a1c977403b39cd46",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-7",
+      "headRefOid": "f5023729935dfeb85b880ead422a1fbb810f7864",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 25,
+      "id": "PR_kwDOSIVa8M7bHGIb",
+      "title": "CMN req on task priority",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/25",
+      "state": "MERGED",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-13T12:20:52Z",
+      "updatedAt": "2026-05-13T13:31:33Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "719adde08ab95a66416cdba1a1c977403b39cd46",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-8",
+      "headRefOid": "7b2c557a6e03574bf1b6622bccd558fc87eddf37",
+      "closedAt": "2026-05-13T13:31:33Z",
+      "mergedAt": "2026-05-13T13:31:33Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "444ed0960836126ba5adc447b7d1d87350b2167a"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M7_O7Gb",
+          "commit": {
+            "abbreviatedOid": "7b2c557"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-13T13:31:25Z",
+          "updatedAt": "2026-05-13T13:31:25Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "id": "PR_kwDOSIVa8M7bHPFX",
+      "title": "Orchestrator can be a mediator too",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/26",
+      "state": "MERGED",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-13T12:27:16Z",
+      "updatedAt": "2026-05-13T13:32:21Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "719adde08ab95a66416cdba1a1c977403b39cd46",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-9",
+      "headRefOid": "3e706400dfb8ca3a28b0e3689868fac847d0a429",
+      "closedAt": "2026-05-13T13:32:20Z",
+      "mergedAt": "2026-05-13T13:32:20Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "3312b00ac43326b319e35827ca3dbfb697d657bb"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M7_O8z8",
+          "commit": {
+            "abbreviatedOid": "3e70640"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-05-13T13:32:13Z",
+          "updatedAt": "2026-05-13T13:32:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "id": "PR_kwDOSIVa8M7bHY8c",
+      "title": "req on one to many and group communication",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/28",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-13T12:34:01Z",
+      "updatedAt": "2026-05-13T12:34:01Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "719adde08ab95a66416cdba1a1c977403b39cd46",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-10",
+      "headRefOid": "7f2cdb8fa65cf2f54f79b441e30fc79a8f4e0d24",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDOSIVa8M7bKFiC",
+      "title": "Address pending issues",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/29",
+      "state": "OPEN",
+      "author": "tireddy2",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-13T14:27:45Z",
+      "updatedAt": "2026-05-13T14:29:05Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "3312b00ac43326b319e35827ca3dbfb697d657bb",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "tireddy2-patch-4",
+      "headRefOid": "a6a275fee043546e616f8127362acf834cc7f636",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M7_QyH8",
+          "commit": {
+            "abbreviatedOid": "84367a2"
+          },
+          "author": "github-actions",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-13T14:28:21Z",
+          "updatedAt": "2026-05-13T14:28:21Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "````suggestion\n- **Security**: Requirements related to confidentiality, integrity, and authorization.\n````",
+              "createdAt": "2026-05-13T14:28:21Z",
+              "updatedAt": "2026-05-13T14:28:21Z"
+            },
+            {
+              "originalPosition": 6,
+              "body": "````suggestion\nmay support one or more modalities simultaneously.\n````",
+              "createdAt": "2026-05-13T14:28:21Z",
+              "updatedAt": "2026-05-13T14:28:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M7_Qzdh",
+          "commit": {
+            "abbreviatedOid": "86c7331"
+          },
+          "author": "github-actions",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-13T14:29:05Z",
+          "updatedAt": "2026-05-13T14:29:05Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "````suggestion\n- **Security**: Requirements related to confidentiality, integrity, and authorization.\n````",
+              "createdAt": "2026-05-13T14:29:05Z",
+              "updatedAt": "2026-05-13T14:29:05Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDOSIVa8M7bOiQv",
+      "title": "Added actors section in all the usecases.",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/30",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "For consistency point of view added the section.\r\n\r\nI am now wondering if we need that section as we are defining them in the terminology section. And there seems to be two different types of definitions.",
+      "createdAt": "2026-05-13T17:51:28Z",
+      "updatedAt": "2026-05-13T17:52:27Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "3312b00ac43326b319e35827ca3dbfb697d657bb",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-11",
+      "headRefOid": "19bf24971aac7ef58d91093291ec2d66510033cb",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M7_WqFO",
+          "commit": {
+            "abbreviatedOid": "19bf249"
+          },
+          "author": "github-actions",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-13T17:52:27Z",
+          "updatedAt": "2026-05-13T17:52:27Z",
+          "comments": [
+            {
+              "originalPosition": 69,
+              "body": "````suggestion\n\n````",
+              "createdAt": "2026-05-13T17:52:27Z",
+              "updatedAt": "2026-05-13T17:52:27Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
