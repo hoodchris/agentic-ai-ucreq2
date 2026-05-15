@@ -154,6 +154,10 @@ further to other agents without routing through the initiating agent.
 **Peer Agent**: An agent that receives delegated subtasks from another
 agent and may itself delegate further to other agents.
 
+**Modality**: A category of data format used for input or output in
+agent communication, such as text, audio, image, or video. A session
+may support one or more modalities simultaneously.
+
 # Common Requirements {#common-requirements}
 
 The following baseline requirements apply to both agent-to-agent and agent-to-tool protocol interactions across all use cases and are not repeated per use case.
@@ -162,7 +166,7 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 
 - **Discovery**: Requirements related to locating, advertising, or selecting agents, tools, or capabilities.
 - **Transport**: Requirements related to message delivery, streaming, cancellation, session management, and data transfer.
-- **Security**: Requirements related to confidentiality, integrity, and policy enforcement.
+- **Security**: Requirements related to confidentiality, integrity, and authorization.
 - **Authentication**: Requirements related to identity verification and credential delegation.
 
 | REQ-ID | Description | Tag |
@@ -231,7 +235,7 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 | A1-2  | The protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing. | Transport |
 | A1-3  | The protocol is required to define a task cancellation message that the client can issue at any point during task execution. | Transport |
 | A1-4  | The protocol is required to define structured error message types that distinguish at minimum: transport failure, tool invocation failure, and agent processing failure. | Transport |
-| A1-5  | The protocol is required to support multiple input and output modalities. | Transport |
+| A1-5  | The protocol is required to support multiple modalities for both input and output. | Transport |
 | A1-6  | The protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session. | Discovery, Transport |
 | A1-7  | The protocol is required to support agent-initiated notifications to the client during task execution. | Transport |
 | A1-8  | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. | Discovery, Transport, Security |
@@ -324,7 +328,7 @@ defined in [A2A].
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
 | B2-1  | The protocol is required to support agent-initiated progress notifications to the delegating agent during task execution. | Transport |
-| B2-2  | The protocol is required to define an authorization checkpoint message by which a agent pauses task execution and requests explicit authorization from the orchestrator before proceeding. The message is required to include sufficient context for the authorizing party to make an informed decision, including the action to be taken and its potential consequences. | Transport, Security |
+| B2-2  | The protocol is required to define an authorization checkpoint message by which an agent pauses task execution and requests explicit authorization from the orchestrator before proceeding. The message is required to include sufficient context for the authorizing party to make an informed decision, including the action to be taken and its potential consequences. | Transport, Security |
 | B2-3  | The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. The protocol is required to support a response timeout, after which the agent treats the request as denied and halts the affected subtask. | Transport, Security |
 
 ## Peer Collaborative Multi-Agent Problem Solving {#peer-collaborative}
@@ -385,6 +389,10 @@ requirements are introduced.
 | B3-1  | The protocol is required to support multi-hop delegation chains, where an agent that receives a delegated subtask may itself delegate further to other agents. At each hop, the delegating agent is required to present a credential that does not exceed the authorization scope of the credential it received. | Authentication, Security |
 | B3-2  | The protocol is required to preserve the identity of the originating entity across all hops in the delegation chain, such that any agent in the chain can determine the identity of the entity that originally authorized the task. | Authentication, Security |
 | B3-3  | The protocol is required to support transferable credentials that carry the original authorization constraints across all hops in the delegation chain. Each receiving agent is required to be able to cryptographically verify that the credential presented to it was issued by the delegating agent and that the chain of delegation traces back to the original authorization. | Authentication, Security |
+| B3-4  | The protocol is required to ensure that authorization granted to an agent in a delegation chain, including for tool invocations, is derived from the authorization issued by the initiating agent, and not from the identity or authorization scope of any intermediate agent in the chain. | Authentication, Security |
+| B3-5  | The protocol is required to define a capability advertisement mechanism by which agents publish their supported functions, supported protocols, rate limits, authentication methods, authorization mechanisms, and authorization scopes to a registry, and by which other agents can query the registry to discover and select appropriate peers at runtime without requiring prior configuration. | Discovery |
+| B3-6  | The protocol is required to define an agent identifier format that is resolvable using DNS. | Discovery |
+| B3-7  | The protocol is required to ensure that advertised capabilities are integrity-protected, such that a discovering agent can verify they have not been tampered with. | Discovery, Security |
 
 ## Cooperative Reasoning and Consensus Formation {#cooperative-reasoning}
 
@@ -433,6 +441,8 @@ The direct agent-to-agent topology:
            +-------+   +-------+   +-------+
            |Agent-1|<->|Agent-2|<->|Agent-3|
            +-------+   +-------+   +-------+
+               ^                       ^
+               |_______________________|
 ~~~
 
 ### Protocol Requirements
@@ -440,6 +450,12 @@ The direct agent-to-agent topology:
 The protocol requirements for this use case are the same as those
 defined for {{orchestrator-agent}}. No additional protocol
 requirements are introduced.
+
+### Additional Protocol Requirements {#b4-protocol-requirements}
+
+| REQ-ID | Description | Tag |
+|--------|-------------|-----|
+| B4-1  | The protocol is required to support one-to-one, one-to-many, and many-to-many message delivery among a defined group of agents. Group membership is required to be dynamic, allowing agents to join or leave the group during the course of an exchange. | Transport, Security |
 
 ## Tool, Data, and API Mediation Between Agents {#tool-mediation}
 
