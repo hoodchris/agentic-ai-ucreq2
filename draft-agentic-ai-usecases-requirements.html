@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Reddy &amp; Sarker</td>
-<td class="center">Expires 14 November 2026</td>
+<td class="center">Expires 16 November 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-agentic-ai-usecases-requirements-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-05-13" class="published">13 May 2026</time>
+<time datetime="2026-05-15" class="published">15 May 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-14">14 November 2026</time></dd>
+<dd class="expires"><time datetime="2026-11-16">16 November 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1124,7 +1124,7 @@ protocol framework for agentic AI communication systems.<a href="#section-abstra
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 14 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 16 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1245,6 +1245,9 @@ protocol framework for agentic AI communication systems.<a href="#section-abstra
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5.2.3">
                     <p id="section-toc.1-1.4.2.5.2.3.1"><a href="#section-4.5.3" class="auto internal xref">4.5.3</a>.  <a href="#name-protocol-requirements-4" class="internal xref">Protocol Requirements</a></p>
 </li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5.2.4">
+                    <p id="section-toc.1-1.4.2.5.2.4.1"><a href="#section-4.5.4" class="auto internal xref">4.5.4</a>.  <a href="#name-additional-protocol-requireme" class="internal xref">Additional Protocol Requirements</a></p>
+</li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.6">
@@ -1257,7 +1260,7 @@ protocol framework for agentic AI communication systems.<a href="#section-abstra
                     <p id="section-toc.1-1.4.2.6.2.2.1"><a href="#section-4.6.2" class="auto internal xref">4.6.2</a>.  <a href="#name-interaction-flow-6" class="internal xref">Interaction Flow</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.6.2.3">
-                    <p id="section-toc.1-1.4.2.6.2.3.1"><a href="#section-4.6.3" class="auto internal xref">4.6.3</a>.  <a href="#name-additional-protocol-requireme" class="internal xref">Additional Protocol Requirements</a></p>
+                    <p id="section-toc.1-1.4.2.6.2.3.1"><a href="#section-4.6.3" class="auto internal xref">4.6.3</a>.  <a href="#name-additional-protocol-requiremen" class="internal xref">Additional Protocol Requirements</a></p>
 </li>
                 </ul>
 </li>
@@ -1344,6 +1347,9 @@ delegates subtasks to peer agents. Any peer agent may itself delegate
 further to other agents without routing through the initiating agent.<a href="#section-2-9" class="pilcrow">¶</a></p>
 <p id="section-2-10"><strong>Peer Agent</strong>: An agent that receives delegated subtasks from another
 agent and may itself delegate further to other agents.<a href="#section-2-10" class="pilcrow">¶</a></p>
+<p id="section-2-11"><strong>Modality</strong>: A category of data format used for input or output in
+agent communication, such as text, audio, image, or video. A session
+may support one or more modalities simultaneously.<a href="#section-2-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="common-requirements">
@@ -1361,7 +1367,7 @@ agent and may itself delegate further to other agents.<a href="#section-2-10" cl
           <p id="section-3-3.2.1"><strong>Transport</strong>: Requirements related to message delivery, streaming, cancellation, session management, and data transfer.<a href="#section-3-3.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-3.3">
-          <p id="section-3-3.3.1"><strong>Security</strong>: Requirements related to confidentiality, integrity, and policy enforcement.<a href="#section-3-3.3.1" class="pilcrow">¶</a></p>
+          <p id="section-3-3.3.1"><strong>Security</strong>: Requirements related to confidentiality, integrity, and authorization.<a href="#section-3-3.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-3.4">
           <p id="section-3-3.4.1"><strong>Authentication</strong>: Requirements related to identity verification and credential delegation.<a href="#section-3-3.4.1" class="pilcrow">¶</a></p>
@@ -1515,7 +1521,7 @@ or perform operations.<a href="#section-4.1.2-1.3.1" class="pilcrow">¶</a></p>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">A1-5</td>
-                <td class="text-left" rowspan="1" colspan="1">The protocol is required to support multiple input and output modalities.</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to support multiple modalities for both input and output.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
               <tr>
@@ -1723,7 +1729,7 @@ defined in <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>.<a href="#sec
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">B2-2</td>
-                <td class="text-left" rowspan="1" colspan="1">The protocol is required to define an authorization checkpoint message by which a agent pauses task execution and requests explicit authorization from the orchestrator before proceeding. The message is required to include sufficient context for the authorizing party to make an informed decision, including the action to be taken and its potential consequences.</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to define an authorization checkpoint message by which an agent pauses task execution and requests explicit authorization from the orchestrator before proceeding. The message is required to include sufficient context for the authorizing party to make an informed decision, including the action to be taken and its potential consequences.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport, Security</td>
               </tr>
               <tr>
@@ -1842,6 +1848,26 @@ requirements are introduced.<a href="#section-4.4.4-1" class="pilcrow">¶</a></p
                 <td class="text-left" rowspan="1" colspan="1">The protocol is required to support transferable credentials that carry the original authorization constraints across all hops in the delegation chain. Each receiving agent is required to be able to cryptographically verify that the credential presented to it was issued by the delegating agent and that the chain of delegation traces back to the original authorization.</td>
                 <td class="text-left" rowspan="1" colspan="1">Authentication, Security</td>
               </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">B3-4</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to ensure that authorization granted to an agent in a delegation chain, including for tool invocations, is derived from the authorization issued by the initiating agent, and not from the identity or authorization scope of any intermediate agent in the chain.</td>
+                <td class="text-left" rowspan="1" colspan="1">Authentication, Security</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">B3-5</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to define a capability advertisement mechanism by which agents publish their supported functions, supported protocols, rate limits, authentication methods, authorization mechanisms, and authorization scopes to a registry, and by which other agents can query the registry to discover and select appropriate peers at runtime without requiring prior configuration.</td>
+                <td class="text-left" rowspan="1" colspan="1">Discovery</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">B3-6</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to define an agent identifier format that is resolvable using DNS.</td>
+                <td class="text-left" rowspan="1" colspan="1">Discovery</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">B3-7</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to ensure that advertised capabilities are integrity-protected, such that a discovering agent can verify they have not been tampered with.</td>
+                <td class="text-left" rowspan="1" colspan="1">Discovery, Security</td>
+              </tr>
             </tbody>
           </table>
 </section>
@@ -1904,6 +1930,8 @@ requirements defined in <a href="#peer-collaborative" class="auto internal xref"
            +-------+   +-------+   +-------+
            |Agent-1|&lt;-&gt;|Agent-2|&lt;-&gt;|Agent-3|
            +-------+   +-------+   +-------+
+               ^                       ^
+               |_______________________|
 </pre><a href="#section-4.5.2-4" class="pilcrow">¶</a>
 </div>
 </section>
@@ -1916,6 +1944,30 @@ requirements defined in <a href="#peer-collaborative" class="auto internal xref"
 <p id="section-4.5.3-1">The protocol requirements for this use case are the same as those
 defined for <a href="#orchestrator-agent" class="auto internal xref">Section 4.2</a>. No additional protocol
 requirements are introduced.<a href="#section-4.5.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="b4-protocol-requirements">
+<section id="section-4.5.4">
+          <h4 id="name-additional-protocol-requireme">
+<a href="#section-4.5.4" class="section-number selfRef">4.5.4. </a><a href="#name-additional-protocol-requireme" class="section-name selfRef">Additional Protocol Requirements</a>
+          </h4>
+<table class="center" id="table-6">
+            <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">REQ-ID</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+                <th class="text-left" rowspan="1" colspan="1">Tag</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">B4-1</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to support one-to-one, one-to-many, and many-to-many message delivery among a defined group of agents. Group membership is required to be dynamic, allowing agents to join or leave the group during the course of an exchange.</td>
+                <td class="text-left" rowspan="1" colspan="1">Transport, Security</td>
+              </tr>
+            </tbody>
+          </table>
 </section>
 </div>
 </section>
@@ -1984,11 +2036,11 @@ in <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> and the agent routing
 </div>
 <div id="b5-protocol-requirements">
 <section id="section-4.6.3">
-          <h4 id="name-additional-protocol-requireme">
-<a href="#section-4.6.3" class="section-number selfRef">4.6.3. </a><a href="#name-additional-protocol-requireme" class="section-name selfRef">Additional Protocol Requirements</a>
+          <h4 id="name-additional-protocol-requiremen">
+<a href="#section-4.6.3" class="section-number selfRef">4.6.3. </a><a href="#name-additional-protocol-requiremen" class="section-name selfRef">Additional Protocol Requirements</a>
           </h4>
-<table class="center" id="table-6">
-            <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
+<table class="center" id="table-7">
+            <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
 <thead>
               <tr>
                 <th class="text-left" rowspan="1" colspan="1">REQ-ID</th>
