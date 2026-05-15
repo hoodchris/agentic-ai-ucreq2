@@ -577,10 +577,9 @@ Table of Contents
    |        | requiring prior configuration.        |                 |
    +--------+---------------------------------------+-----------------+
    | B3-6   | The protocol is required to define an | Discovery       |
-   |        | agent identifier format that is       |                 |
-   |        | globally unique and resolvable to the |                 |
-   |        | agent's endpoint using an appropriate |                 |
-   |        | discovery mechanism.                  |                 |
+   |        | agent identifier format resolvable to |                 |
+   |        | the agent's endpoint using an         |                 |
+   |        | appropriate discovery mechanism.      |                 |
    +--------+---------------------------------------+-----------------+
    | B3-7   | The protocol is required to ensure    | Discovery,      |
    |        | that advertised capabilities are      | Security        |
