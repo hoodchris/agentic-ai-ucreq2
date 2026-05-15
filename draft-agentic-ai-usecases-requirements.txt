@@ -77,8 +77,9 @@ Table of Contents
        4.2.4.  Protocol Requirements
      4.3.  Long-Running Delegated Task with Authorization Checkpoint
        4.3.1.  Description
-       4.3.2.  Interaction Flow
-       4.3.3.  Additional Protocol Requirements
+       4.3.2.  Actors
+       4.3.3.  Interaction Flow
+       4.3.4.  Additional Protocol Requirements
      4.4.  Peer Collaborative Multi-Agent Problem Solving
        4.4.1.  Description
        4.4.2.  Actors
@@ -87,13 +88,15 @@ Table of Contents
        4.4.5.  Additional Protocol Requirements
      4.5.  Cooperative Reasoning and Consensus Formation
        4.5.1.  Description
-       4.5.2.  Interaction Flow
-       4.5.3.  Protocol Requirements
-       4.5.4.  Additional Protocol Requirements
+       4.5.2.  Actors
+       4.5.3.  Interaction Flow
+       4.5.4.  Protocol Requirements
+       4.5.5.  Additional Protocol Requirements
      4.6.  Tool, Data, and API Mediation Between Agents
        4.6.1.  Description
-       4.6.2.  Interaction Flow
-       4.6.3.  Additional Protocol Requirements
+       4.6.2.  Actors
+       4.6.3.  Interaction Flow
+       4.6.4.  Additional Protocol Requirements
    5.  Security Considerations
    6.  IANA Considerations
    Acknowledgements
@@ -149,7 +152,7 @@ Table of Contents
    *Tool*: An external service invoked by an agent to retrieve data or
    perform operations.
 
-   *Tool Agent*: An agent that serves as a proxy or mediator for
+   *Mediator Agent*: An agent that serves as a proxy or mediator for
    external tools, APIs, databases, or other resources that other agents
    require but cannot directly access.
 
@@ -368,6 +371,9 @@ Table of Contents
    *  Orchestrator: an agent that acts as a controller, decomposes a
       task, delegates subtasks to agents, and aggregates results.
 
+   *  Agent: an autonomous software service that receives the task,
+      invokes tools, and returns results.
+
 4.2.3.  Interaction Flow
 
    +---------------------+                        +------------+
@@ -438,7 +444,15 @@ Table of Contents
    This pattern is reflected in the In-Task Authorization mechanism
    defined in [A2A].
 
-4.3.2.  Interaction Flow
+4.3.2.  Actors
+
+   *  Orchestrator: an agent that acts as a controller, decomposes a
+      task, delegates subtasks to agents, and aggregates results.
+
+   *  Agent: an autonomous software service that receives the task,
+      invokes tools, and returns results.
+
+4.3.3.  Interaction Flow
 
    +---------------------+                        +------------+
    | Orchestrator Agent  |---Task Delegation----->|            |
@@ -448,7 +462,7 @@ Table of Contents
    |                     |<--Result Reporting-----|            |
    +---------------------+                        +------------+
 
-4.3.3.  Additional Protocol Requirements
+4.3.4.  Additional Protocol Requirements
 
    +========+=============================================+============+
    | REQ-ID | Description                                 | Tag        |
@@ -621,7 +635,16 @@ Table of Contents
    second topology introduces the same multi-hop authorization
    requirements defined in Section 4.4.
 
-4.5.2.  Interaction Flow
+4.5.2.  Actors
+
+   *  Coordinator: An agent that operates by distributing tasks,
+      aggregating their outputs, and iteratively driving them toward a
+      consensus result.
+
+   *  Peer Agents: AI agents that receive delegated subtasks and may
+      themselves delegate further to other agents.
+
+4.5.3.  Interaction Flow
 
    The coordinator-mediated topology:
 
@@ -647,13 +670,13 @@ Table of Contents
                   ^                       ^
                   |_______________________|
 
-4.5.3.  Protocol Requirements
+4.5.4.  Protocol Requirements
 
    The protocol requirements for this use case are the same as those
    defined for Section 4.2.  No additional protocol requirements are
    introduced.
 
-4.5.4.  Additional Protocol Requirements
+4.5.5.  Additional Protocol Requirements
 
    +========+=============================================+============+
    | REQ-ID | Description                                 | Tag        |
@@ -675,10 +698,10 @@ Table of Contents
 
    In many multi-agent deployments, access to external resources — APIs,
    databases, enterprise systems, or hardware interfaces — is
-   intentionally mediated through a designated tool agent.  Other agents
-   request the tool agent to perform actions or retrieve data on their
-   behalf, rather than directly invoking external systems.  This
-   architecture allows access control, auditing, rate limiting, and
+   intentionally mediated through a designated mediator agent.  Other
+   agents request the mediator agent to perform actions or retrieve data
+   on their behalf, rather than directly invoking external systems.
+   This architecture allows access control, auditing, rate limiting, and
    schema normalization to be applied uniformly at the mediation layer.
 
    The mediator agent may also serve as an adapter between the agent
@@ -705,7 +728,19 @@ Table of Contents
    This pattern is reflected in the MCP server architecture defined in
    [MCP] and the agent routing patterns discussed in [A2A].
 
-4.6.2.  Interaction Flow
+4.6.2.  Actors
+
+   *  Agent: an autonomous software service that receives the task,
+      invokes tools, and returns results.
+
+   *  Mediator: An agent that acts as a controlled gateway to external
+      systems, performing actions and data access on behalf of other
+      agents.
+
+   *  Tool(s): external services invoked by the agent to retrieve data
+      or perform operations.
+
+4.6.3.  Interaction Flow
 
           +--------------+
           |    Agent     |
@@ -721,7 +756,7 @@ Table of Contents
    |Agent-1 | |Tool-1  | |Agent-2 |
    +--------+ +--------+ +--------+
 
-4.6.3.  Additional Protocol Requirements
+4.6.4.  Additional Protocol Requirements
 
    +========+=============================================+============+
    | REQ-ID | Description                                 | Tag        |
