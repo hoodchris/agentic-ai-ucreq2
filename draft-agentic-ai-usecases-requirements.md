@@ -60,6 +60,10 @@ informative:
     title: "Problem Statement and Requirements for Dynamic Multi-agent Secured Collaboration"
     target: https://datatracker.ietf.org/doc/draft-song-dmsc-problem-statement
 
+  RFC7696:
+    title: "Guidelines for Cryptographic Algorithm Agility and Selecting Mandatory-to-Implement Algorithms"
+    target: https://www.rfc-editor.org/rfc/rfc7696
+
   KLRC:
     title: "AI Agent Authentication and Authorization"
     target: https://datatracker.ietf.org/doc/draft-klrc-aiagent-auth
@@ -154,6 +158,10 @@ further to other agents without routing through the initiating agent.
 **Peer Agent**: An agent that receives delegated subtasks from another
 agent and may itself delegate further to other agents.
 
+**Coordinator Agent**: An agent that distributes a shared problem or task
+to a group of peer agents, aggregates their outputs, and iteratively drives
+them toward a collective result or consensus.
+
 **Modality**: A category of data format used for input or output in
 agent communication, such as text, audio, image, or video. A session
 may support one or more modalities simultaneously.
@@ -173,11 +181,10 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 |--------|-------------|-----|
 | CMN-1  | Mutual authentication is required between all communicating parties. | Authentication |
 | CMN-2  | All protocol traffic is required to be encrypted and integrity-protected in transit. | Security |
-| CMN-3  | Structured error responses are required to include a policy violation type, reported by the orchestrator or mediator when an agent performs an action that exceeds or contradicts the scope delegated to it. | Security |
+| CMN-3  | Structured error responses are required to include an authorization scope violation type, reported by the orchestrator or mediator when an agent attempts an action that exceeds or contradicts the scope delegated to it. | Security |
 | CMN-4  | Structured error responses are required, distinguishing at minimum: authentication failure, authorization failure, timeout, and internal error. | Transport |
 | CMN-5  | The protocol provides a means to signal task priority so that critical-path tasks can be scheduled ahead of lower-priority ones. | Transport |
-
-
+| CMN-6  | The protocol is required to support cryptographic algorithm agility, ensuring that cryptographic algorithms used for encryption, authentication, credential verification, and integrity protection can be negotiated and updated over time, in accordance with {{RFC7696}}. | Security |
 
 # Use Cases {#usecases}
 
@@ -201,17 +208,6 @@ direct communication between a user and an agent without an
 intermediary client application is not covered in this use case.
 
 This interaction pattern is described in [ROSENBERG] and [SCRM].
-
-### Actors
-
-- User: the entity that initiates and directs the task via a client
-  application.
-
-- Agent: an autonomous software service that receives the task,
-  invokes tools, and returns results.
-
-- Tool(s): external services invoked by the agent to retrieve data
-  or perform operations.
 
 ### Interaction Flow
 
@@ -267,14 +263,6 @@ This pattern is described in [ROSENBERG] and reflected in [A2A],
 and is implemented in deployed multi-agent frameworks including
 [AUTOGEN], [LANGCHAIN], and [OPENAI-AGENTS].
 
-### Actors
-
-- Orchestrator: an agent that acts as a controller, decomposes a
-  task, delegates subtasks to agents, and aggregates results.
-
-- Agent: an autonomous software service that receives the task,
-  invokes tools, and returns results.
-
 ### Interaction Flow
 
 ~~~
@@ -314,14 +302,6 @@ request to the invoker (user or agent) or resolve it autonomously based on polic
 This pattern is reflected in the In-Task Authorization mechanism
 defined in [A2A].
 
-### Actors
-
-- Orchestrator: an agent that acts as a controller, decomposes a
-  task, delegates subtasks to agents, and aggregates results.
-
-- Agent: an autonomous software service that receives the task,
-  invokes tools, and returns results.
-
 ### Interaction Flow
 
 ~~~
@@ -340,7 +320,7 @@ defined in [A2A].
 |--------|-------------|-----|
 | B2-1  | The protocol is required to support agent-initiated progress notifications to the delegating agent during task execution. | Transport |
 | B2-2  | The protocol is required to define an authorization checkpoint message by which an agent pauses task execution and requests explicit authorization from the orchestrator before proceeding. The message is required to include sufficient context for the authorizing party to make an informed decision, including the action to be taken and its potential consequences. | Transport, Security |
-| B2-3  | The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. The protocol is required to support a response timeout, after which the agent treats the request as denied and halts the affected subtask. | Transport, Security |
+| B2-3  | The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. A denial is required to be conveyed as an explicit error response. The protocol is required to support a response timeout, after which the agent treats the request as unresolved and halts the affected subtask. | Transport, Security |
 
 ## Peer Collaborative Multi-Agent Problem Solving {#peer-collaborative}
 
@@ -362,13 +342,6 @@ to be progressively constrained at each hop.
 
 This use case is described in [A2A] and [ROSENBERG].
 
-### Actors
-
-- Initiating Agent: as defined in {{terminology}}.
-
-- Peer Agents: AI agents that receive delegated subtasks and may
-  themselves delegate further to other agents.
-
 ### Interaction Flow
 
 ~~~
@@ -389,9 +362,8 @@ This use case is described in [A2A] and [ROSENBERG].
 
 ### Protocol Requirements
 
-The protocol requirements for this use case are the same as those
-defined for {{orchestrator-agent}}. No additional protocol
-requirements are introduced.
+This use case builds on the requirements defined for {{orchestrator-agent}}
+and introduces additional requirements specific to multi-hop delegation chains.
 
 ### Additional Protocol Requirements {#b3-protocol-requirements}
 
@@ -402,7 +374,7 @@ requirements are introduced.
 | B3-3  | The protocol is required to support transferable credentials that carry the original authorization constraints across all hops in the delegation chain. Each receiving agent is required to be able to cryptographically verify that the credential presented to it was issued by the delegating agent and that the chain of delegation traces back to the original authorization. | Authentication, Security |
 | B3-4  | The protocol is required to ensure that authorization granted to an agent in a delegation chain, including for tool invocations, is derived from the authorization issued by the initiating agent, and not from the identity or authorization scope of any intermediate agent in the chain. | Authentication, Security |
 | B3-5  | The protocol is required to define a capability advertisement mechanism by which agents publish their supported functions, supported protocols, rate limits, authentication methods, authorization mechanisms, and authorization scopes to a registry, and by which other agents can query the registry to discover and select appropriate peers at runtime without requiring prior configuration. | Discovery |
-| B3-6  | The protocol is required to define an agent identifier format that is resolvable using DNS. | Discovery |
+| B3-6  | The protocol is required to define an agent identifier format resolvable to the agent's endpoint using an appropriate discovery mechanism. | Discovery |
 | B3-7  | The protocol is required to ensure that advertised capabilities are integrity-protected, such that a discovering agent can verify they have not been tampered with. | Discovery, Security |
 
 ## Cooperative Reasoning and Consensus Formation {#cooperative-reasoning}
@@ -425,15 +397,6 @@ communicate directly with each other to exchange intermediate
 reasoning outputs without routing through the coordinator. The
 second topology introduces the same multi-hop authorization
 requirements defined in {{peer-collaborative}}.
-
-### Actors
-
-- Coordinator: An agent that operates by distributing tasks, aggregating
-  their outputs, and iteratively driving them toward
-  a consensus result.
-
-- Peer Agents: AI agents that receive delegated subtasks and may
-  themselves delegate further to other agents.
 
 ### Interaction Flow
 
@@ -467,9 +430,8 @@ The direct agent-to-agent topology:
 
 ### Protocol Requirements
 
-The protocol requirements for this use case are the same as those
-defined for {{orchestrator-agent}}. No additional protocol
-requirements are introduced.
+This use case builds on the requirements defined for {{orchestrator-agent}}
+and introduces additional requirements specific to group message delivery.
 
 ### Additional Protocol Requirements {#b4-protocol-requirements}
 
@@ -513,16 +475,6 @@ Note that mediating can be a function within an orchestrator.
 This pattern is reflected in the MCP server architecture defined
 in [MCP] and the agent routing patterns discussed in [A2A].
 
-### Actors
-
-- Agent: an autonomous software service that receives the task,
-  invokes tools, and returns results.
-- Mediator:  An agent that acts as a controlled gateway to external
-  systems, performing actions and data access on behalf of other agents.
-
-- Tool(s): external services invoked by the agent to retrieve data
-  or perform operations.
-
 ### Interaction Flow
 
 ~~~
@@ -546,6 +498,7 @@ in [MCP] and the agent routing patterns discussed in [A2A].
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
 | B5-1  | The protocol is required to define error response types for request validation failure and protocol translation failure, distinct from authorization failure. A request validation failure is returned when a request is rejected due to potential unintended or irreversible side effects. | Transport, Security |
+| B5-2  | The mediator is required to produce a structured audit record for each action performed on behalf of a requesting agent, including the requesting agent's identity, the authorization credential presented, the action taken, and the outcome. | Security |
 
 # Security Considerations {#security}
 
