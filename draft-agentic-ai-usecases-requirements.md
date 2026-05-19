@@ -183,6 +183,8 @@ and possibly delegated between agents, for execution. A task is identified
 by a unique identifier and includes a structured description of the requested
 action, relevant inputs, and expected outputs, and MAY be executed
 asynchronously with support for progress reporting and result delivery.
+A task is typically fulfilled by invoking one or more capabilities
+of an agent.
 
 **Delegation**: The act of an agent requesting another agent to execute
 a task on its behalf.
