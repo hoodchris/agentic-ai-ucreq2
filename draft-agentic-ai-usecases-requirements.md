@@ -148,6 +148,9 @@ communication involves an intermediary agent or coordination service,
 as distinguished from communication between an agent and a user or
 between an agent and a tool.
 
+**Context**: The set of data, state, and history shared between agents
+to enable task execution and coordination.
+
 **Tool**: An external service invoked by an agent to retrieve data or
 perform operations.
 
