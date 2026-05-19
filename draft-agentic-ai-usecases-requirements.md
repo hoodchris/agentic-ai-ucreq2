@@ -174,6 +174,14 @@ asynchronously with support for progress reporting and result delivery.
 **Delegation**: The act of an agent requesting another agent to execute
 a task on its behalf.
 
+**Task Execution Context**: A task MAY be executed within a session or
+independently. A session provides a shared communication context that
+can span multiple related tasks and message exchanges.
+
+**Task State**: The current execution status of a task (e.g., pending,
+in-progress, completed, failed), which MAY be updated through progress 
+or result messages associated with the task.
+
 **Initiating Agent**: An agent that receives an initial request and
 delegates subtasks to peer agents. Any peer agent may itself delegate
 further to other agents without routing through the initiating agent.
