@@ -156,6 +156,10 @@ synchronously or asynchronously and MAY be correlated to a task or session.
 **Context**: The set of data, state, and history shared between agents
 to enable task execution and coordination.
 
+**Event**: A notification representing a significant occurrence or state
+change within an agent or its environment, which MAY trigger actions
+or task execution in one or more agents.
+
 **Tool**: An external service invoked by an agent to retrieve data or
 perform operations.
 
