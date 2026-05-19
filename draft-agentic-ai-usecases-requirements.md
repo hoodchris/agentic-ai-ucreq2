@@ -172,7 +172,7 @@ outputs, or reasoning objects.
 perform operations. A tool is not necessarily an agent and may not participate
 in A2A communication.
 
-**Capability**: A machine-interpretable description of what an agent can 
+**Capability**: A machine-interpretable description of what an agent can
 perform, including inputs, outputs, constraints, and required conditions.
 
 **Mediator Agent**: An agent that serves as a proxy or mediator for
@@ -200,7 +200,7 @@ independently. A session provides a shared communication context that
 can span multiple related tasks and message exchanges.
 
 **Task State**: The current execution status of a task (e.g., pending,
-in-progress, completed, failed), which MAY be updated through progress 
+in-progress, completed, failed), which MAY be updated through progress
 or result messages associated with the task.
 
 **Initiating Agent**: An agent that receives an initial request and
