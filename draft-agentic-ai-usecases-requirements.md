@@ -129,6 +129,9 @@ within agentic communication systems.
 that may be resolvable to a network endpoint and bound to cryptographic 
 credentials.
 
+**Agent Description**: A structured representation of an agent’s identity,
+capabilities, endpoints, security requirements, and metadata.
+
 **Agentic AI Communication System**: A system comprising one or more
 AI agents that communicate with each other, with users, and with
 external tools or services to complete tasks. The communication
