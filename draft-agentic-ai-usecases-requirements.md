@@ -128,12 +128,13 @@ AI agent by submitting a request or task.
 an AI agent, used for authentication, authorization, and accountability
 within agentic communication systems.
 
-**Agent Identifier**: A structured representation of an agent identity 
-that may be resolvable to a network endpoint and bound to cryptographic 
+**Agent Identifier**: A structured representation of an agent identity
+that may be resolvable to a network endpoint and bound to cryptographic
 credentials.
 
 **Agent Description**: A structured representation of an agent’s identity,
-capabilities, endpoints, security requirements, and metadata.
+capabilities, endpoints, security requirements, and metadata, which is used
+for discovery, interoperability, and capability negotiati
 
 **Agentic AI Communication System**: A system comprising one or more
 AI agents that communicate with each other, with users, and with
@@ -168,7 +169,8 @@ by agents during task execution, including intermediate results, final
 outputs, or reasoning objects.
 
 **Tool**: An external service invoked by an agent to retrieve data or
-perform operations.
+perform operations. A tool is not necessarily an agent and may not participate
+in A2A communication
 
 **Capability**: A machine-interpretable description of what an agent can 
 perform, including inputs, outputs, constraints, and required conditions.
