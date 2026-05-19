@@ -230,11 +230,10 @@ Table of Contents
    |        | updated over time, in accordance with  |                |
    |        | [RFC7696].                             |                |
    +--------+----------------------------------------+----------------+
-   | CMN-7  | Authentication credentials used by     | Authentication |
-   |        | agents MUST include verifiable         |                |
-   |        | validity constraints (e.g.,            |                |
-   |        | expiration), and receivers MUST verify |                |
-   |        | validity at the time of use.           |                |
+   | CMN-7  | The protocol is required to provide a  | Authentication |
+   |        | means to verify the authenticate       |                |
+   |        | credentials validity used by agents at |                |
+   |        | the time of use.                       |                |
    +--------+----------------------------------------+----------------+
    | CMN-8  | When a session is resumed (see B1-6),  | Transport,     |
    |        | communicating parties MUST be able to  | Authentication |
