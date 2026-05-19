@@ -148,6 +148,9 @@ between an agent and a tool.
 **Tool**: An external service invoked by an agent to retrieve data or
 perform operations.
 
+**Capability**: A machine-interpretable description of what an agent can 
+perform, including inputs, outputs, constraints, and required conditions.
+
 **Mediator Agent**: An agent that serves as a proxy or mediator for
 external tools, APIs, databases, or other resources that other agents
 require but cannot directly access.
