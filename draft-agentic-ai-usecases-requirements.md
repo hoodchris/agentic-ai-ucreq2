@@ -121,6 +121,9 @@ environment, maintains internal state, and executes actions to achieve
 specified goals, potentially including communication with other agents
 or invocation of external tools.
 
+**User**: A human or external system that initiates interaction with an
+AI agent by submitting a request or task.
+
 **Agent Identity**: A persistent or temporary identifier associated with
 an AI agent, used for authentication, authorization, and accountability
 within agentic communication systems.
@@ -206,7 +209,9 @@ agent and may itself delegate further to other agents.
 
 **Coordinator Agent**: An agent that distributes a shared problem or task
 to a group of peer agents, aggregates their outputs, and iteratively drives
-them toward a collective result or consensus.
+them toward a collective result or consensus.An agent MAY assume multiple
+roles (e.g., orchestrator, coordinator, peer) depending on the interaction
+context.
 
 **Modality**: A category of data format used for input or output in
 agent communication, such as text, audio, image, or video. A session
