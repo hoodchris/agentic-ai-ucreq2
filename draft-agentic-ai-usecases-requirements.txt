@@ -5,7 +5,7 @@
 Network Working Group                                           T. Reddy
 Internet-Draft                                                 Z. Sarker
 Intended status: Informational                                     Nokia
-Expires: 17 November 2026                                    16 May 2026
+Expires: 21 November 2026                                    20 May 2026
 
 
                  Agentic AI Use Cases and Requirements
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 November 2026.
+   This Internet-Draft will expire on 21 November 2026.
 
 Copyright Notice
 
@@ -577,8 +577,10 @@ Table of Contents
    |        | requiring prior configuration.        |                 |
    +--------+---------------------------------------+-----------------+
    | B3-6   | The protocol is required to define an | Discovery       |
-   |        | agent identifier format resolvable to |                 |
-   |        | the agent's endpoint using an         |                 |
+   |        | agent identifier format that uniquely |                 |
+   |        | represents an agent identity and is   |                 |
+   |        | resolvable to the agent's             |                 |
+   |        | communication endpoint using an       |                 |
    |        | appropriate discovery mechanism.      |                 |
    +--------+---------------------------------------+-----------------+
    | B3-7   | The protocol is required to ensure    | Discovery,      |
