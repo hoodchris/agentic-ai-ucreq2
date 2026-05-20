@@ -125,7 +125,7 @@ or invocation of external tools.
 AI agent by submitting a request or task.
 
 **Agent Identity**: A identifier associated with
-an AI agent, used for authentication, authorization, and accountability
+an AI agent, used for authentication and accountability
 within agentic communication systems.
 
 **Agent Identifier**: A structured representation of an agent identity
