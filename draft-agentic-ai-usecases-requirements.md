@@ -163,7 +163,6 @@ to enable task execution and coordination.
 change within an agent or its environment, which MAY trigger actions
 or task execution in one or more agents.
 
-outputs, or reasoning objects.
 
 **Tool**: An external service invoked by an agent to retrieve data or
 perform operations. A tool is not necessarily an agent and may not participate
