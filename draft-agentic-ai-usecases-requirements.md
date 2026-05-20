@@ -163,7 +163,6 @@ to enable task execution and coordination.
 change within an agent or its environment, which MAY trigger actions
 or task execution in one or more agents.
 
-**Artifact**: A structured piece of data produced, consumed, or exchanged
 by agents during task execution, including intermediate results, final
 outputs, or reasoning objects.
 
