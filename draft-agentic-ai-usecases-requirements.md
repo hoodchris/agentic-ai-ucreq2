@@ -287,6 +287,7 @@ and is implemented in deployed multi-agent frameworks including
 | B1-4  | The protocol is required to support streaming of intermediate results from the agent to the orchestrator during task execution. | Transport |
 | B1-5  | The protocol is required to define a task cancellation message that the orchestrator can send to a agent to abort a delegated subtask. | Transport |
 | B1-6  | The protocol is required to support persistent session identifiers that survive network interruption, and is required to define a session resumption message by which an agent re-attaches to an interrupted session restoring the prior task context. | Transport |
+| B1-7  | When a session is resumed, communicating parties are required to re-authenticate and re-validate the peer's identity and credentials | Authentication |
 
 ## Long-Running Delegated Task with Authorization Checkpoint {#authz-checkpoint}
 
