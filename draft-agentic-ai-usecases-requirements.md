@@ -124,7 +124,7 @@ or invocation of external tools.
 **User**: A human that initiates interaction with an
 AI agent by submitting a request or task.
 
-**Agent Identity**: A persistent or temporary identifier associated with
+**Agent Identity**: A identifier associated with
 an AI agent, used for authentication, authorization, and accountability
 within agentic communication systems.
 
