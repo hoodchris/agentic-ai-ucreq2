@@ -225,7 +225,6 @@ requests are outstanding concurrently.
 **Worker Agent**: A specialized agent that receives delegated sub-tasks from an orchestrator and returns results.
 (Note: A worker agent is a peer agent operating in the worker role.)
 
-(Note: A tool agent is a mediator agent operating in the tool-mediation role.)
 
 # Common Requirements {#common-requirements}
 
