@@ -185,6 +185,8 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 | CMN-4  | Structured error responses are required, distinguishing at minimum: authentication failure, authorization failure, timeout, and internal error. | Transport |
 | CMN-5  | The protocol provides a means to signal task priority so that critical-path tasks can be scheduled ahead of lower-priority ones. | Transport |
 | CMN-6  | The protocol is required to support cryptographic algorithm agility, ensuring that cryptographic algorithms used for encryption, authentication, credential verification, and integrity protection can be negotiated and updated over time, in accordance with {{RFC7696}}. | Security |
+| CMN-7  | The protocol is required to provide a means to verify the authenticate credentials validity used by agents at the time of use. | Authentication |
+| CMN-9  | The protocol is required to support signaling credential revocation and invalid credential outcomes. | Security |
 
 # Use Cases {#usecases}
 
