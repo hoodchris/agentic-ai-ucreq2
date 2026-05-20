@@ -121,7 +121,7 @@ environment, maintains internal state, and executes actions to achieve
 specified goals, potentially including communication with other agents
 or invocation of external tools.
 
-**User**: A human or external system that initiates interaction with an
+**User**: A human that initiates interaction with an
 AI agent by submitting a request or task.
 
 **Agent Identity**: A persistent or temporary identifier associated with
