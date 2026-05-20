@@ -121,11 +121,27 @@ environment, maintains internal state, and executes actions to achieve
 specified goals, potentially including communication with other agents
 or invocation of external tools.
 
+**User**: A human that initiates interaction with an
+AI agent by submitting a request or task.
+
+**Agent Identity**: A identifier associated with
+an AI agent, used for authentication and accountability
+within agentic communication systems.
+
+**Agent Identifier**: An identifier uniquely associated with an agent within an agentic communication system.
+
 **Agentic AI Communication System**: A system comprising one or more
 AI agents that communicate with each other, with users, and with
 external tools or services to complete tasks. The communication
 interfaces between these entities are the subject of protocol
 standardization in this document.
+
+**Message**: A discrete unit of communication exchanged between agents
+containing structured data such as a task request, response, progress
+update, event notification, or control signal.
+
+**Context**: The set of data, state, and history shared between agents
+to enable task execution and coordination.
 
 **Orchestrator Agent**: An agent that acts as a controller,
 coordinating the activity of other agents by decomposing goals into
@@ -140,16 +156,26 @@ between an agent and a tool.
 **Tool**: An external service invoked by an agent to retrieve data or
 perform operations.
 
+**Capability**: A description of what an agent can
+perform, including inputs, outputs, constraints, and required conditions.
+
 **Mediator Agent**: An agent that serves as a proxy or mediator for
 external tools, APIs, databases, or other resources that other agents
 require but cannot directly access.
 
 **Session**: A logical communication context shared between two or more
 agents over a period of time, which may persist across multiple
-individual message exchanges and network connections.
+individual message exchanges and network connections. A session can carry
+and maintain one or more contexts shared between agents.
 
 **Task**: A unit of work submitted by a user to an agent, or
 delegated by one agent to another.
+
+**Task State**: The current execution status of a task (e.g., pending, Expand
+in-progress, completed, failed).
+
+**Delegation**: The act of an agent requesting another agent to execute
+a task on its behalf.
 
 **Initiating Agent**: An agent that receives an initial request and
 delegates subtasks to peer agents. Any peer agent may itself delegate
