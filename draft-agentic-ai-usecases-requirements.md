@@ -136,7 +136,7 @@ external tools or services to complete tasks. The communication
 interfaces between these entities are the subject of protocol
 standardization in this document.
 
-**Message**: A discrete unit of communication exchanged between agents,Expand commentComment on line R150Resolved
+**Message**: A discrete unit of communication exchanged between agents
 containing structured data such as a task request, response, progress
 update, event notification, or control signal.
 
