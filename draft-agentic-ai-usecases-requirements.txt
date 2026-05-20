@@ -230,6 +230,15 @@ Table of Contents
    |        | updated over time, in accordance with  |                |
    |        | [RFC7696].                             |                |
    +--------+----------------------------------------+----------------+
+   | CMN-7  | The protocol is required to provide a  | Authentication |
+   |        | means to verify the authenticate       |                |
+   |        | credentials validity used by agents at |                |
+   |        | the time of use.                       |                |
+   +--------+----------------------------------------+----------------+
+   | CMN-9  | The protocol is required to support    | Security       |
+   |        | signaling credential revocation and    |                |
+   |        | invalid credential outcomes.           |                |
+   +--------+----------------------------------------+----------------+
 
                                  Table 1
 
