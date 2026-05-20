@@ -5,7 +5,7 @@
 Network Working Group                                           T. Reddy
 Internet-Draft                                                 Z. Sarker
 Intended status: Informational                                     Nokia
-Expires: 20 November 2026                                    19 May 2026
+Expires: 21 November 2026                                    20 May 2026
 
 
                  Agentic AI Use Cases and Requirements
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 November 2026.
+   This Internet-Draft will expire on 21 November 2026.
 
 Copyright Notice
 
@@ -240,11 +240,9 @@ Table of Contents
    |        | re-authenticate and re-validate the    |                |
    |        | peer’s identity and credentials        |                |
    +--------+----------------------------------------+----------------+
-   | CMN-9  | The protocol MUST support              | Security       |
-   |        | communicating revocation/invalid-      |                |
-   |        | credential outcomes (e.g.,             |                |
-   |        | authentication failure) in a machine-  |                |
-   |        | readable way.                          |                |
+   | CMN-9  | The protocol is required to support    | Security       |
+   |        | signaling credential revocation and    |                |
+   |        | invalid credential outcomes.           |                |
    +--------+----------------------------------------+----------------+
 
                                  Table 1
