@@ -235,11 +235,6 @@ Table of Contents
    |        | credentials validity used by agents at |                |
    |        | the time of use.                       |                |
    +--------+----------------------------------------+----------------+
-   | CMN-8  | When a session is resumed (see B1-6),  | Transport,     |
-   |        | communicating parties MUST be able to  | Authentication |
-   |        | re-authenticate and re-validate the    |                |
-   |        | peer’s identity and credentials        |                |
-   +--------+----------------------------------------+----------------+
    | CMN-9  | The protocol is required to support    | Security       |
    |        | signaling credential revocation and    |                |
    |        | invalid credential outcomes.           |                |
