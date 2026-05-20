@@ -131,8 +131,8 @@ Table of Contents
    submitting a request or task.
 
    *Agent Identity*: A identifier associated with an AI agent, used for
-   authentication, authorization, and accountability within agentic
-   communication systems.
+   authentication and accountability within agentic communication
+   systems.
 
    *Agent Identifier*: A structured representation of an agent identity
    that may be resolvable to a network endpoint and bound to
