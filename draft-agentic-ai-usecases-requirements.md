@@ -154,7 +154,7 @@ between an agent and a tool.
 
 **Message**: A discrete unit of communication exchanged between agents,
 containing structured data such as a task request, response, progress
-update, event notification, or control signal. 
+update, event notification, or control signal.
 
 **Context**: The set of data, state, and history shared between agents
 to enable task execution and coordination.
