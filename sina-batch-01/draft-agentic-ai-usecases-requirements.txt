@@ -235,9 +235,6 @@ Table of Contents
    from an orchestrator and returns results.  (Note: A worker agent is a
    peer agent operating in the worker role.)
 
-   (Note: A tool agent is a mediator agent operating in the tool-
-   mediation role.)
-
 3.  Common Requirements
 
    The following baseline requirements apply to both agent-to-agent and
