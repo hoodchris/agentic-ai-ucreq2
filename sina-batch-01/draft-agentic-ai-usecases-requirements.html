@@ -1317,70 +1317,67 @@ an AI agent, used for authentication and accountability
 within agentic communication systems.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4"><strong>Agent Identifier</strong>: A structured representation of an agent identity
 that may be resolvable to a network endpoint and bound to cryptographic
-credentials.<a href="#section-2-4" class="pilcrow">¶</a></p>
-<p id="section-2-5"><strong>Agent Description</strong>: A structured representation of an agent’s identity,
-capabilities, endpoints, security requirements, and metadata, which is used
-for discovery, interoperability, and capability negotiation.<a href="#section-2-5" class="pilcrow">¶</a></p>
-<p id="section-2-6"><strong>Agentic AI Communication System</strong>: A system comprising one or more
+credentials.
+<strong>Agentic AI Communication System</strong>: A system comprising one or more
 AI agents that communicate with each other, with users, and with
 external tools or services to complete tasks. The communication
 interfaces between these entities are the subject of protocol
-standardization in this document.<a href="#section-2-6" class="pilcrow">¶</a></p>
-<p id="section-2-7"><strong>Orchestrator Agent</strong>: An agent that acts as a controller,
+standardization in this document.<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-5"><strong>Orchestrator Agent</strong>: An agent that acts as a controller,
 coordinating the activity of other agents by decomposing goals into
-sub-tasks and delegating those sub-tasks to appropriate agents.<a href="#section-2-7" class="pilcrow">¶</a></p>
-<p id="section-2-8"><strong>A2A (Agent-to-Agent) Communication</strong>: Direct or brokered
+sub-tasks and delegating those sub-tasks to appropriate agents.<a href="#section-2-5" class="pilcrow">¶</a></p>
+<p id="section-2-6"><strong>A2A (Agent-to-Agent) Communication</strong>: Direct or brokered
 communication between two or more AI agents, where brokered
 communication involves an intermediary agent or coordination service,
 as distinguished from communication between an agent and a user or
-between an agent and a tool.<a href="#section-2-8" class="pilcrow">¶</a></p>
-<p id="section-2-9"><strong>Message</strong>: A discrete unit of communication exchanged between agents,
+between an agent and a tool.<a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-2-7"><strong>Message</strong>: A discrete unit of communication exchanged between agents,
 containing structured data such as a task request, response, progress
-update, event notification, or control signal.<a href="#section-2-9" class="pilcrow">¶</a></p>
-<p id="section-2-10"><strong>Context</strong>: The set of data, state, and history shared between agents
-to enable task execution and coordination.<a href="#section-2-10" class="pilcrow">¶</a></p>
-<p id="section-2-11"><strong>Event</strong>: A notification representing a significant occurrence or state
+update, event notification, or control signal.<a href="#section-2-7" class="pilcrow">¶</a></p>
+<p id="section-2-8"><strong>Context</strong>: The set of data, state, and history shared between agents
+to enable task execution and coordination.<a href="#section-2-8" class="pilcrow">¶</a></p>
+<p id="section-2-9"><strong>Event</strong>: A notification representing a significant occurrence or state
 change within an agent or its environment, which MAY trigger actions
-or task execution in one or more agents.<a href="#section-2-11" class="pilcrow">¶</a></p>
-<p id="section-2-12"><strong>Tool</strong>: An external service invoked by an agent to retrieve data or
+or task execution in one or more agents.<a href="#section-2-9" class="pilcrow">¶</a></p>
+<p id="section-2-10"><strong>Tool</strong>: An external service invoked by an agent to retrieve data or
 perform operations. A tool is not necessarily an agent and may not participate
-in A2A communication.<a href="#section-2-12" class="pilcrow">¶</a></p>
-<p id="section-2-13"><strong>Capability</strong>: A description of what an agent can
-perform, including inputs, outputs, constraints, and required conditions.<a href="#section-2-13" class="pilcrow">¶</a></p>
-<p id="section-2-14"><strong>Mediator Agent</strong>: An agent that serves as a proxy or mediator for
+in A2A communication.<a href="#section-2-10" class="pilcrow">¶</a></p>
+<p id="section-2-11"><strong>Capability</strong>: A description of what an agent can
+perform, including inputs, outputs, constraints, and required conditions.<a href="#section-2-11" class="pilcrow">¶</a></p>
+<p id="section-2-12"><strong>Mediator Agent</strong>: An agent that serves as a proxy or mediator for
 external tools, APIs, databases, or other resources that other agents
-require but cannot directly access.<a href="#section-2-14" class="pilcrow">¶</a></p>
-<p id="section-2-15"><strong>Session</strong>: A logical communication context shared between two or more
+require but cannot directly access.<a href="#section-2-12" class="pilcrow">¶</a></p>
+<p id="section-2-13"><strong>Session</strong>: A logical communication context shared between two or more
 agents over a period of time, which may persist across multiple
 individual message exchanges and network connections. A session can carry
-and maintain one or more contexts shared between agents.<a href="#section-2-15" class="pilcrow">¶</a></p>
-<p id="section-2-16"><strong>Task</strong>: A unit of work submitted by a user or generated by an agent,
+and maintain one or more contexts shared between agents.<a href="#section-2-13" class="pilcrow">¶</a></p>
+<p id="section-2-14"><strong>Task</strong>: A unit of work submitted by a user or generated by an agent,
 and possibly delegated between agents, for execution. A task is identified
 by a unique identifier and includes a structured description of the requested
 action, relevant inputs, and expected outputs, and MAY be executed
 asynchronously with support for progress reporting and result delivery.
 A task is typically fulfilled by invoking one or more capabilities
-of an agent.<a href="#section-2-16" class="pilcrow">¶</a></p>
-<p id="section-2-17"><strong>Delegation</strong>: The act of an agent requesting another agent to execute
-a task on its behalf.<a href="#section-2-17" class="pilcrow">¶</a></p>
-<p id="section-2-18"><strong>Task Execution Context</strong>: A task MAY be executed within a session or
+of an agent.<a href="#section-2-14" class="pilcrow">¶</a></p>
+<p id="section-2-15"><strong>Delegation</strong>: The act of an agent requesting another agent to execute
+a task on its behalf.<a href="#section-2-15" class="pilcrow">¶</a></p>
+<p id="section-2-16"><strong>Task Execution Context</strong>: A task MAY be executed within a session or
 independently. A session provides a shared communication context that
-can span multiple related tasks and message exchanges.<a href="#section-2-18" class="pilcrow">¶</a></p>
-<p id="section-2-19"><strong>Task State</strong>: The current execution status of a task (e.g., pending,
-in-progress, completed, failed).<a href="#section-2-19" class="pilcrow">¶</a></p>
-<p id="section-2-20"><strong>Initiating Agent</strong>: An agent that receives an initial request and
+can span multiple related tasks and message exchanges.<a href="#section-2-16" class="pilcrow">¶</a></p>
+<p id="section-2-17"><strong>Task State</strong>: The current execution status of a task (e.g., pending,
+in-progress, completed, failed).<a href="#section-2-17" class="pilcrow">¶</a></p>
+<p id="section-2-18"><strong>Initiating Agent</strong>: An agent that receives an initial request and
 delegates subtasks to peer agents. Any peer agent may itself delegate
-further to other agents without routing through the initiating agent.<a href="#section-2-20" class="pilcrow">¶</a></p>
-<p id="section-2-21"><strong>Peer Agent</strong>: An agent that receives delegated subtasks from another
-agent and may itself delegate further to other agents.<a href="#section-2-21" class="pilcrow">¶</a></p>
-<p id="section-2-22"><strong>Coordinator Agent</strong>: An agent that distributes a shared problem or task
+further to other agents without routing through the initiating agent.<a href="#section-2-18" class="pilcrow">¶</a></p>
+<p id="section-2-19"><strong>Peer Agent</strong>: An agent that receives delegated subtasks from another
+agent and may itself delegate further to other agents.<a href="#section-2-19" class="pilcrow">¶</a></p>
+<p id="section-2-20"><strong>Coordinator Agent</strong>: An agent that distributes a shared problem or task
 to a group of peer agents, aggregates their outputs, and iteratively drives
 them toward a collective result or consensus. An agent MAY assume multiple
 roles (e.g., orchestrator, coordinator, peer) depending on the interaction
-context.<a href="#section-2-22" class="pilcrow">¶</a></p>
-<p id="section-2-23"><strong>Modality</strong>: A category of data format used for input or output in
+context.<a href="#section-2-20" class="pilcrow">¶</a></p>
+<p id="section-2-21"><strong>Modality</strong>: A category of data format used for input or output in
 agent communication, such as text, audio, image, or video. A session
-may support one or more modalities simultaneously.<a href="#section-2-23" class="pilcrow">¶</a></p>
+may support one or more modalities simultaneously.<a href="#section-2-21" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="common-requirements">

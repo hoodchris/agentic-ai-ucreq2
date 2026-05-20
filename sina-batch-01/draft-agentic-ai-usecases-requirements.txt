@@ -136,18 +136,11 @@ Table of Contents
 
    *Agent Identifier*: A structured representation of an agent identity
    that may be resolvable to a network endpoint and bound to
-   cryptographic credentials.
-
-   *Agent Description*: A structured representation of an agent’s
-   identity, capabilities, endpoints, security requirements, and
-   metadata, which is used for discovery, interoperability, and
-   capability negotiation.
-
-   *Agentic AI Communication System*: A system comprising one or more AI
-   agents that communicate with each other, with users, and with
-   external tools or services to complete tasks.  The communication
-   interfaces between these entities are the subject of protocol
-   standardization in this document.
+   cryptographic credentials. *Agentic AI Communication System*: A
+   system comprising one or more AI agents that communicate with each
+   other, with users, and with external tools or services to complete
+   tasks.  The communication interfaces between these entities are the
+   subject of protocol standardization in this document.
 
    *Orchestrator Agent*: An agent that acts as a controller,
    coordinating the activity of other agents by decomposing goals into
