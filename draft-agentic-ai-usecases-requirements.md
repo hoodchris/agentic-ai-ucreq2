@@ -215,14 +215,6 @@ context.
 agent communication, such as text, audio, image, or video. A session
 may support one or more modalities simultaneously.
 
-**Correlation Identifier**: A token or identifier that allows a response or update message
-to be matched to a specific earlier request (e.g., task request), including when multiple
-requests are outstanding concurrently.
-
-**Worker Agent**: A specialized agent that receives delegated sub-tasks from an orchestrator and returns results.
-(Note: A worker agent is a peer agent operating in the worker role.)
-
-
 # Common Requirements {#common-requirements}
 
 The following baseline requirements apply to both agent-to-agent and agent-to-tool protocol interactions across all use cases and are not repeated per use case.
