@@ -171,7 +171,7 @@ outputs, or reasoning objects.
 perform operations. A tool is not necessarily an agent and may not participate
 in A2A communication.
 
-**Capability**: A machine-interpretable description of what an agent can
+**Capability**: A description of what an agent can
 perform, including inputs, outputs, constraints, and required conditions.
 
 **Mediator Agent**: An agent that serves as a proxy or mediator for
