@@ -171,7 +171,7 @@ and maintain one or more contexts shared between agents.
 **Task**: A unit of work submitted by a user to an agent, or
 delegated by one agent to another.
 
-**Task State**: The current execution status of a task (e.g., pending,Expand commentComment on line R193Resolved
+**Task State**: The current execution status of a task (e.g., pending, Expand
 in-progress, completed, failed).
 
 **Delegation**: The act of an agent requesting another agent to execute
