@@ -5,7 +5,7 @@
 Network Working Group                                           T. Reddy
 Internet-Draft                                                 Z. Sarker
 Intended status: Informational                                     Nokia
-Expires: 20 November 2026                                    19 May 2026
+Expires: 21 November 2026                                    20 May 2026
 
 
                  Agentic AI Use Cases and Requirements
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 November 2026.
+   This Internet-Draft will expire on 21 November 2026.
 
 Copyright Notice
 
@@ -127,8 +127,8 @@ Table of Contents
    achieve specified goals, potentially including communication with
    other agents or invocation of external tools.
 
-   *User*: A human or external system that initiates interaction with an
-   AI agent by submitting a request or task.
+   *User*: A human that initiates interaction with an AI agent by
+   submitting a request or task.
 
    *Agent Identity*: A persistent or temporary identifier associated
    with an AI agent, used for authentication, authorization, and
