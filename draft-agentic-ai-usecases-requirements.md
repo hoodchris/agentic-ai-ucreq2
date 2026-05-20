@@ -131,11 +131,6 @@ within agentic communication systems.
 **Agent Identifier**: A structured representation of an agent identity
 that may be resolvable to a network endpoint and bound to cryptographic
 credentials.
-
-**Agent Description**: A structured representation of an agent’s identity,
-capabilities, endpoints, security requirements, and metadata, which is used
-for discovery, interoperability, and capability negotiation.
-
 **Agentic AI Communication System**: A system comprising one or more
 AI agents that communicate with each other, with users, and with
 external tools or services to complete tasks. The communication
