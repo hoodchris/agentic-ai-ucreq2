@@ -187,7 +187,7 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 | CMN-6  | The protocol is required to support cryptographic algorithm agility, ensuring that cryptographic algorithms used for encryption, authentication, credential verification, and integrity protection can be negotiated and updated over time, in accordance with {{RFC7696}}. | Security |
 | CMN-7  | The protocol is required to provide a means to verify the authenticate credentials validity used by agents at the time of use. | Authentication |
 | CMN-8  | When a session is resumed (see B1-6), communicating parties MUST be able to re-authenticate and re-validate the peer’s identity and credentials | Transport, Authentication |
-| CMN-9  | The protocol MUST support communicating revocation/invalid-credential outcomes (e.g., authentication failure) in a machine-readable way. | Security |
+| CMN-9  | The protocol is required to support signaling credential revocation and invalid credential outcomes. | Security |
 
 # Use Cases {#usecases}
 
