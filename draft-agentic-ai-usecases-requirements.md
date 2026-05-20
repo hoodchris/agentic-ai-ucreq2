@@ -200,7 +200,6 @@ can span multiple related tasks and message exchanges.
 
 **Task State**: The current execution status of a task (e.g., pending,
 in-progress, completed, failed), which MAY be updated through progress
-or result messages associated with the task.
 
 **Initiating Agent**: An agent that receives an initial request and
 delegates subtasks to peer agents. Any peer agent may itself delegate
