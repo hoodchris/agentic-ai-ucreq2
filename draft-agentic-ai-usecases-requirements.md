@@ -1,7 +1,7 @@
 ---
 title: "Agentic AI Use Cases and Requirements"
 abbrev: "agentic-ai-ucreq"
-docname: draft-agentic-ai-usecases-requirements-latest
+docname: draft-agentic-ai-usecases-requirements-latest-00
 category: info
 ipr: trust200902
 submissiontype: IETF
@@ -35,14 +35,6 @@ informative:
   MCP:
     title: "Model Context Protocol Specification"
     target: https://modelcontextprotocol.io/specification/2025-11-25
-
-  RFC6749:
-    title: "The OAuth 2.0 Authorization Framework"
-    target: https://www.rfc-editor.org/rfc/rfc6749
-
-  RFC9635:
-    title: "Grant Negotiation and Authorization Protocol (GNAP)"
-    target: https://www.rfc-editor.org/rfc/rfc9635
 
   SCRM:
     title: "Agentic AI Use Cases"
