@@ -334,6 +334,9 @@ defined in [A2A].
 
 ### Additional Protocol Requirements {#b2-protocol-requirements}
 
+This use case builds on the requirements defined for {{orchestrator-agent}}
+and introduces additional requirements specific to multi-hop delegation chains.
+
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
 | B2-1  | The protocol is required to support agent-initiated progress notifications to the delegating agent during task execution. | Transport |
@@ -350,9 +353,9 @@ where no single agent has full authority or capability to complete
 the task alone. The agent that receives the initial request
 dynamically delegates subtasks to peer agents based on their
 advertised capabilities. Any agent may itself delegate further to
-other agents, forming a dynamic collaboration graph. Each agent
-remains opaque to others, collaborating only through the protocol
-interface.
+other agents and use other tools, forming a dynamic collaboration
+graph. Each agent remains opaque to others, collaborating only
+through the protocol interface.
 
 This use case introduces multi-hop delegation chains that are not
 present in {{orchestrator-agent}}. Each agent in the chain may
@@ -372,19 +375,17 @@ This use case is described in [A2A] and [ROSENBERG].
  +--------+  +--------+
  |Agent-2 |  |Agent-3 |
  +--------+  +--------+
-      |
-      v
- +--------+
- |Agent-4 |
- +--------+
+      |          |
+      v          v
+ +--------+  +--------+
+ |Agent-4 |  | Tools  |
+ +--------+  +--------+
 ~~~
 
-### Protocol Requirements
+### Additional Protocol Requirements {#b3-protocol-requirements}
 
 This use case builds on the requirements defined for {{orchestrator-agent}}
 and introduces additional requirements specific to multi-hop delegation chains.
-
-### Additional Protocol Requirements {#b3-protocol-requirements}
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
