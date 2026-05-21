@@ -202,7 +202,7 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
-| CMN-1  | The protocol is required to allow any client to communicate with any agent service. | Discovery, Authentication |
+| CMN-1  | The protocol is required to allow any client application to communicate with any agent service. | Discovery, Authentication |
 | CMN-2  | Mutual authentication is required between all communicating parties. | Authentication |
 | CMN-3  | All protocol traffic is required to be encrypted and integrity-protected in transit. | Security |
 | CMN-4  | Structured error responses are required to include an authorization scope violation type, reported by the orchestrator or mediator when an agent attempts an action that exceeds or contradicts the scope delegated to it. | Security |
