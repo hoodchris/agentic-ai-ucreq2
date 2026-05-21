@@ -306,7 +306,7 @@ and is implemented in deployed multi-agent frameworks including
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
-| B1-1  | A protocol is required to be facilitate the task delegation for an orchestrator to agents that includes task delegation and acknowledgement message types. | Transport |
+| B1-1  | A protocol is required to facilitate task delegation for an orchestrator to agents that includes task delegation and acknowledgement message types. | Transport |
 | B1-2  | The protocol is required to support asynchronous delegation, allowing the orchestrator to delegate to multiple agents without waiting for each to complete before proceeding. | Transport |
 | B1-3  | The protocol is required to define a result reporting message by which an agent returns its completed output to the orchestrator. | Transport |
 | B1-4  | The protocol is required to support streaming of intermediate results from the agent to the orchestrator during task execution. | Transport |
