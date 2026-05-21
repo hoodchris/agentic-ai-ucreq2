@@ -69,7 +69,7 @@ Table of Contents
        4.1.1.  Description
        4.1.2.  Interaction Flow
        4.1.3.  Protocol Requirements
-     4.2.  Orchestrator and agent Collaboration
+     4.2.  Orchestrator and Agent Collaboration
        4.2.1.  Description
        4.2.2.  Interaction Flow
        4.2.3.  Protocol Requirements
@@ -127,7 +127,7 @@ Table of Contents
    achieve specified goals, potentially including communication with
    other agents or invocation of external tools.
 
-   *Agent Identity*: A identifier associated with an AI agent, used for
+   *Agent Identity*: An identifier associated with an AI agent, used for
    authentication and accountability within agentic communication
    systems.
 
@@ -192,7 +192,8 @@ Table of Contents
    Expand in-progress, completed, failed).
 
    *Tool*: An external service invoked by an agent to retrieve data or
-   perform operations.
+   perform operations.  A tool is not necessarily an agent and may not
+   participate in agent-to-agent communication.
 
    *User*: A human that initiates interaction with an AI agent by
    submitting a request or task.
@@ -255,11 +256,11 @@ Table of Contents
    |        | [RFC7696].                             |                |
    +--------+----------------------------------------+----------------+
    | CMN-7  | The protocol is required to provide a  | Authentication |
-   |        | means to verify the authenticate       |                |
-   |        | credentials validity used by agents at |                |
-   |        | the time of use.                       |                |
+   |        | means to verify the validity of        |                |
+   |        | authentication credentials used by     |                |
+   |        | agents at the time of use.             |                |
    +--------+----------------------------------------+----------------+
-   | CMN-9  | The protocol is required to support    | Security       |
+   | CMN-8  | The protocol is required to support    | Security       |
    |        | signaling credential revocation and    |                |
    |        | invalid credential outcomes.           |                |
    +--------+----------------------------------------+----------------+
@@ -291,9 +292,9 @@ Table of Contents
 
 4.1.2.  Interaction Flow
 
-   +--------------- +                       +-----------+
+   +----------------+                       +-----------+
    | App/agent      |<--------------------> |   Agent   |
-   +------------ ---+        Protocol       +-----------+
+   +----------------+        Protocol       +-----------+
                                                   |
                                         Protocol  |
                                                   v
@@ -363,7 +364,7 @@ Table of Contents
 
                                   Table 2
 
-4.2.  Orchestrator and agent Collaboration
+4.2.  Orchestrator and Agent Collaboration
 
 4.2.1.  Description
 
@@ -407,7 +408,7 @@ Table of Contents
    +========+==============================================+===========+
    | B1-1   | A protocol is required to be defined         | Transport |
    |        | for an orchestrator to delegate a            |           |
-   |        | subtask to a agent, including task           |           |
+   |        | subtask to an agent, including task          |           |
    |        | delegation and acknowledgement               |           |
    |        | message types.                               |           |
    +--------+----------------------------------------------+-----------+
@@ -418,7 +419,7 @@ Table of Contents
    |        | complete before proceeding.                  |           |
    +--------+----------------------------------------------+-----------+
    | B1-3   | The protocol is required to define a         | Transport |
-   |        | result reporting message by which a          |           |
+   |        | result reporting message by which an         |           |
    |        | agent returns its completed output to        |           |
    |        | the orchestrator.                            |           |
    +--------+----------------------------------------------+-----------+
@@ -429,7 +430,7 @@ Table of Contents
    +--------+----------------------------------------------+-----------+
    | B1-5   | The protocol is required to define a         | Transport |
    |        | task cancellation message that the           |           |
-   |        | orchestrator can send to a agent to          |           |
+   |        | orchestrator can send to an agent to         |           |
    |        | abort a delegated subtask.                   |           |
    +--------+----------------------------------------------+-----------+
    | B1-6   | The protocol is required to support          | Transport |

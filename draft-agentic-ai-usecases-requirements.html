@@ -1180,7 +1180,7 @@ communication security, agent identity and authentication.<a href="#section-abst
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-orchestrator-and-agent-coll" class="internal xref">Orchestrator and agent Collaboration</a></p>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-orchestrator-and-agent-coll" class="internal xref">Orchestrator and Agent Collaboration</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
                     <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-description-2" class="internal xref">Description</a></p>
@@ -1309,7 +1309,7 @@ related use case and problem statement documents including <span>[<a href="#SCRM
 environment, maintains internal state, and executes actions to achieve
 specified goals, potentially including communication with other agents
 or invocation of external tools.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2"><strong>Agent Identity</strong>: A identifier associated with
+<p id="section-2-2"><strong>Agent Identity</strong>: An identifier associated with
 an AI agent, used for authentication and accountability
 within agentic communication systems.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3"><strong>Agentic AI Communication System</strong>: A system comprising one or more
@@ -1357,7 +1357,8 @@ delegated by one agent to another.<a href="#section-2-16" class="pilcrow">¶</a>
 <p id="section-2-17"><strong>Task State</strong>: The current execution status of a task (e.g., pending, Expand
 in-progress, completed, failed).<a href="#section-2-17" class="pilcrow">¶</a></p>
 <p id="section-2-18"><strong>Tool</strong>: An external service invoked by an agent to retrieve data or
-perform operations.<a href="#section-2-18" class="pilcrow">¶</a></p>
+perform operations. A tool is not necessarily an agent and may not participate
+in agent-to-agent communication.<a href="#section-2-18" class="pilcrow">¶</a></p>
 <p id="section-2-19"><strong>User</strong>: A human that initiates interaction with an
 AI agent by submitting a request or task.<a href="#section-2-19" class="pilcrow">¶</a></p>
 </section>
@@ -1425,11 +1426,11 @@ AI agent by submitting a request or task.<a href="#section-2-19" class="pilcrow"
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">CMN-7</td>
-            <td class="text-left" rowspan="1" colspan="1">The protocol is required to provide a means to verify the authenticate credentials validity used by agents at the time of use.</td>
+            <td class="text-left" rowspan="1" colspan="1">The protocol is required to provide a means to verify the validity of authentication credentials used by agents at the time of use.</td>
             <td class="text-left" rowspan="1" colspan="1">Authentication</td>
           </tr>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">CMN-9</td>
+            <td class="text-left" rowspan="1" colspan="1">CMN-8</td>
             <td class="text-left" rowspan="1" colspan="1">The protocol is required to support signaling credential revocation and invalid credential outcomes.</td>
             <td class="text-left" rowspan="1" colspan="1">Security</td>
           </tr>
@@ -1475,9 +1476,9 @@ intermediary client application is not covered in this use case.<a href="#sectio
           </h4>
 <div class="alignLeft art-text artwork" id="section-4.1.2-1">
 <pre>
-+--------------- +                       +-----------+
++----------------+                       +-----------+
 | App/agent      |&lt;--------------------&gt; |   Agent   |
-+------------ ---+        Protocol       +-----------+
++----------------+        Protocol       +-----------+
                                                |
                                      Protocol  |
                                                v
@@ -1557,7 +1558,7 @@ intermediary client application is not covered in this use case.<a href="#sectio
 <div id="orchestrator-agent">
 <section id="section-4.2">
         <h3 id="name-orchestrator-and-agent-coll">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-orchestrator-and-agent-coll" class="section-name selfRef">Orchestrator and agent Collaboration</a>
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-orchestrator-and-agent-coll" class="section-name selfRef">Orchestrator and Agent Collaboration</a>
         </h3>
 <div id="description-1">
 <section id="section-4.2.1">
@@ -1621,7 +1622,7 @@ and is implemented in deployed multi-agent frameworks including
             <tbody>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">B1-1</td>
-                <td class="text-left" rowspan="1" colspan="1">A protocol is required to be defined for an orchestrator to delegate a subtask to a agent, including task delegation and acknowledgement message types.</td>
+                <td class="text-left" rowspan="1" colspan="1">A protocol is required to be defined for an orchestrator to delegate a subtask to an agent, including task delegation and acknowledgement message types.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
               <tr>
@@ -1631,7 +1632,7 @@ and is implemented in deployed multi-agent frameworks including
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">B1-3</td>
-                <td class="text-left" rowspan="1" colspan="1">The protocol is required to define a result reporting message by which a agent returns its completed output to the orchestrator.</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to define a result reporting message by which an agent returns its completed output to the orchestrator.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
               <tr>
@@ -1641,7 +1642,7 @@ and is implemented in deployed multi-agent frameworks including
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">B1-5</td>
-                <td class="text-left" rowspan="1" colspan="1">The protocol is required to define a task cancellation message that the orchestrator can send to a agent to abort a delegated subtask.</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to define a task cancellation message that the orchestrator can send to an agent to abort a delegated subtask.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
               <tr>
