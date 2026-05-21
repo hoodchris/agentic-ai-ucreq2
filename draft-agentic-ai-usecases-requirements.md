@@ -105,7 +105,7 @@ reasoning over its goals and context.
 This document presents use cases that illustrate the key interaction
 patterns of agentic AI communication systems, and derives protocol
 requirements from those use cases. The requirements are intended to
-drive development of protocols, a protocol framework for agentic AI systems.
+drive development of protocols and a protocol framework for agentic AI systems.
 
 The use cases in this document cover interaction patterns for
 agentic AI communication systems. This document takes into account
