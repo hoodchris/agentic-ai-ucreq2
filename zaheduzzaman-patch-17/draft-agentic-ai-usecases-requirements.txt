@@ -222,8 +222,8 @@ Table of Contents
    | REQ-ID | Description                            | Tag            |
    +========+========================================+================+
    | CMN-1  | The protocol is required to allow any  | Discovery,     |
-   |        | client to communicate with any agent   | Authentication |
-   |        | service.                               |                |
+   |        | client application to communicate with | Authentication |
+   |        | any agent service.                     |                |
    +--------+----------------------------------------+----------------+
    | CMN-2  | Mutual authentication is required      | Authentication |
    |        | between all communicating parties.     |                |
