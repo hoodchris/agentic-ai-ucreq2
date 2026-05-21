@@ -359,8 +359,8 @@ where no single agent has full authority or capability to complete
 the task alone. The agent that receives the initial request
 dynamically delegates subtasks to peer agents based on their
 advertised capabilities. Any agent may itself delegate further to
-other agents and use other tools, forming a dynamic collaboration 
-graph. Each agent remains opaque to others, collaborating only 
+other agents and use other tools, forming a dynamic collaboration
+graph. Each agent remains opaque to others, collaborating only
 through the protocol interface.
 
 This use case introduces multi-hop delegation chains that are not
