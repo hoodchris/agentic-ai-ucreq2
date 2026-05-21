@@ -526,6 +526,15 @@ the Identity, Authentication, and Delegation requirements defined
 for each use case. Agent identity and authentication mechanisms are
 further discussed in [KLRC].
 
+Agent identity information considered to be sensitive, particularly 
+in multi-domain deployments. Use of persistent identifiers across 
+sessions and domains can enable tracking and correlation of agent 
+activity. Implementations need to consider mechanisms such as 
+pseudonymous or temporary identifiers to reduce linkability, 
+while preserving the ability to audit and enforce accountability 
+where required. The trade-offs between privacy, accountability, 
+and traceability need to be considered in the design of agent identity mechanisms.
+
 # IANA Considerations {#iana}
 
 This document has no IANA actions.
