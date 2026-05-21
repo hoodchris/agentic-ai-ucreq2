@@ -195,13 +195,13 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
-| CMN-1  | The protocol is required to allow any client application to communicate with any agent service. | Discovery, Authentication |
+| CMN-1  | The protocol is required to support any client application to communicate with any agent service. | Discovery, Authentication |
 | CMN-2  | Mutual authentication is required between all communicating parties. | Authentication |
 | CMN-3  | All protocol traffic is required to be encrypted and integrity-protected in transit. | Security |
 | CMN-4  | Structured error responses are required to include an authorization scope violation type, reported by the orchestrator or mediator when an agent attempts an action that exceeds or contradicts the scope delegated to it. | Security |
 | CMN-5  | Structured error responses are required, distinguishing at minimum: authentication failure, authorization failure, timeout, and internal error. | Transport |
 | CMN-6  | The protocol provides a means to signal task priority so that critical-path tasks can be scheduled ahead of lower-priority ones. | Transport |
-| CMN-7  | The protocol is required to support cryptographic algorithm agility, ensuring that cryptographic algorithms used for encryption, authentication, credential verification, and integrity protection can be negotiated and updated over time, in accordance with {{RFC7696}}. | Security |
+| CMN-7  | The protocol is required to support cryptographic algorithm agility, ensuring that cryptographic algorithms used for encryption, authentication, credential verification, and integrity protection can be negotiated and updated over time, in accordance with {{RFC7696}}. | Security, Authentication |
 | CMN-8  | The protocol is required to provide a means to verify the authenticate credentials validity used by agents at the time of use. | Authentication |
 | CMN-9  | The protocol is required to support signaling credential revocation and invalid credential outcomes. | Security |
 
@@ -299,7 +299,7 @@ and is implemented in deployed multi-agent frameworks including
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
-| B1-1  | A protocol is required to facilitate task delegation for an orchestrator to agents that includes task delegation and acknowledgement message types. | Transport |
+| B1-1  | The protocol is required to facilitate task delegation for an orchestrator to agents that includes task delegation and acknowledgement message types. | Transport |
 | B1-2  | The protocol is required to support asynchronous delegation, allowing the orchestrator to delegate to multiple agents without waiting for each to complete before proceeding. | Transport |
 | B1-3  | The protocol is required to define a result reporting message by which an agent returns its completed output to the orchestrator. | Transport |
 | B1-4  | The protocol is required to support streaming of intermediate results from the agent to the orchestrator during task execution. | Transport |
@@ -413,7 +413,7 @@ Two communication topologies are possible. In the first, agents
 communicate only through the coordinator, which acts as the central
 hub for all message exchange. In the second, agents may also
 communicate directly with each other to exchange intermediate
-reasoning outputs without routing through the coordinator. The
+reasoning outputs without routing through the coordinator agent. The
 second topology introduces the same multi-hop authorization
 requirements defined in {{peer-collaborative}}.
 
@@ -422,9 +422,9 @@ requirements defined in {{peer-collaborative}}.
 The coordinator-mediated topology:
 
 ~~~
-                 +--------------+
-                 | Coordinator  |
-                 +--------------+
+                +--------------------+
+                | Coordinator agent  |
+                +--------------------+
                   /      |      \
                  v       v       v
            +--------+ +--------+ +--------+
@@ -517,7 +517,7 @@ in [MCP] and the agent routing patterns discussed in [A2A].
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
 | B5-1  | The protocol is required to define error response types for request validation failure and protocol translation failure, distinct from authorization failure. A request validation failure is returned when a request is rejected due to potential unintended or irreversible side effects. | Transport, Security |
-| B5-2  | The mediator is required to produce a structured audit record for each action performed on behalf of a requesting agent, including the requesting agent's identity, the authorization credential presented, the action taken, and the outcome. | Security |
+| B5-2  | The protocol is required to support exchange of structured (audit) record for each action performed on behalf of a requesting agent, including the requesting agent's identity, the authorization credential presented, the action taken, and the outcome. | Security |
 
 # Security Considerations {#security}
 
