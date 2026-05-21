@@ -487,7 +487,7 @@ such as [MCP] and [A2A]. In this role, the mediator is responsible
 for protocol translation and for presenting the appropriate
 credentials to the target system on behalf of the requesting agent.
 
-The mediator may additionally act as a router, dispatching requests
+The mediator may additionally act as a request router, dispatching requests
 to appropriate agents or tools based on the content and context of
 the request, without requiring the requesting agent to have prior
 knowledge of which agent or tool is most appropriate.
@@ -541,5 +541,5 @@ This document has no IANA actions.
 # Acknowledgements
 {:numbered="false"}
 
-Thanks to Julien Maisonneuve, Parisa Foroughi, Borislava Gajic and
-Sina Khatibi for the discussion and comments.
+Thanks to Borislava Gajic, Julien Maisonneuve, Parisa Foroughi, Peter Leis and
+Sina Khatibi for the discussions and comments.
