@@ -121,14 +121,9 @@ environment, maintains internal state, and executes actions to achieve
 specified goals, potentially including communication with other agents
 or invocation of external tools.
 
-**User**: A human that initiates interaction with an
-AI agent by submitting a request or task.
-
 **Agent Identity**: A identifier associated with
 an AI agent, used for authentication and accountability
 within agentic communication systems.
-
-**Agent Identifier**: An identifier uniquely associated with an agent within an agentic communication system.
 
 **Agentic AI Communication System**: A system comprising one or more
 AI agents that communicate with each other, with users, and with
@@ -136,32 +131,47 @@ external tools or services to complete tasks. The communication
 interfaces between these entities are the subject of protocol
 standardization in this document.
 
-**Message**: A discrete unit of communication exchanged between agents
-containing structured data such as a task request, response, progress
-update, event notification, or control signal.
-
-**Context**: The set of data, state, and history shared between agents
-to enable task execution and coordination.
-
-**Orchestrator Agent**: An agent that acts as a controller,
-coordinating the activity of other agents by decomposing goals into
-sub-tasks and delegating those sub-tasks to appropriate agents.
-
-**A2A (Agent-to-Agent) Communication**: Direct or brokered
+**Agent-to-Agent Communication**: Direct or brokered
 communication between two or more AI agents, where brokered
 communication involves an intermediary agent or coordination service,
 as distinguished from communication between an agent and a user or
 between an agent and a tool.
 
-**Tool**: An external service invoked by an agent to retrieve data or
-perform operations.
-
 **Capability**: A description of what an agent can
 perform, including inputs, outputs, constraints, and required conditions.
+
+**Context**: The set of data, state, and history shared between agents
+to enable task execution and coordination.
+
+**Coordinator Agent**: An agent that distributes a shared problem or task
+to a group of peer agents, aggregates their outputs, and iteratively drives
+them toward a collective result or consensus.
+
+**Delegation**: The act of an agent requesting another agent to execute
+a task on its behalf.
+
+**Initiating Agent**: An agent that receives an initial request and
+delegates subtasks to peer agents. Any peer agent may itself delegate
+further to other agents without routing through the initiating agent.
 
 **Mediator Agent**: An agent that serves as a proxy or mediator for
 external tools, APIs, databases, or other resources that other agents
 require but cannot directly access.
+
+**Message**: A discrete unit of communication exchanged between agents
+containing structured data such as a task request, response, progress
+update, event notification, or control signal.
+
+**Modality**: A category of data format used for input or output in
+agent communication, such as text, audio, image, or video. A session
+may support one or more modalities simultaneously.
+
+**Orchestrator Agent**: An agent that acts as a controller,
+coordinating the activity of other agents by decomposing goals into
+sub-tasks and delegating those sub-tasks to appropriate agents.
+
+**Peer Agent**: An agent that receives delegated subtasks from another
+agent and may itself delegate further to other agents.
 
 **Session**: A logical communication context shared between two or more
 agents over a period of time, which may persist across multiple
@@ -174,23 +184,11 @@ delegated by one agent to another.
 **Task State**: The current execution status of a task (e.g., pending, Expand
 in-progress, completed, failed).
 
-**Delegation**: The act of an agent requesting another agent to execute
-a task on its behalf.
+**Tool**: An external service invoked by an agent to retrieve data or
+perform operations.
 
-**Initiating Agent**: An agent that receives an initial request and
-delegates subtasks to peer agents. Any peer agent may itself delegate
-further to other agents without routing through the initiating agent.
-
-**Peer Agent**: An agent that receives delegated subtasks from another
-agent and may itself delegate further to other agents.
-
-**Coordinator Agent**: An agent that distributes a shared problem or task
-to a group of peer agents, aggregates their outputs, and iteratively drives
-them toward a collective result or consensus.
-
-**Modality**: A category of data format used for input or output in
-agent communication, such as text, audio, image, or video. A session
-may support one or more modalities simultaneously.
+**User**: A human that initiates interaction with an
+AI agent by submitting a request or task.
 
 # Common Requirements {#common-requirements}
 
