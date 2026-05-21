@@ -1457,7 +1457,7 @@ agent executes the task by invoking one or more tools and returns
 results to the user. The tools invoked by the agent may reside in
 the same or a different administrative domain. The agent protocol
 is required to support multiple input and output modalities, and
-the client and agent are required to be able to negotiate which
+the client application and agent are required to be able to negotiate which
 modalities are active for the session.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.1.1-2">This use case covers the protocol interface between the client
 application and the agent. The interaction between the user and
@@ -1505,52 +1505,47 @@ intermediary client application is not covered in this use case.<a href="#sectio
             <tbody>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">A1-1</td>
-                <td class="text-left" rowspan="1" colspan="1">The protocol is required to allow any client to communicate with any agent service.</td>
-                <td class="text-left" rowspan="1" colspan="1">Discovery, Authentication</td>
-              </tr>
-              <tr>
-                <td class="text-left" rowspan="1" colspan="1">A1-2</td>
                 <td class="text-left" rowspan="1" colspan="1">The protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">A1-3</td>
+                <td class="text-left" rowspan="1" colspan="1">A1-2</td>
                 <td class="text-left" rowspan="1" colspan="1">The protocol is required to define a task cancellation message that the client can issue at any point during task execution.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">A1-4</td>
+                <td class="text-left" rowspan="1" colspan="1">A1-3</td>
                 <td class="text-left" rowspan="1" colspan="1">The protocol is required to define structured error message types that distinguish at minimum: transport failure, tool invocation failure, and agent processing failure.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">A1-5</td>
+                <td class="text-left" rowspan="1" colspan="1">A1-4</td>
                 <td class="text-left" rowspan="1" colspan="1">The protocol is required to support multiple modalities for both input and output.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">A1-6</td>
+                <td class="text-left" rowspan="1" colspan="1">A1-5</td>
                 <td class="text-left" rowspan="1" colspan="1">The protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session.</td>
                 <td class="text-left" rowspan="1" colspan="1">Discovery, Transport</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">A1-7</td>
+                <td class="text-left" rowspan="1" colspan="1">A1-6</td>
                 <td class="text-left" rowspan="1" colspan="1">The protocol is required to support agent-initiated notifications to the client during task execution.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">A1-8</td>
+                <td class="text-left" rowspan="1" colspan="1">A1-7</td>
                 <td class="text-left" rowspan="1" colspan="1">The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements.</td>
                 <td class="text-left" rowspan="1" colspan="1">Discovery, Transport, Security</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">A1-9</td>
+                <td class="text-left" rowspan="1" colspan="1">A1-8</td>
                 <td class="text-left" rowspan="1" colspan="1">The protocol is required to support bulk transfer of large data between communicating parties, applicable to both agent-to-tool and agent-to-agent interactions.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">A1-10</td>
-                <td class="text-left" rowspan="1" colspan="1">A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 <span>[<a href="#RFC6749" class="cite xref">RFC6749</a>]</span> or GNAP <span>[<a href="#RFC9635" class="cite xref">RFC9635</a>]</span>.</td>
+                <td class="text-left" rowspan="1" colspan="1">A1-9</td>
+                <td class="text-left" rowspan="1" colspan="1">A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials.</td>
                 <td class="text-left" rowspan="1" colspan="1">Authentication</td>
               </tr>
             </tbody>
