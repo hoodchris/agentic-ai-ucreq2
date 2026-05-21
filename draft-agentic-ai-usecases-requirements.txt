@@ -222,31 +222,35 @@ Table of Contents
    +========+========================================+================+
    | REQ-ID | Description                            | Tag            |
    +========+========================================+================+
-   | CMN-1  | Mutual authentication is required      | Authentication |
+   | CMN-1  | The protocol is required to allow any  | Discovery,     |
+   |        | client application to communicate with | Authentication |
+   |        | any agent service.                     |                |
+   +--------+----------------------------------------+----------------+
+   | CMN-2  | Mutual authentication is required      | Authentication |
    |        | between all communicating parties.     |                |
    +--------+----------------------------------------+----------------+
-   | CMN-2  | All protocol traffic is required to be | Security       |
+   | CMN-3  | All protocol traffic is required to be | Security       |
    |        | encrypted and integrity-protected in   |                |
    |        | transit.                               |                |
    +--------+----------------------------------------+----------------+
-   | CMN-3  | Structured error responses are         | Security       |
+   | CMN-4  | Structured error responses are         | Security       |
    |        | required to include an authorization   |                |
    |        | scope violation type, reported by the  |                |
    |        | orchestrator or mediator when an agent |                |
    |        | attempts an action that exceeds or     |                |
    |        | contradicts the scope delegated to it. |                |
    +--------+----------------------------------------+----------------+
-   | CMN-4  | Structured error responses are         | Transport      |
+   | CMN-5  | Structured error responses are         | Transport      |
    |        | required, distinguishing at minimum:   |                |
    |        | authentication failure, authorization  |                |
    |        | failure, timeout, and internal error.  |                |
    +--------+----------------------------------------+----------------+
-   | CMN-5  | The protocol provides a means to       | Transport      |
+   | CMN-6  | The protocol provides a means to       | Transport      |
    |        | signal task priority so that critical- |                |
    |        | path tasks can be scheduled ahead of   |                |
    |        | lower-priority ones.                   |                |
    +--------+----------------------------------------+----------------+
-   | CMN-6  | The protocol is required to support    | Security       |
+   | CMN-7  | The protocol is required to support    | Security       |
    |        | cryptographic algorithm agility,       |                |
    |        | ensuring that cryptographic algorithms |                |
    |        | used for encryption, authentication,   |                |
@@ -255,12 +259,12 @@ Table of Contents
    |        | updated over time, in accordance with  |                |
    |        | [RFC7696].                             |                |
    +--------+----------------------------------------+----------------+
-   | CMN-7  | The protocol is required to provide a  | Authentication |
-   |        | means to verify the validity of        |                |
-   |        | authentication credentials used by     |                |
-   |        | agents at the time of use.             |                |
+   | CMN-8  | The protocol is required to provide a  | Authentication |
+   |        | means to verify the authenticate       |                |
+   |        | credentials validity used by agents at |                |
+   |        | the time of use.                       |                |
    +--------+----------------------------------------+----------------+
-   | CMN-8  | The protocol is required to support    | Security       |
+   | CMN-9  | The protocol is required to support    | Security       |
    |        | signaling credential revocation and    |                |
    |        | invalid credential outcomes.           |                |
    +--------+----------------------------------------+----------------+
