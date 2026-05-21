@@ -86,8 +86,8 @@ This document describes use cases for agentic AI communication systems
 and derives protocol requirements from those use cases. The requirements
 are intended to guide IETF standardization work on protocols in the
 context of agent-to-agent communication, agent-to-tool communication,
-and agent identity and authorization, including development of a
-protocol framework for agentic AI communication systems.
+with focus on multimodal communicaiton, session management, discovey,
+communicaiton security, agent identity and authorization.
 
 --- middle
 
