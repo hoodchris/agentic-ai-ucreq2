@@ -120,7 +120,7 @@ environment, maintains internal state, and executes actions to achieve
 specified goals, potentially including communication with other agents
 or invocation of external tools.
 
-**Agent Identity**: A identifier associated with
+**Agent Identity**: An identifier associated with
 an AI agent, used for authentication and accountability
 within agentic communication systems.
 
@@ -184,7 +184,8 @@ delegated by one agent to another.
 in-progress, completed, failed).
 
 **Tool**: An external service invoked by an agent to retrieve data or
-perform operations.
+perform operations. A tool is not necessarily an agent and may not participate
+in agent-to-agent communication.
 
 **User**: A human that initiates interaction with an
 AI agent by submitting a request or task.
@@ -208,8 +209,8 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 | CMN-4  | Structured error responses are required, distinguishing at minimum: authentication failure, authorization failure, timeout, and internal error. | Transport |
 | CMN-5  | The protocol provides a means to signal task priority so that critical-path tasks can be scheduled ahead of lower-priority ones. | Transport |
 | CMN-6  | The protocol is required to support cryptographic algorithm agility, ensuring that cryptographic algorithms used for encryption, authentication, credential verification, and integrity protection can be negotiated and updated over time, in accordance with {{RFC7696}}. | Security |
-| CMN-7  | The protocol is required to provide a means to verify the authenticate credentials validity used by agents at the time of use. | Authentication |
-| CMN-9  | The protocol is required to support signaling credential revocation and invalid credential outcomes. | Security |
+| CMN-7  | The protocol is required to provide a means to verify the validity of authentication credentials used by agents at the time of use. | Authentication |
+| CMN-8  | The protocol is required to support signaling credential revocation and invalid credential outcomes. | Security |
 
 # Use Cases {#usecases}
 
@@ -222,7 +223,7 @@ agent executes the task by invoking one or more tools and returns
 results to the user. The tools invoked by the agent may reside in
 the same or a different administrative domain. The agent protocol
 is required to support multiple input and output modalities, and
-the client and agent are required to be able to negotiate which
+the client application and agent are required to be able to negotiate which
 modalities are active for the session.
 
 This use case covers the protocol interface between the client
@@ -237,9 +238,9 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 ### Interaction Flow
 
 ~~~
-+--------------- +                       +-----------+
++----------------+                       +-----------+
 | App/agent      |<--------------------> |   Agent   |
-+------------ ---+        Protocol       +-----------+
++----------------+        Protocol       +-----------+
                                                |
                                      Protocol  |
                                                v
@@ -252,18 +253,17 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
-| A1-1  | The protocol is required to allow any client to communicate with any agent service. | Discovery, Authentication |
-| A1-2  | The protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing. | Transport |
-| A1-3  | The protocol is required to define a task cancellation message that the client can issue at any point during task execution. | Transport |
-| A1-4  | The protocol is required to define structured error message types that distinguish at minimum: transport failure, tool invocation failure, and agent processing failure. | Transport |
-| A1-5  | The protocol is required to support multiple modalities for both input and output. | Transport |
-| A1-6  | The protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session. | Discovery, Transport |
-| A1-7  | The protocol is required to support agent-initiated notifications to the client during task execution. | Transport |
-| A1-8  | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. | Discovery, Transport, Security |
-| A1-9  | The protocol is required to support bulk transfer of large data between communicating parties, applicable to both agent-to-tool and agent-to-agent interactions. | Transport |
-| A1-10 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. | Authentication |
+| A1-1  | The protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing. | Transport |
+| A1-2  | The protocol is required to define a task cancellation message that the client can issue at any point during task execution. | Transport |
+| A1-3  | The protocol is required to define structured error message types that distinguish at minimum: transport failure, tool invocation failure, and agent processing failure. | Transport |
+| A1-4  | The protocol is required to support multiple modalities for both input and output. | Transport |
+| A1-5  | The protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session. | Discovery, Transport |
+| A1-6  | The protocol is required to support agent-initiated notifications to the client during task execution. | Transport |
+| A1-7  | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. | Discovery, Transport, Security |
+| A1-8  | The protocol is required to support bulk transfer of large data between communicating parties, applicable to both agent-to-tool and agent-to-agent interactions. | Transport |
+| A1-9 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. | Authentication |
 
-## Orchestrator and agent Collaboration {#orchestrator-agent}
+## Orchestrator and Agent Collaboration {#orchestrator-agent}
 
 ### Description
 
@@ -308,9 +308,9 @@ and is implemented in deployed multi-agent frameworks including
 |--------|-------------|-----|
 | B1-1  | A protocol is required to be facilitate the task delegation for an orchestrator to agents that includes task delegation and acknowledgement message types. | Transport |
 | B1-2  | The protocol is required to support asynchronous delegation, allowing the orchestrator to delegate to multiple agents without waiting for each to complete before proceeding. | Transport |
-| B1-3  | The protocol is required to define a result reporting message by which a agent returns its completed output to the orchestrator. | Transport |
+| B1-3  | The protocol is required to define a result reporting message by which an agent returns its completed output to the orchestrator. | Transport |
 | B1-4  | The protocol is required to support streaming of intermediate results from the agent to the orchestrator during task execution. | Transport |
-| B1-5  | The protocol is required to define a task cancellation message that the orchestrator can send to a agent to abort a delegated subtask. | Transport |
+| B1-5  | The protocol is required to define a task cancellation message that the orchestrator can send to an agent to abort a delegated subtask. | Transport |
 | B1-6  | The protocol is required to support persistent session identifiers that survive network interruption, and is required to define a session resumption message by which an agent re-attaches to an interrupted session restoring the prior task context. | Transport |
 
 ## Long-Running Delegated Task with Authorization Checkpoint {#authz-checkpoint}
@@ -399,7 +399,7 @@ and introduces additional requirements specific to multi-hop delegation chains.
 | B3-3  | The protocol is required to support transferable credentials that carry the original authorization constraints across all hops in the delegation chain. Each receiving agent is required to be able to cryptographically verify that the credential presented to it was issued by the delegating agent and that the chain of delegation traces back to the original authorization. | Authentication, Security |
 | B3-4  | The protocol is required to ensure that authorization granted to an agent in a delegation chain, including for tool invocations, is derived from the authorization issued by the initiating agent, and not from the identity or authorization scope of any intermediate agent in the chain. | Authentication, Security |
 | B3-5  | The protocol is required to define a capability advertisement mechanism by which agents publish their supported functions, supported protocols, rate limits, authentication methods, authorization mechanisms, and authorization scopes to a registry, and by which other agents can query the registry to discover and select appropriate peers at runtime without requiring prior configuration. | Discovery |
-| B3-6  |The protocol is required to define an agent identifier format that uniquely represents an agent identity and is resolvable to the agent's communication endpoint using an appropriate discovery mechanism. | Discovery |
+| B3-6  | The protocol is required to define an agent identifier format that uniquely represents an agent identity and is resolvable to the agent's communication endpoint using an appropriate discovery mechanism. | Discovery |
 | B3-7  | The protocol is required to ensure that advertised capabilities are integrity-protected, such that a discovering agent can verify they have not been tampered with. | Discovery, Security |
 
 ## Cooperative Reasoning and Consensus Formation {#cooperative-reasoning}
