@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-17T02:37:36.857715+00:00",
+  "timestamp": "2026-05-21T02:48:15.147223+00:00",
   "repo": "tireddy2/agentic-ai-ucreq2",
   "labels": [
     {
@@ -548,6 +548,118 @@
           "body": "Fixed. ",
           "createdAt": "2026-05-16T06:21:43Z",
           "updatedAt": "2026-05-16T06:21:43Z"
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "id": "I_kwDOSIVa8M8AAAABCsgUHw",
+      "title": "Define Agent Identity, Agent Identifier, and Agent Description in Terminology",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/38",
+      "state": "CLOSED",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "### Problem\nThe document defines key concepts (e.g., AI Agent, Session, Task) but does not define the identity-related terminology needed for interoperability: **Agent Identity**, **Agent Identifier**, and (implicitly) the agent self-description object used for discovery/interoperability.\n\nAt the same time, identity concepts are already assumed by multiple requirements:\n- **CMN-1** (mutual authentication)\n- **B3-2** (identity preservation across multi-hop delegation)\n- **B3-6** (agent identifier format resolvable to endpoint)\n\nWithout explicit definitions:\n- It is unclear what exactly is being authenticated (identity vs endpoint vs credentials).\n- Implementations may diverge in how identity is represented and scoped.\n- The relationship between identity, identifiers, credentials, and endpoint resolution remains ambiguous.\n- This creates interoperability and security inconsistencies across deployments.\n\n### Proposed Change\nAdd the following definitions to the **Terminology** section (minimal, non-prescriptive):\n\n- **Agent Identity**: a persistent or temporary identifier associated with an AI agent, used for authentication, authorization, and accountability.\n- **Agent Identifier**: a structured representation of an agent identity that may be resolvable to a network endpoint and bound to cryptographic credentials.\n- **Agent Description**: a structured representation of an agent\u2019s identity, capabilities, endpoints, security requirements, and metadata, used for discovery and interoperability.\n\n### Acceptance Criteria\n- The Terminology section includes the above three definitions.\n- Existing requirements referencing authentication, identity preservation, and identifier format (CMN-1, B3-2, B3-6) can be interpreted consistently without changing their meaning.\n``",
+      "createdAt": "2026-05-19T08:45:46Z",
+      "updatedAt": "2026-05-20T14:26:54Z",
+      "closedAt": "2026-05-20T14:26:54Z",
+      "comments": []
+    },
+    {
+      "number": 39,
+      "id": "I_kwDOSIVa8M8AAAABCsgvmw",
+      "title": "Authentication requirement lacks binding between identity and credentials",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/39",
+      "state": "CLOSED",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "CMN-1 requires mutual authentication, but does not specify:\n\nwhat identity is authenticated\nhow identity is bound to credentials\n\nWithout explicit binding:\n\nauthentication may verify only credentials, not identity\nidentity spoofing risks remain unclear\nimplementations may diverge in trust model",
+      "createdAt": "2026-05-19T08:46:45Z",
+      "updatedAt": "2026-05-20T12:20:42Z",
+      "closedAt": "2026-05-20T12:20:42Z",
+      "comments": []
+    },
+    {
+      "number": 40,
+      "id": "I_kwDOSIVa8M8AAAABCsg4jQ",
+      "title": "Missing requirements for agent identity lifecycle, validity, and revocation",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/40",
+      "state": "CLOSED",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The document supports:\n\nlong-running sessions (B1-6)\nmulti-hop delegation chains (B3)\n\nHowever, it does not define:\n\nidentity validity period\nexpiration or revocation\nre-authentication during session resumption\n\nThis is a critical gap for:\n\nsecurity (expired credentials)\nlong-running tasks\nresilience and recovery",
+      "createdAt": "2026-05-19T08:47:05Z",
+      "updatedAt": "2026-05-20T12:05:56Z",
+      "closedAt": "2026-05-20T12:05:56Z",
+      "comments": []
+    },
+    {
+      "number": 41,
+      "id": "I_kwDOSIVa8M8AAAABCshRfw",
+      "title": "Ambiguity in agent identifier resolution and endpoint binding",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/41",
+      "state": "CLOSED",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Requirement B3-6 requires agent identifiers to be resolvable to endpoints.\nHowever, this introduces ambiguity:\n\nconflates logical identity with network location\nover-constrains architecture\ndoes not allow registry-based, indirect, or privacy-preserving resolution\n\nThe document should clearly separate:\n\nidentity\nidentifier\nendpoint/location",
+      "createdAt": "2026-05-19T08:47:59Z",
+      "updatedAt": "2026-05-20T12:05:07Z",
+      "closedAt": "2026-05-20T12:05:07Z",
+      "comments": []
+    },
+    {
+      "number": 42,
+      "id": "I_kwDOSIVa8M8AAAABCshu1Q",
+      "title": "Missing privacy considerations for agent identity exposure and tracking",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/42",
+      "state": "OPEN",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The document requires:\n\nidentity propagation across hops (B3-2)\naudit logs (B5-2)\n\nHowever, it does not address:\n\nwhether agent identity is sensitive\ntracking risks across domains\npotential need for pseudonymous or temporary identifiers\n\nThis is a significant gap for:\n\nmulti-domain deployments\nregulatory compliance\nIETF privacy review",
+      "createdAt": "2026-05-19T08:49:05Z",
+      "updatedAt": "2026-05-19T14:09:23Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I would not bother about that in the use case document as we are not defining protocols yet. but we can raise that in the security consideration section or put as a requirement.",
+          "createdAt": "2026-05-19T14:09:23Z",
+          "updatedAt": "2026-05-19T14:09:23Z"
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "id": "I_kwDOSIVa8M8AAAABCsh41Q",
+      "title": "Lack of clarity on identity roles in multi-hop delegation chains",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/issues/43",
+      "state": "OPEN",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "B3 requirements support identity propagation and credential chaining.\nHowever, the draft does not distinguish between:\n\noriginal identity (task originator)\ndelegating agent identity\nacting agent identity\n\nThis creates ambiguity in:\n\naccountability\nauthorization decisions\naudit and traceability",
+      "createdAt": "2026-05-19T08:49:26Z",
+      "updatedAt": "2026-05-19T14:10:32Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Do you want those a requirements?",
+          "createdAt": "2026-05-19T14:10:31Z",
+          "updatedAt": "2026-05-19T14:10:31Z"
         }
       ]
     }
@@ -1845,6 +1957,914 @@
           "body": "",
           "createdAt": "2026-05-15T13:16:15Z",
           "updatedAt": "2026-05-15T13:16:15Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "id": "PR_kwDOSIVa8M7dA4_4",
+      "title": "Sina-batch-01 - Add missing terminology ",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/44",
+      "state": "CLOSED",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "## Summary\nThis PR expands and clarifies the **Terminology** section to remove ambiguity around agent identity and to define core protocol primitives used throughout the draft (tasks, sessions, messages, discovery, and capability semantics). \n\nThe changes are split across multiple small commits (one term per commit) to make review easier.\n\n## Motivation\nThe draft previously defined only a minimal terminology set (e.g., AI Agent, Orchestrator Agent, Tool, Mediator Agent, Session, Task, etc.).   \nHowever, identity is already assumed by requirements such as **CMN-1** (mutual authentication) and multi-hop delegation requirements such as **B3-2** and **B3-6**, without explicit definitions of what \u201cagent identity\u201d and \u201cagent identifier\u201d mean. This can lead to divergent interpretations and interoperability/security inconsistencies. [1](https://nokia.sharepoint.com/sites/gxp/_layouts/15/Doc.aspx?sourcedoc=%7BBBA4E6A4-9EF8-47F2-BFD0-DD97EC8BFB77%7D&file=6G%20Network%20for%20AI%20agent%20in%20terminal.pptx&action=edit&mobileredirect=true)\n\n## What changed\n### Added terminology (new terms)\n- **User**\n- **Agent Identity**, **Agent Identifier**, **Agent Description**\n- **Message**, **Context**, **Event**, **Artifact**\n- **Capability**\n- **Delegation**, **Task Execution Context**, **Task State**\n- **Correlation Identifier**\n- **Worker Agent** and **Tool Agent** (as role-compatible aliases)\n\n### Clarified existing terminology\n- **Tool**: clarified that a tool is not necessarily an agent and may not participate in A2A communication.\n- **Session**: clarified relationship between session and context (session may carry/maintain contexts).\n- **Task**: expanded definition to include identifier, structure (inputs/outputs), and async/progress/result semantics.\n- **Coordinator Agent**: clarified that agents may assume multiple roles depending on interaction context.\n\n## Scope / Non-goals\n- Terminology-only update: no changes to protocol requirements, no new protocol mechanisms introduced.\n- Does not prescribe a specific identity provisioning framework; it defines terms to make existing requirements interpretable consistently.\n\n## Issue linkage\nCloses #38 [1](https://nokia.sharepoint.com/sites/gxp/_layouts/15/Doc.aspx?sourcedoc=%7BBBA4E6A4-9EF8-47F2-BFD0-DD97EC8BFB77%7D&file=6G%20Network%20for%20AI%20agent%20in%20terminal.pptx&action=edit&mobileredirect=true)\n\n## Notes for reviewers\nCommits are intentionally small (one term per commit) to keep discussions isolated and allow selective revert if needed. I can squash after review if preferred.",
+      "createdAt": "2026-05-19T09:53:36Z",
+      "updatedAt": "2026-05-20T14:28:07Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "c1c106c1197917209db5657979a0e851583f394b",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "sina-batch-01",
+      "headRefOid": "d4ec66363bfddced738d648a1c570d36fa4dd4f5",
+      "closedAt": "2026-05-20T14:28:07Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAXtMWw",
+          "commit": {
+            "abbreviatedOid": "5efdae8"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Just have one comment, rest of definitions looks good to me.",
+          "createdAt": "2026-05-19T14:18:55Z",
+          "updatedAt": "2026-05-19T14:19:53Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "are we using \"description\" as a term? in that case I think this can go inline where we use it.",
+              "createdAt": "2026-05-19T14:18:55Z",
+              "updatedAt": "2026-05-19T14:19:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAXnoPw",
+          "commit": {
+            "abbreviatedOid": "5efdae8"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-19T14:08:41Z",
+          "updatedAt": "2026-05-19T14:27:46Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "The term \"User\" in IETF protocols refers to a human. Using it to also mean an external system could cause confusion.",
+              "createdAt": "2026-05-19T14:08:41Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\n**User**: A human that initiates interaction with an\n```",
+              "createdAt": "2026-05-19T14:09:00Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 7,
+              "body": "The Terminology section should define what Agent Identity is, not how it is managed.",
+              "createdAt": "2026-05-19T14:10:08Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\n**Agent Identity**: A identifier associated with\n```",
+              "createdAt": "2026-05-19T14:10:24Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 8,
+              "body": "Agent identity is used for authentication verifying who the agent is. Authorization decisions are then made based on the authenticated identity. The two are sequential, not independent uses of the identity.",
+              "createdAt": "2026-05-19T14:11:50Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\nan AI agent, used for authentication and accountability\n```",
+              "createdAt": "2026-05-19T14:12:13Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 13,
+              "body": "The properties 'resolvable to a network endpoint' and 'bound to cryptographic credentials' are protocol design decisions that are yet to be evaluated. \n\nI propose following change:\nAgent Identifier: An identifier uniquely associated with an agent within an agentic communication system.",
+              "createdAt": "2026-05-19T14:16:41Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 15,
+              "body": "Agent description is not used in the draft, it needs to be removed. ",
+              "createdAt": "2026-05-19T14:19:30Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 28,
+              "body": "RFC 2119 terminology like MAY can't be used in for terms. ",
+              "createdAt": "2026-05-19T14:24:47Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 38,
+              "body": "Artifact is not used in the spec. ",
+              "createdAt": "2026-05-19T14:25:18Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "\"Event\" is not used in the spec. In addition, MAY is not allowed in terminology. ",
+              "createdAt": "2026-05-19T14:25:46Z",
+              "updatedAt": "2026-05-20T02:48:03Z"
+            },
+            {
+              "originalPosition": 100,
+              "body": "Worker agent is not used in the spec. ",
+              "createdAt": "2026-05-19T14:26:50Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 96,
+              "body": "Correlation Identifier is also not used in the spec. ",
+              "createdAt": "2026-05-19T14:27:13Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            },
+            {
+              "originalPosition": 103,
+              "body": "Same for Tool Agent. ",
+              "createdAt": "2026-05-19T14:27:43Z",
+              "updatedAt": "2026-05-19T14:27:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAcc3Kg",
+          "commit": {
+            "abbreviatedOid": "5efdae8"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T02:37:10Z",
+          "updatedAt": "2026-05-20T02:49:28Z",
+          "comments": [
+            {
+              "originalPosition": 85,
+              "body": "The multi-role observation is valid but applies to all agent roles, not just Coordinator Agent. Suggest adding it as a general note in the Terminology section: An agent may assume different roles depending on the interaction context.",
+              "createdAt": "2026-05-20T02:37:10Z",
+              "updatedAt": "2026-05-20T02:49:28Z"
+            },
+            {
+              "originalPosition": 77,
+              "body": "I propose following change: \nTask State: The current execution status of a task, such as pending, in-progress, completed, or failed.",
+              "createdAt": "2026-05-20T02:38:37Z",
+              "updatedAt": "2026-05-20T02:49:28Z"
+            },
+            {
+              "originalPosition": 71,
+              "body": "Task execution context is not used in the spec. ",
+              "createdAt": "2026-05-20T02:39:09Z",
+              "updatedAt": "2026-05-20T02:49:29Z"
+            },
+            {
+              "originalPosition": 60,
+              "body": "The current definition is sufficient. The proposed additions are mechanism details that belong in the protocol specification, not the requirements draft.",
+              "createdAt": "2026-05-20T02:41:42Z",
+              "updatedAt": "2026-05-20T02:49:29Z"
+            },
+            {
+              "originalPosition": 57,
+              "body": "```suggestion\nindividual message exchanges and network connections. A session can carry\n```",
+              "createdAt": "2026-05-20T02:44:14Z",
+              "updatedAt": "2026-05-20T02:49:29Z"
+            },
+            {
+              "originalPosition": 48,
+              "body": "Machine-interpretable is a mechanism detail that belongs in the protocol specification. Suggest simplifying to: A description of what an agent can perform, including inputs, outputs, and constraints.",
+              "createdAt": "2026-05-20T02:45:38Z",
+              "updatedAt": "2026-05-20T02:49:29Z"
+            },
+            {
+              "originalPosition": 26,
+              "body": "Transmitted synchronously or asynchronously' and 'correlated to a task or session' are mechanism details that belong in the protocol specification. Suggest simplifying to:\nA discrete unit of communication exchanged between agents, containing structured data such as a task request, response, progress update, event notification, or control signal.",
+              "createdAt": "2026-05-20T02:49:25Z",
+              "updatedAt": "2026-05-20T02:49:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfaujg",
+          "commit": {
+            "abbreviatedOid": "c9d1b8f"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:18:19Z",
+          "updatedAt": "2026-05-20T11:18:19Z",
+          "comments": [
+            {
+              "originalPosition": 28,
+              "body": "right.",
+              "createdAt": "2026-05-20T11:18:19Z",
+              "updatedAt": "2026-05-20T11:18:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfbBRQ",
+          "commit": {
+            "abbreviatedOid": "c9d1b8f"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:19:01Z",
+          "updatedAt": "2026-05-20T11:19:01Z",
+          "comments": [
+            {
+              "originalPosition": 28,
+              "body": "```suggestion\nupdate, event notification, or control signal. \n```",
+              "createdAt": "2026-05-20T11:19:01Z",
+              "updatedAt": "2026-05-20T11:19:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfbXCQ",
+          "commit": {
+            "abbreviatedOid": "66b41d8"
+          },
+          "author": "github-actions",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:19:47Z",
+          "updatedAt": "2026-05-20T11:19:47Z",
+          "comments": [
+            {
+              "originalPosition": 28,
+              "body": "````suggestion\nupdate, event notification, or control signal.\n````",
+              "createdAt": "2026-05-20T11:19:47Z",
+              "updatedAt": "2026-05-20T11:19:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfbbvw",
+          "commit": {
+            "abbreviatedOid": "66b41d8"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:19:57Z",
+          "updatedAt": "2026-05-20T11:19:57Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "```suggestion\n```",
+              "createdAt": "2026-05-20T11:19:57Z",
+              "updatedAt": "2026-05-20T11:19:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfbvXQ",
+          "commit": {
+            "abbreviatedOid": "de33e70"
+          },
+          "author": "github-actions",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:20:38Z",
+          "updatedAt": "2026-05-20T11:20:38Z",
+          "comments": [
+            {
+              "originalPosition": 28,
+              "body": "````suggestion\nupdate, event notification, or control signal.\n````",
+              "createdAt": "2026-05-20T11:20:38Z",
+              "updatedAt": "2026-05-20T11:20:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfcH4g",
+          "commit": {
+            "abbreviatedOid": "0d6cec5"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:21:26Z",
+          "updatedAt": "2026-05-20T11:21:26Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "```suggestion\n**Capability**: A description of what an agent can\n```",
+              "createdAt": "2026-05-20T11:21:26Z",
+              "updatedAt": "2026-05-20T11:21:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfc4ZQ",
+          "commit": {
+            "abbreviatedOid": "f6987cd"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:22:54Z",
+          "updatedAt": "2026-05-20T11:22:54Z",
+          "comments": [
+            {
+              "originalPosition": 77,
+              "body": "```suggestion\nin-progress, completed, failed).\n```",
+              "createdAt": "2026-05-20T11:22:54Z",
+              "updatedAt": "2026-05-20T11:22:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfdEYA",
+          "commit": {
+            "abbreviatedOid": "f6987cd"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:23:14Z",
+          "updatedAt": "2026-05-20T11:23:15Z",
+          "comments": [
+            {
+              "originalPosition": 78,
+              "body": "```suggestion\n```",
+              "createdAt": "2026-05-20T11:23:14Z",
+              "updatedAt": "2026-05-20T11:23:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfmgXA",
+          "commit": {
+            "abbreviatedOid": "e1bf198"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:43:24Z",
+          "updatedAt": "2026-05-20T11:43:24Z",
+          "comments": [
+            {
+              "originalPosition": 101,
+              "body": "```suggestion\n```",
+              "createdAt": "2026-05-20T11:43:24Z",
+              "updatedAt": "2026-05-20T11:43:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfmo1w",
+          "commit": {
+            "abbreviatedOid": "e1bf198"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:43:39Z",
+          "updatedAt": "2026-05-20T11:43:40Z",
+          "comments": [
+            {
+              "originalPosition": 102,
+              "body": "```suggestion\n```",
+              "createdAt": "2026-05-20T11:43:39Z",
+              "updatedAt": "2026-05-20T11:43:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfm6qQ",
+          "commit": {
+            "abbreviatedOid": "4e948df"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:44:19Z",
+          "updatedAt": "2026-05-20T11:44:19Z",
+          "comments": [
+            {
+              "originalPosition": 37,
+              "body": "```suggestion\n```",
+              "createdAt": "2026-05-20T11:44:19Z",
+              "updatedAt": "2026-05-20T11:44:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfnLTg",
+          "commit": {
+            "abbreviatedOid": "4e948df"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:44:54Z",
+          "updatedAt": "2026-05-20T11:44:54Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "```suggestion\n```",
+              "createdAt": "2026-05-20T11:44:54Z",
+              "updatedAt": "2026-05-20T11:44:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfnRhg",
+          "commit": {
+            "abbreviatedOid": "4e948df"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:45:07Z",
+          "updatedAt": "2026-05-20T11:45:07Z",
+          "comments": [
+            {
+              "originalPosition": 39,
+              "body": "```suggestion\n```",
+              "createdAt": "2026-05-20T11:45:07Z",
+              "updatedAt": "2026-05-20T11:45:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfn2qA",
+          "commit": {
+            "abbreviatedOid": "3ff507d"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:46:42Z",
+          "updatedAt": "2026-05-20T11:46:42Z",
+          "comments": [
+            {
+              "originalPosition": 98,
+              "body": "```suggestion\n```",
+              "createdAt": "2026-05-20T11:46:42Z",
+              "updatedAt": "2026-05-20T11:46:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfo0Dw",
+          "commit": {
+            "abbreviatedOid": "99b15ac"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T11:49:04Z",
+          "updatedAt": "2026-05-20T11:49:05Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "```suggestion\n```",
+              "createdAt": "2026-05-20T11:49:05Z",
+              "updatedAt": "2026-05-20T11:49:05Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "id": "PR_kwDOSIVa8M7dBOQg",
+      "title": "Clarify CMN-1: bind authenticated agent identity to presented credentials",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/45",
+      "state": "CLOSED",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Strengthens CMN-1 by requiring explicit binding between agent identity and credentials, reducing ambiguity in authentication semantics and preventing inconsistent implementations.\n",
+      "createdAt": "2026-05-19T10:09:11Z",
+      "updatedAt": "2026-05-20T11:14:26Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "c1c106c1197917209db5657979a0e851583f394b",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "Sina-Issue-39-authentication-requirement",
+      "headRefOid": "d94d918ecd1f1a96d3e117d7d1798044137c6613",
+      "closedAt": "2026-05-20T11:14:26Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing this PR as it is marked as redundant.",
+          "createdAt": "2026-05-20T11:14:26Z",
+          "updatedAt": "2026-05-20T11:14:26Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAXsXSQ",
+          "commit": {
+            "abbreviatedOid": "d94d918"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2026-05-19T14:17:26Z",
+          "updatedAt": "2026-05-19T14:20:51Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "the addition to me sounds not necessary if we are adding a separate requirement on the varifiability.",
+              "createdAt": "2026-05-19T14:17:26Z",
+              "updatedAt": "2026-05-19T14:20:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAXzD2g",
+          "commit": {
+            "abbreviatedOid": "d94d918"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-19T14:30:14Z",
+          "updatedAt": "2026-05-19T14:30:19Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Credential binding is inherent in any proper mutual authentication mechanism. The addition is redundant for a requirements draft.",
+              "createdAt": "2026-05-19T14:30:14Z",
+              "updatedAt": "2026-05-19T14:30:19Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 46,
+      "id": "PR_kwDOSIVa8M7dBkRL",
+      "title": "Add authentication and security requirements to the draft",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/46",
+      "state": "MERGED",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- Introduced new requirements for authentication credentials, session re-authentication, and machine-readable revocation outcomes.\n- Enhanced the security and transport sections to ensure robust handling of authentication and credential validation.",
+      "createdAt": "2026-05-19T10:26:11Z",
+      "updatedAt": "2026-05-20T12:05:55Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "c1c106c1197917209db5657979a0e851583f394b",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "40-Sina-missing-requirements-for-agent-identity-lifecycle-validity-and-revocation",
+      "headRefOid": "acd833c671c3c04d0935be8376e0c5c55b74bf3c",
+      "closedAt": "2026-05-20T12:05:55Z",
+      "mergedAt": "2026-05-20T12:05:55Z",
+      "mergedBy": "zaheduzzaman",
+      "mergeCommit": {
+        "oid": "3d3ea18bb07380f42f81a01c070bcad7c374c372"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAXpmTQ",
+          "commit": {
+            "abbreviatedOid": "cf0d4de"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-19T14:12:22Z",
+          "updatedAt": "2026-05-19T14:21:27Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "why do we need to mention machine-readable way?",
+              "createdAt": "2026-05-19T14:12:22Z",
+              "updatedAt": "2026-05-19T14:21:27Z"
+            },
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\n| CMN-7  | The protocol is required to provide a means to verify the authenticate credentials validity used by agents at the time of use. | Authentication |\n```",
+              "createdAt": "2026-05-19T14:15:09Z",
+              "updatedAt": "2026-05-19T14:21:27Z"
+            },
+            {
+              "originalPosition": 5,
+              "body": "this should go to B1 - requirement section as this is related to a particular use case of session resumption.",
+              "createdAt": "2026-05-19T14:16:05Z",
+              "updatedAt": "2026-05-19T14:21:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAX1WHQ",
+          "commit": {
+            "abbreviatedOid": "63cfa52"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-19T14:34:29Z",
+          "updatedAt": "2026-05-19T14:36:20Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Keep it simple (no need to use MUST), something like: When a session is resumed, communicating parties are required to re-authenticate and re-validate the peer's identity and credentials. | Transport, Authentication",
+              "createdAt": "2026-05-19T14:34:29Z",
+              "updatedAt": "2026-05-19T14:36:20Z"
+            },
+            {
+              "originalPosition": 6,
+              "body": "Agreed, I propose:\n| CMN-9 | The protocol is required to support signaling credential revocation and invalid credential outcomes. | Security |",
+              "createdAt": "2026-05-19T14:36:17Z",
+              "updatedAt": "2026-05-19T14:36:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfOjjA",
+          "commit": {
+            "abbreviatedOid": "63cfa52"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T10:51:59Z",
+          "updatedAt": "2026-05-20T10:53:03Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\n| CMN-9  | The protocol is required to support signaling credential revocation and invalid credential outcomes. | Security |\n```",
+              "createdAt": "2026-05-20T10:51:59Z",
+              "updatedAt": "2026-05-20T10:53:03Z"
+            },
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\n```",
+              "createdAt": "2026-05-20T10:52:43Z",
+              "updatedAt": "2026-05-20T10:53:03Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "id": "PR_kwDOSIVa8M7dDVyt",
+      "title": "Refine agent identifier format requirement in draft-agentic-ai-usecases-requirements.md to clarify its uniqueness and resolution to communication endpoints.",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/47",
+      "state": "MERGED",
+      "author": "sinakhatibi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "## Summary\nThis PR clarifies requirement **B3-6** to avoid conflating **agent identity** with **network location** by allowing agent identifier resolution to occur **directly or indirectly** via an appropriate discovery mechanism. [2](https://teams.microsoft.com/l/meeting/details?eventId=AAMkAGYzMjEzYzkwLTczYzAtNGNiMS1iNmUxLTUzNjk5MDYwNTAwYQBGAAAAAACR_t3-pC1iQI99yygrBPqXBwB5wvnpV8qJT4-SrFbv9aLGAAAAAAENAAB5wvnpV8qJT4-SrFbv9aLGAAcfHH4mAAA%3d)\n\n## Motivation / Problem\nIssue #41 highlights that the current wording of **B3-6** (\u201cagent identifier format resolvable to the agent\u2019s endpoint\u201d) can be interpreted as tightly binding an identifier to a specific endpoint/location. This:\n- conflates logical identity with network location,\n- over-constrains architecture choices, and\n- makes it harder to support registry-based or privacy-preserving deployment models. [1](https://github.com/tireddy2/agentic-ai-ucreq2/issues/41)[2](https://teams.microsoft.com/l/meeting/details?eventId=AAMkAGYzMjEzYzkwLTczYzAtNGNiMS1iNmUxLTUzNjk5MDYwNTAwYQBGAAAAAACR_t3-pC1iQI99yygrBPqXBwB5wvnpV8qJT4-SrFbv9aLGAAAAAAENAAB5wvnpV8qJT4-SrFbv9aLGAAcfHH4mAAA%3d)\n\n## What changed\n### Before\nB3-6 required an agent identifier format \u201cresolvable to the agent\u2019s endpoint using an appropriate discovery mechanism.\u201d [2](https://teams.microsoft.com/l/meeting/details?eventId=AAMkAGYzMjEzYzkwLTczYzAtNGNiMS1iNmUxLTUzNjk5MDYwNTAwYQBGAAAAAACR_t3-pC1iQI99yygrBPqXBwB5wvnpV8qJT4-SrFbv9aLGAAAAAAENAAB5wvnpV8qJT4-SrFbv9aLGAAcfHH4mAAA%3d)\n\n### After (proposed)\nB3-6 is revised to state that an agent identifier:\n- uniquely represents an agent identity, and\n- can be resolved **directly or indirectly** to the agent\u2019s communication endpoint using an appropriate discovery mechanism.\n\nThe key clarification is **\u201cdirectly or indirectly\u201d**, which preserves the original intent (identifiers must be resolvable) while explicitly permitting indirection via registries, mediators, directories, or other discovery deployments. [1](https://github.com/tireddy2/agentic-ai-ucreq2/issues/41)[2](https://teams.microsoft.com/l/meeting/details?eventId=AAMkAGYzMjEzYzkwLTczYzAtNGNiMS1iNmUxLTUzNjk5MDYwNTAwYQBGAAAAAACR_t3-pC1iQI99yygrBPqXBwB5wvnpV8qJT4-SrFbv9aLGAAAAAAENAAB5wvnpV8qJT4-SrFbv9aLGAAcfHH4mAAA%3d)\n\n## Scope / Non-goals\n- This is a **requirements wording clarification only**.\n- It does **not** introduce or mandate a particular discovery protocol, registry API, or privacy mechanism.\n- It does **not** change the requirement that a discovery mechanism is needed; it only avoids over-constraining how resolution is achieved. [2](https://teams.microsoft.com/l/meeting/details?eventId=AAMkAGYzMjEzYzkwLTczYzAtNGNiMS1iNmUxLTUzNjk5MDYwNTAwYQBGAAAAAACR_t3-pC1iQI99yygrBPqXBwB5wvnpV8qJT4-SrFbv9aLGAAAAAAENAAB5wvnpV8qJT4-SrFbv9aLGAAcfHH4mAAA%3d)\n\n## Issue linkage\nCloses #41 [1](https://github.com/tireddy2/agentic-ai-ucreq2/issues/41)",
+      "createdAt": "2026-05-19T11:54:09Z",
+      "updatedAt": "2026-05-20T12:05:05Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "c1c106c1197917209db5657979a0e851583f394b",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "41-Sina-ambiguity-in-agent-identifier-resolution-and-endpoint-binding",
+      "headRefOid": "93a17f94910c395a545da71e642e8847bebfd8fd",
+      "closedAt": "2026-05-20T12:05:05Z",
+      "mergedAt": "2026-05-20T12:05:05Z",
+      "mergedBy": "zaheduzzaman",
+      "mergeCommit": {
+        "oid": "189e9b53c8d9b9cd748efde629abeacce5b39bad"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAXo0mg",
+          "commit": {
+            "abbreviatedOid": "586fa27"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good to me",
+          "createdAt": "2026-05-19T14:11:05Z",
+          "updatedAt": "2026-05-19T14:11:05Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAX4DoA",
+          "commit": {
+            "abbreviatedOid": "586fa27"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-19T14:39:34Z",
+          "updatedAt": "2026-05-19T14:40:11Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "\"directly or indirectly\" implies specific resolution mechanisms which is too prescriptive for a requirements draft.\n\nI propose following change:\n | B3-6 | The protocol is required to define an agent identifier format that uniquely represents an agent identity and is resolvable to the agent's communication endpoint using an appropriate discovery mechanism. | Discovery |",
+              "createdAt": "2026-05-19T14:39:34Z",
+              "updatedAt": "2026-05-19T14:40:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAfNexw",
+          "commit": {
+            "abbreviatedOid": "586fa27"
+          },
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T10:49:32Z",
+          "updatedAt": "2026-05-20T10:49:50Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\n| B3-6  |The protocol is required to define an agent identifier format that uniquely represents an agent identity and is resolvable to the agent's communication endpoint using an appropriate discovery mechanism. | Discovery |\n```",
+              "createdAt": "2026-05-20T10:49:32Z",
+              "updatedAt": "2026-05-20T10:49:50Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 48,
+      "id": "PR_kwDOSIVa8M7dfQGA",
+      "title": "added new req on session resumption authorization.",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/48",
+      "state": "OPEN",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-05-20T10:59:24Z",
+      "updatedAt": "2026-05-20T14:32:57Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "c1c106c1197917209db5657979a0e851583f394b",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-12",
+      "headRefOid": "2b274fbea0c5bcceb6ef3edd668ea2a46d68d0a5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAg5Myw",
+          "commit": {
+            "abbreviatedOid": "2b274fb"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T14:32:54Z",
+          "updatedAt": "2026-05-20T14:32:57Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "TLS session resumption does not require re-validation of peer credentials (the token  . The requirement is too prescriptive and conflicts with standard session resumption mechanisms. Suggest dropping B1-7.",
+              "createdAt": "2026-05-20T14:32:54Z",
+              "updatedAt": "2026-05-20T14:32:57Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 49,
+      "id": "PR_kwDOSIVa8M7dhP2m",
+      "title": "Updated terminology section based on what we agreed from Sina's PR",
+      "url": "https://github.com/tireddy2/agentic-ai-ucreq2/pull/49",
+      "state": "MERGED",
+      "author": "zaheduzzaman",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "created separate PR as it was hard to edit Sina's original PR",
+      "createdAt": "2026-05-20T12:18:42Z",
+      "updatedAt": "2026-05-20T14:26:03Z",
+      "baseRepository": "tireddy2/agentic-ai-ucreq2",
+      "baseRefName": "main",
+      "baseRefOid": "3d3ea18bb07380f42f81a01c070bcad7c374c372",
+      "headRepository": "tireddy2/agentic-ai-ucreq2",
+      "headRefName": "zaheduzzaman-patch-13",
+      "headRefOid": "7bad16b78ce71fea0aec655016164a3b067b2c9f",
+      "closedAt": "2026-05-20T14:26:03Z",
+      "mergedAt": "2026-05-20T14:26:03Z",
+      "mergedBy": "tireddy2",
+      "mergeCommit": {
+        "oid": "5a5e1ef4d02a863e2b3ce00844a8affcfddcae45"
+      },
+      "comments": [
+        {
+          "author": "zaheduzzaman",
+          "authorAssociation": "COLLABORATOR",
+          "body": "fixes #38 ",
+          "createdAt": "2026-05-20T12:23:35Z",
+          "updatedAt": "2026-05-20T12:23:35Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAg0ePw",
+          "commit": {
+            "abbreviatedOid": "73f95cc"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T14:23:40Z",
+          "updatedAt": "2026-05-20T14:23:40Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\n**Message**: A discrete unit of communication exchanged between agents\n```",
+              "createdAt": "2026-05-20T14:23:40Z",
+              "updatedAt": "2026-05-20T14:23:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAg05vA",
+          "commit": {
+            "abbreviatedOid": "73f95cc"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-05-20T14:24:32Z",
+          "updatedAt": "2026-05-20T14:24:32Z",
+          "comments": [
+            {
+              "originalPosition": 49,
+              "body": "```suggestion\n**Task State**: The current execution status of a task (e.g., pending, Expand\n```",
+              "createdAt": "2026-05-20T14:24:32Z",
+              "updatedAt": "2026-05-20T14:24:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOSIVa8M8AAAABAg1RUg",
+          "commit": {
+            "abbreviatedOid": "73f95cc"
+          },
+          "author": "tireddy2",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Raised couple of suggestions to fix text. ",
+          "createdAt": "2026-05-20T14:25:16Z",
+          "updatedAt": "2026-05-20T14:25:16Z",
           "comments": []
         }
       ]
