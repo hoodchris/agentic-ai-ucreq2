@@ -87,7 +87,7 @@ and derives protocol requirements from those use cases. The requirements
 are intended to guide IETF standardization work on protocols in the
 context of agent-to-agent communication, agent-to-tool communication,
 with focus on multimodal communicaiton, session management, discovey,
-communicaiton security, agent identity and authorization.
+communication security, agent identity and authentication.
 
 --- middle
 
