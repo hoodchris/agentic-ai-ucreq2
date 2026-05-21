@@ -406,10 +406,10 @@ Table of Contents
    +========+==============================================+===========+
    | REQ-ID | Description                                  | Tag       |
    +========+==============================================+===========+
-   | B1-1   | A protocol is required to be                 | Transport |
-   |        | facilitate the task delegation for an        |           |
-   |        | orchestrator to agents that includes         |           |
-   |        | task delegation and acknowledgement          |           |
+   | B1-1   | A protocol is required to facilitate         | Transport |
+   |        | task delegation for an orchestrator          |           |
+   |        | to agents that includes task                 |           |
+   |        | delegation and acknowledgement               |           |
    |        | message types.                               |           |
    +--------+----------------------------------------------+-----------+
    | B1-2   | The protocol is required to support          | Transport |
