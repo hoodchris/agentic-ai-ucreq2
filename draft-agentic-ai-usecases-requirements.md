@@ -222,7 +222,7 @@ agent executes the task by invoking one or more tools and returns
 results to the user. The tools invoked by the agent may reside in
 the same or a different administrative domain. The agent protocol
 is required to support multiple input and output modalities, and
-the client and agent are required to be able to negotiate which
+the client application and agent are required to be able to negotiate which
 modalities are active for the session.
 
 This use case covers the protocol interface between the client
@@ -252,16 +252,15 @@ This interaction pattern is described in [ROSENBERG] and [SCRM].
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
-| A1-1  | The protocol is required to allow any client to communicate with any agent service. | Discovery, Authentication |
-| A1-2  | The protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing. | Transport |
-| A1-3  | The protocol is required to define a task cancellation message that the client can issue at any point during task execution. | Transport |
-| A1-4  | The protocol is required to define structured error message types that distinguish at minimum: transport failure, tool invocation failure, and agent processing failure. | Transport |
-| A1-5  | The protocol is required to support multiple modalities for both input and output. | Transport |
-| A1-6  | The protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session. | Discovery, Transport |
-| A1-7  | The protocol is required to support agent-initiated notifications to the client during task execution. | Transport |
-| A1-8  | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. | Discovery, Transport, Security |
-| A1-9  | The protocol is required to support bulk transfer of large data between communicating parties, applicable to both agent-to-tool and agent-to-agent interactions. | Transport |
-| A1-10 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. This mechanism may be based on or extend an existing authorization framework such as OAuth 2.0 {{RFC6749}} or GNAP {{RFC9635}}. | Authentication |
+| A1-1  | The protocol is required to support incremental streaming of agent output, allowing partial results to be delivered to the client before the agent has completed processing. | Transport |
+| A1-2  | The protocol is required to define a task cancellation message that the client can issue at any point during task execution. | Transport |
+| A1-3  | The protocol is required to define structured error message types that distinguish at minimum: transport failure, tool invocation failure, and agent processing failure. | Transport |
+| A1-4  | The protocol is required to support multiple modalities for both input and output. | Transport |
+| A1-5  | The protocol is required to support modality negotiation at session setup, allowing the client and agent to agree on which modalities are active for the session. | Discovery, Transport |
+| A1-6  | The protocol is required to support agent-initiated notifications to the client during task execution. | Transport |
+| A1-7  | The protocol is required to support concurrent invocation of multiple tools within a single agent task, where tools may be operated by distinct providers across different administrative domains, each with independent authentication and authorization requirements. | Discovery, Transport, Security |
+| A1-8  | The protocol is required to support bulk transfer of large data between communicating parties, applicable to both agent-to-tool and agent-to-agent interactions. | Transport |
+| A1-9 | A delegation mechanism is required to be defined by which an agent presents to a tool provider a credential attesting the authorization for the requested tool access, without exposing the client's primary credentials. | Authentication |
 
 ## Orchestrator and agent Collaboration {#orchestrator-agent}
 
