@@ -514,7 +514,7 @@ in [MCP] and the agent routing patterns discussed in [A2A].
        /       |       \
       v        v        v
 +--------+ +---------+  +--------+
-|Agent-1 | |Tool/API |  |Agent-2 |
+| Agent-1 | | Tool   |  | Agent-2 |
 +--------+ +---------+  +--------+
 ~~~
 
