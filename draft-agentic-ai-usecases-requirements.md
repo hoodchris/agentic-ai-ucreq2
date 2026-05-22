@@ -526,7 +526,7 @@ the Identity, Authentication, and Delegation requirements defined
 for each use case. Agent identity and authentication mechanisms are
 further discussed in [KLRC].
 
-Agent identity information considered to be sensitive, particularly
+Agent identity information is considered to be sensitive, particularly
 in multi-domain deployments. Use of persistent identifiers across
 sessions and domains can enable tracking and correlation of agent
 activity. Implementations need to consider mechanisms such as
