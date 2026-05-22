@@ -65,7 +65,7 @@ Table of Contents
 
    1.  Introduction
    2.  Terminology
-   3.  Common Requirements
+   3.  Common Protocol Requirements
    4.  Use Cases
      4.1.  Simple Single-Agent Task
        4.1.1.  Description
@@ -128,9 +128,9 @@ Table of Contents
    achieve specified goals, potentially including communication with
    other agents or invocation of external tools.
 
-   *Agent Identity*: An identifier associated with an AI agent, used for
-   authentication and accountability within agentic communication
-   systems.
+   *Agent Identity*: Identity information associated with an AI agent,
+   used for authentication and accountability within agentic
+   communication systems.
 
    *Agentic AI Communication System*: A system comprising one or more AI
    agents that communicate with each other, with users, and with
@@ -162,9 +162,9 @@ Table of Contents
    delegate further to other agents without routing through the
    initiating agent.
 
-   *Mediator Agent*: An agent that serves as a proxy or mediator for
-   external tools, APIs, databases, or other resources that other agents
-   require but cannot directly access.
+   *Mediator*: An entity that serves as a proxy or mediator for external
+   tools, APIs, databases, or other resources that other agents require
+   but cannot directly access.
 
    *Message*: A discrete unit of communication exchanged between agents
    containing structured data such as a task request, response, progress
@@ -181,8 +181,8 @@ Table of Contents
    *Peer Agent*: An agent that receives delegated subtasks from another
    agent and may itself delegate further to other agents.
 
-   *Session*: A logical communication context shared between two or more
-   agents over a period of time, which may persist across multiple
+   *Session*: A logical communication exchange shared between two or
+   more agents over a period of time, which may persist across multiple
    individual message exchanges and network connections.  A session can
    carry and maintain one or more contexts shared between agents.
 
@@ -190,7 +190,7 @@ Table of Contents
    by one agent to another.
 
    *Task State*: The current execution status of a task (e.g., pending,
-   Expand in-progress, completed, failed).
+   in-progress, completed, failed).
 
    *Tool*: An external service invoked by an agent to retrieve data or
    perform operations.  A tool is not necessarily an agent and may not
@@ -199,7 +199,7 @@ Table of Contents
    *User*: A human that initiates interaction with an AI agent by
    submitting a request or task.
 
-3.  Common Requirements
+3.  Common Protocol Requirements
 
    The following baseline requirements apply to both agent-to-agent and
    agent-to-tool protocol interactions across all use cases and are not
@@ -246,10 +246,10 @@ Table of Contents
    |        | authentication failure, authorization  |                |
    |        | failure, timeout, and internal error.  |                |
    +--------+----------------------------------------+----------------+
-   | CMN-6  | The protocol provides a means to       | Transport      |
-   |        | signal task priority so that critical- |                |
-   |        | path tasks can be scheduled ahead of   |                |
-   |        | lower-priority ones.                   |                |
+   | CMN-6  | The protocol is required to provide a  | Transport      |
+   |        | means to signal task priority so that  |                |
+   |        | critical-path tasks can be scheduled   |                |
+   |        | ahead of lower-priority ones.          |                |
    +--------+----------------------------------------+----------------+
    | CMN-7  | The protocol is required to support    | Security,      |
    |        | cryptographic algorithm agility,       | Authentication |
@@ -261,9 +261,9 @@ Table of Contents
    |        | [RFC7696].                             |                |
    +--------+----------------------------------------+----------------+
    | CMN-8  | The protocol is required to provide a  | Authentication |
-   |        | means to verify the authenticate       |                |
-   |        | credentials validity used by agents at |                |
-   |        | the time of use.                       |                |
+   |        | means to verify the agent              |                |
+   |        | authentication credentials validity    |                |
+   |        | used by agents at the time of use.     |                |
    +--------+----------------------------------------+----------------+
    | CMN-9  | The protocol is required to support    | Security       |
    |        | signaling credential revocation and    |                |
@@ -454,12 +454,12 @@ Table of Contents
 4.3.1.  Description
 
    An orchestrator agent delegates a long-running task to other agents.
-   The delegated agents executes the task autonomously and sends
-   progress notifications to the orchestrator.  At any certain point one
-   or more delegated agents pause and request explicit authorization
-   from the orchestrator before proceeding further.  The orchestrator
-   may relay this authorization request to the invoker (user or agent)
-   or resolve it autonomously based on policy.
+   The delegated agent executes the task autonomously and sends progress
+   notifications to the orchestrator.  At any certain point one or more
+   delegated agents pause and request explicit authorization from the
+   orchestrator before proceeding further.  The orchestrator may relay
+   this authorization request to the invoker (user or agent) or resolve
+   it autonomously based on policy.
 
    This pattern is reflected in the In-Task Authorization mechanism
    defined in [A2A].
@@ -477,8 +477,8 @@ Table of Contents
 4.3.3.  Additional Protocol Requirements
 
    This use case builds on the requirements defined for Section 4.2 and
-   introduces additional requirements specific to multi-hop delegation
-   chains.
+   introduces additional requirements specific to authorization
+   checkpoints in delegated tasks.
 
    +========+=============================================+============+
    | REQ-ID | Description                                 | Tag        |
@@ -507,13 +507,11 @@ Table of Contents
    |        | denial is required to be conveyed as        |            |
    |        | an explicit error response.                 |            |
    +--------+---------------------------------------------+------------+
-   | B2-3   | The protocol is required to define          | Transport, |
-   |        | the valid responses to an                   | Security   |
-   |        | authorization checkpoint, including         |            |
-   |        | at minimum: approve, deny, and              |            |
-   |        | approve with modified parameters.  A        |            |
-   |        | denial is required to be conveyed as        |            |
-   |        | an explicit error response.                 |            |
+   | B2-4   | The protocol is required to support a       | Transport  |
+   |        | response timeout, after which the           |            |
+   |        | agent treats the request as                 |            |
+   |        | unresolved and halts the affected           |            |
+   |        | subtask.                                    |            |
    +--------+---------------------------------------------+------------+
 
                                   Table 4
@@ -560,74 +558,82 @@ Table of Contents
    introduces additional requirements specific to multi-hop delegation
    chains.
 
-   +========+=======================================+=================+
-   | REQ-ID | Description                           | Tag             |
-   +========+=======================================+=================+
-   | B3-1   | The protocol is required to support   | Authentication, |
-   |        | multi-hop delegation chains, where an | Security        |
-   |        | agent that receives a delegated       |                 |
-   |        | subtask may itself delegate further   |                 |
-   |        | to other agents.  At each hop, the    |                 |
-   |        | delegating agent is required to       |                 |
-   |        | present a credential that does not    |                 |
-   |        | exceed the authorization scope of the |                 |
-   |        | credential it received.               |                 |
-   +--------+---------------------------------------+-----------------+
-   | B3-2   | The protocol is required to preserve  | Authentication, |
-   |        | the identity of the originating       | Security        |
-   |        | entity across all hops in the         |                 |
-   |        | delegation chain, such that any agent |                 |
-   |        | in the chain can determine the        |                 |
-   |        | identity of the entity that           |                 |
-   |        | originally authorized the task.       |                 |
-   +--------+---------------------------------------+-----------------+
-   | B3-3   | The protocol is required to support   | Authentication, |
-   |        | transferable credentials that carry   | Security        |
-   |        | the original authorization            |                 |
-   |        | constraints across all hops in the    |                 |
-   |        | delegation chain.  Each receiving     |                 |
-   |        | agent is required to be able to       |                 |
-   |        | cryptographically verify that the     |                 |
-   |        | credential presented to it was issued |                 |
-   |        | by the delegating agent and that the  |                 |
-   |        | chain of delegation traces back to    |                 |
-   |        | the original authorization.           |                 |
-   +--------+---------------------------------------+-----------------+
-   | B3-4   | The protocol is required to ensure    | Authentication, |
-   |        | that authorization granted to an      | Security        |
-   |        | agent in a delegation chain,          |                 |
-   |        | including for tool invocations, is    |                 |
-   |        | derived from the authorization issued |                 |
-   |        | by the initiating agent, and not from |                 |
-   |        | the identity or authorization scope   |                 |
-   |        | of any intermediate agent in the      |                 |
-   |        | chain.                                |                 |
-   +--------+---------------------------------------+-----------------+
-   | B3-5   | The protocol is required to define a  | Discovery       |
-   |        | capability advertisement mechanism by |                 |
-   |        | which agents publish their supported  |                 |
-   |        | functions, supported protocols, rate  |                 |
-   |        | limits, authentication methods,       |                 |
-   |        | authorization mechanisms, and         |                 |
-   |        | authorization scopes to a registry,   |                 |
-   |        | and by which other agents can query   |                 |
-   |        | the registry to discover and select   |                 |
-   |        | appropriate peers at runtime without  |                 |
-   |        | requiring prior configuration.        |                 |
-   +--------+---------------------------------------+-----------------+
-   | B3-6   | The protocol is required to define an | Discovery       |
-   |        | agent identifier format that uniquely |                 |
-   |        | represents an agent identity and is   |                 |
-   |        | resolvable to the agent's             |                 |
-   |        | communication endpoint using an       |                 |
-   |        | appropriate discovery mechanism.      |                 |
-   +--------+---------------------------------------+-----------------+
-   | B3-7   | The protocol is required to ensure    | Discovery,      |
-   |        | that advertised capabilities are      | Security        |
-   |        | integrity-protected, such that a      |                 |
-   |        | discovering agent can verify they     |                 |
-   |        | have not been tampered with.          |                 |
-   +--------+---------------------------------------+-----------------+
+    +========+=====================================+=================+
+    | REQ-ID | Description                         | Tag             |
+    +========+=====================================+=================+
+    | B3-1   | The protocol is required to support | Authentication, |
+    |        | multi-hop delegation chains, where  | Security        |
+    |        | an agent that receives a delegated  |                 |
+    |        | subtask may itself delegate further |                 |
+    |        | to other agents.  At each hop, the  |                 |
+    |        | delegating agent is required to     |                 |
+    |        | present a credential that does not  |                 |
+    |        | exceed the authorization scope of   |                 |
+    |        | the credential it received.         |                 |
+    +--------+-------------------------------------+-----------------+
+    | B3-2   | The protocol is required to         | Authentication, |
+    |        | preserve the identity of the        | Security        |
+    |        | originating entity across all hops  |                 |
+    |        | in the delegation chain, such that  |                 |
+    |        | any agent in the chain can          |                 |
+    |        | determine the identity of the       |                 |
+    |        | entity that originally authorized   |                 |
+    |        | the task.                           |                 |
+    +--------+-------------------------------------+-----------------+
+    | B3-3   | The protocol is required to support | Authentication, |
+    |        | transferable credentials that carry | Security        |
+    |        | the original authorization          |                 |
+    |        | constraints across all hops in the  |                 |
+    |        | delegation chain.  Each receiving   |                 |
+    |        | agent is required to be able to     |                 |
+    |        | cryptographically verify that the   |                 |
+    |        | credential presented to it was      |                 |
+    |        | issued by the delegating agent and  |                 |
+    |        | that the chain of delegation traces |                 |
+    |        | back to the original authorization. |                 |
+    +--------+-------------------------------------+-----------------+
+    | B3-4   | The protocol is required to ensure  | Authentication, |
+    |        | that authorization granted to an    | Security        |
+    |        | agent in a delegation chain,        |                 |
+    |        | including for tool invocations, is  |                 |
+    |        | derived from the authorization      |                 |
+    |        | issued by the initiating agent, and |                 |
+    |        | not from the identity or            |                 |
+    |        | authorization scope of any          |                 |
+    |        | intermediate agent in the chain.    |                 |
+    +--------+-------------------------------------+-----------------+
+    | B3-5   | The protocol is required to define  | Registration,   |
+    |        | a capability registration mechanism | Discovery       |
+    |        | by which agents can publish         |                 |
+    |        | metadata describing their           |                 |
+    |        | capabilities, supported protocols,  |                 |
+    |        | rate limits, authentication         |                 |
+    |        | methods, authorization mechanisms,  |                 |
+    |        | and authorization scopes to a       |                 |
+    |        | discovery service or registry.      |                 |
+    +--------+-------------------------------------+-----------------+
+    | B3-6   | The protocol is required to define  | Discovery       |
+    |        | a capability discovery mechanism by |                 |
+    |        | which agents can query a discovery  |                 |
+    |        | service or registry to discover and |                 |
+    |        | select appropriate peer agents at   |                 |
+    |        | runtime without requiring prior     |                 |
+    |        | peer-specific configuration.        |                 |
+    +--------+-------------------------------------+-----------------+
+    | B3-7   | The protocol is required to define  | Discovery       |
+    |        | an agent identifier format that     |                 |
+    |        | uniquely represents an agent        |                 |
+    |        | identity and is resolvable to the   |                 |
+    |        | agent's communication endpoint      |                 |
+    |        | using an appropriate discovery      |                 |
+    |        | mechanism.                          |                 |
+    +--------+-------------------------------------+-----------------+
+    | B3-8   | The protocol is required to ensure  | Discovery,      |
+    |        | that advertised capabilities are    | Security        |
+    |        | integrity-protected, such that a    |                 |
+    |        | discovering agent can verify they   |                 |
+    |        | have not been tampered with.        |                 |
+    +--------+-------------------------------------+-----------------+
 
                                  Table 5
 
@@ -705,15 +711,15 @@ Table of Contents
 
    In many multi-agent deployments, access to external resources — APIs,
    databases, enterprise systems, or hardware interfaces — is
-   intentionally mediated through a designated mediator agent.  Other
-   agents request the mediator agent to perform actions or retrieve data
-   on their behalf, rather than directly invoking external systems.
-   This architecture allows access control, auditing, rate limiting, and
+   intentionally mediated through a designated mediator.  Other agents
+   request the mediator to perform actions or retrieve data on their
+   behalf, rather than directly invoking external systems.  This
+   architecture allows access control, auditing, rate limiting, and
    schema normalization to be applied uniformly at the mediation layer.
 
-   The mediator agent may also serve as an adapter between the agent
-   protocol and non-agent systems or other services that do not natively
-   support agent communication protocols, or between different agent
+   The mediator may also serve as an adapter between the agent protocol
+   and non-agent systems or other services that do not natively support
+   agent communication protocols, or between different agent
    communication protocols such as translating between the agentic
    protocol suite being developed at the IETF and existing protocols
    such as [MCP] and [A2A].  In this role, the mediator is responsible
@@ -747,34 +753,34 @@ Table of Contents
           +--------------+
           /       |       \
          v        v        v
-   +--------+ +--------+ +--------+
-   |Agent-1 | |Tool-1  | |Agent-2 |
-   +--------+ +--------+ +--------+
+   +--------+ +---------+  +--------+
+   | Agent-1 | | Tool   |  | Agent-2 |
+   +--------+ +---------+  +--------+
 
 4.6.3.  Additional Protocol Requirements
 
-   +========+=============================================+============+
-   | REQ-ID | Description                                 | Tag        |
-   +========+=============================================+============+
-   | B5-1   | The protocol is required to define error    | Transport, |
-   |        | response types for request validation       | Security   |
-   |        | failure and protocol translation            |            |
-   |        | failure, distinct from authorization        |            |
-   |        | failure.  A request validation failure      |            |
-   |        | is returned when a request is rejected      |            |
-   |        | due to potential unintended or              |            |
-   |        | irreversible side effects.                  |            |
-   +--------+---------------------------------------------+------------+
-   | B5-2   | The protocol is required to support         | Security   |
-   |        | exchange of structured (audit) record       |            |
-   |        | for each action performed on behalf of a    |            |
-   |        | requesting agent, including the             |            |
-   |        | requesting agent's identity, the            |            |
-   |        | authorization credential presented, the     |            |
-   |        | action taken, and the outcome.              |            |
-   +--------+---------------------------------------------+------------+
+   +========+============================================+============+
+   | REQ-ID | Description                                | Tag        |
+   +========+============================================+============+
+   | B5-1   | The protocol is required to define error   | Transport, |
+   |        | response types for request validation      | Security   |
+   |        | failure (rejected due to potential         |            |
+   |        | unintended or irreversible side effects)   |            |
+   |        | and protocol translation failure (rejected |            |
+   |        | on unsuccessful translation of a request   |            |
+   |        | or response between supported protocols),  |            |
+   |        | distinct from authorization failure.       |            |
+   +--------+--------------------------------------------+------------+
+   | B5-2   | The protocol is required to support        | Security   |
+   |        | exchange of structured (audit) record for  |            |
+   |        | each action performed on behalf of a       |            |
+   |        | requesting agent, including the requesting |            |
+   |        | agent's identity, the authorization        |            |
+   |        | credential presented, the action taken,    |            |
+   |        | and the outcome.                           |            |
+   +--------+--------------------------------------------+------------+
 
-                                  Table 7
+                                 Table 7
 
 5.  Security Considerations
 
@@ -799,8 +805,9 @@ Table of Contents
 
 Acknowledgements
 
-   Thanks to Borislava Gajic, Julien Maisonneuve, Parisa Foroughi, Peter
-   Leis and Sina Khatibi for the discussions and comments.
+   Thanks to Borislava Gajic, Julien Maisonneuve, Parisa Foroughi,
+   Laurent Ciavaglia, Peter Leis and Sina Khatibi for the discussions
+   and comments.
 
 Informative References
 
