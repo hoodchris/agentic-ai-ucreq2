@@ -1730,8 +1730,13 @@ and introduces additional requirements specific to authorization checkpoints in 
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">B2-3</td>
-                <td class="text-left" rowspan="1" colspan="1">The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. A denial is required to be conveyed as an explicit error response. The protocol is required to support a response timeout, after which the agent treats the request as unresolved and halts the affected subtask.</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. A denial is required to be conveyed as an explicit error response.</td>
                 <td class="text-left" rowspan="1" colspan="1">Transport, Security</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">B2-4</td>
+                <td class="text-left" rowspan="1" colspan="1">The protocol is required to support a response timeout, after which the agent treats the request as unresolved and halts the affected subtask.</td>
+                <td class="text-left" rowspan="1" colspan="1">Transport</td>
               </tr>
             </tbody>
           </table>

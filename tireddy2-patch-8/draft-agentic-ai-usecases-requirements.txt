@@ -484,31 +484,34 @@ Table of Contents
    | REQ-ID | Description                                 | Tag        |
    +========+=============================================+============+
    | B2-1   | The protocol is required to support         | Transport  |
-   |        | agent-initiated progress notifications      |            |
-   |        | to the delegating agent during task         |            |
-   |        | execution.                                  |            |
+   |        | agent-initiated progress                    |            |
+   |        | notifications to the delegating agent       |            |
+   |        | during task execution.                      |            |
    +--------+---------------------------------------------+------------+
    | B2-2   | The protocol is required to define an       | Transport, |
    |        | authorization checkpoint message by         | Security   |
-   |        | which an agent pauses task execution and    |            |
-   |        | requests explicit authorization from the    |            |
-   |        | orchestrator before proceeding.  The        |            |
-   |        | message is required to include              |            |
-   |        | sufficient context for the authorizing      |            |
-   |        | party to make an informed decision,         |            |
-   |        | including the action to be taken and its    |            |
-   |        | potential consequences.                     |            |
+   |        | which an agent pauses task execution        |            |
+   |        | and requests explicit authorization         |            |
+   |        | from the orchestrator before                |            |
+   |        | proceeding.  The message is required        |            |
+   |        | to include sufficient context for the       |            |
+   |        | authorizing party to make an informed       |            |
+   |        | decision, including the action to be        |            |
+   |        | taken and its potential consequences.       |            |
    +--------+---------------------------------------------+------------+
-   | B2-3   | The protocol is required to define the      | Transport, |
-   |        | valid responses to an authorization         | Security   |
-   |        | checkpoint, including at minimum:           |            |
-   |        | approve, deny, and approve with modified    |            |
-   |        | parameters.  A denial is required to be     |            |
-   |        | conveyed as an explicit error response.     |            |
-   |        | The protocol is required to support a       |            |
-   |        | response timeout, after which the agent     |            |
-   |        | treats the request as unresolved and        |            |
-   |        | halts the affected subtask.                 |            |
+   | B2-3   | The protocol is required to define          | Transport, |
+   |        | the valid responses to an                   | Security   |
+   |        | authorization checkpoint, including         |            |
+   |        | at minimum: approve, deny, and              |            |
+   |        | approve with modified parameters.  A        |            |
+   |        | denial is required to be conveyed as        |            |
+   |        | an explicit error response.                 |            |
+   +--------+---------------------------------------------+------------+
+   | B2-4   | The protocol is required to support a       | Transport  |
+   |        | response timeout, after which the           |            |
+   |        | agent treats the request as                 |            |
+   |        | unresolved and halts the affected           |            |
+   |        | subtask.                                    |            |
    +--------+---------------------------------------------+------------+
 
                                   Table 4
