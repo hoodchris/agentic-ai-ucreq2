@@ -15,7 +15,7 @@ pi:
 
 author:
  -
-    fullname: Tirumaleswar Reddy
+    name: Tirumaleswar Reddy
     organization: Nokia
     city: Bangalore
     region: Karnataka
@@ -25,6 +25,7 @@ author:
     ins: Z. Sarker
     name: Zaheduzzaman Sarker
     organization: Nokia
+    country: Sweden
     email: zaheduzzaman.sarker@nokia.com
  -
     name: Kehan Yao
