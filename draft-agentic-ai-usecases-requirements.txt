@@ -5,11 +5,13 @@
 Network Working Group                                           T. Reddy
 Internet-Draft                                                 Z. Sarker
 Intended status: Informational                                     Nokia
-Expires: 22 November 2026                                    21 May 2026
+Expires: 23 November 2026                                         K. Yao
+                                                            China Mobile
+                                                             22 May 2026
 
 
                  Agentic AI Use Cases and Requirements
-             draft-agentic-ai-usecases-requirements-latest
+            draft-agentic-ai-usecases-requirements-latest-00
 
 Abstract
 
@@ -43,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 November 2026.
+   This Internet-Draft will expire on 23 November 2026.
 
 Copyright Notice
 
@@ -80,8 +82,7 @@ Table of Contents
      4.4.  Peer Collaborative Multi-Agent Problem Solving
        4.4.1.  Description
        4.4.2.  Interaction Flow
-       4.4.3.  Protocol Requirements
-       4.4.4.  Additional Protocol Requirements
+       4.4.3.  Additional Protocol Requirements
      4.5.  Cooperative Reasoning and Consensus Formation
        4.5.1.  Description
        4.5.2.  Interaction Flow
@@ -222,9 +223,9 @@ Table of Contents
    +========+========================================+================+
    | REQ-ID | Description                            | Tag            |
    +========+========================================+================+
-   | CMN-1  | The protocol is required to allow any  | Discovery,     |
-   |        | client application to communicate with | Authentication |
-   |        | any agent service.                     |                |
+   | CMN-1  | The protocol is required to support    | Discovery,     |
+   |        | any client application to communicate  | Authentication |
+   |        | with any agent service.                |                |
    +--------+----------------------------------------+----------------+
    | CMN-2  | Mutual authentication is required      | Authentication |
    |        | between all communicating parties.     |                |
@@ -250,8 +251,8 @@ Table of Contents
    |        | path tasks can be scheduled ahead of   |                |
    |        | lower-priority ones.                   |                |
    +--------+----------------------------------------+----------------+
-   | CMN-7  | The protocol is required to support    | Security       |
-   |        | cryptographic algorithm agility,       |                |
+   | CMN-7  | The protocol is required to support    | Security,      |
+   |        | cryptographic algorithm agility,       | Authentication |
    |        | ensuring that cryptographic algorithms |                |
    |        | used for encryption, authentication,   |                |
    |        | credential verification, and integrity |                |
@@ -410,10 +411,10 @@ Table of Contents
    +========+==============================================+===========+
    | REQ-ID | Description                                  | Tag       |
    +========+==============================================+===========+
-   | B1-1   | A protocol is required to facilitate         | Transport |
-   |        | task delegation for an orchestrator          |           |
-   |        | to agents that includes task                 |           |
-   |        | delegation and acknowledgement               |           |
+   | B1-1   | The protocol is required to                  | Transport |
+   |        | facilitate task delegation for an            |           |
+   |        | orchestrator to agents that includes         |           |
+   |        | task delegation and acknowledgement          |           |
    |        | message types.                               |           |
    +--------+----------------------------------------------+-----------+
    | B1-2   | The protocol is required to support          | Transport |
@@ -475,35 +476,44 @@ Table of Contents
 
 4.3.3.  Additional Protocol Requirements
 
+   This use case builds on the requirements defined for Section 4.2 and
+   introduces additional requirements specific to multi-hop delegation
+   chains.
+
    +========+=============================================+============+
    | REQ-ID | Description                                 | Tag        |
    +========+=============================================+============+
    | B2-1   | The protocol is required to support         | Transport  |
-   |        | agent-initiated progress notifications      |            |
-   |        | to the delegating agent during task         |            |
-   |        | execution.                                  |            |
+   |        | agent-initiated progress                    |            |
+   |        | notifications to the delegating agent       |            |
+   |        | during task execution.                      |            |
    +--------+---------------------------------------------+------------+
    | B2-2   | The protocol is required to define an       | Transport, |
    |        | authorization checkpoint message by         | Security   |
-   |        | which an agent pauses task execution and    |            |
-   |        | requests explicit authorization from the    |            |
-   |        | orchestrator before proceeding.  The        |            |
-   |        | message is required to include              |            |
-   |        | sufficient context for the authorizing      |            |
-   |        | party to make an informed decision,         |            |
-   |        | including the action to be taken and its    |            |
-   |        | potential consequences.                     |            |
+   |        | which an agent pauses task execution        |            |
+   |        | and requests explicit authorization         |            |
+   |        | from the orchestrator before                |            |
+   |        | proceeding.  The message is required        |            |
+   |        | to include sufficient context for the       |            |
+   |        | authorizing party to make an informed       |            |
+   |        | decision, including the action to be        |            |
+   |        | taken and its potential consequences.       |            |
    +--------+---------------------------------------------+------------+
-   | B2-3   | The protocol is required to define the      | Transport, |
-   |        | valid responses to an authorization         | Security   |
-   |        | checkpoint, including at minimum:           |            |
-   |        | approve, deny, and approve with modified    |            |
-   |        | parameters.  A denial is required to be     |            |
-   |        | conveyed as an explicit error response.     |            |
-   |        | The protocol is required to support a       |            |
-   |        | response timeout, after which the agent     |            |
-   |        | treats the request as unresolved and        |            |
-   |        | halts the affected subtask.                 |            |
+   | B2-3   | The protocol is required to define          | Transport, |
+   |        | the valid responses to an                   | Security   |
+   |        | authorization checkpoint, including         |            |
+   |        | at minimum: approve, deny, and              |            |
+   |        | approve with modified parameters.  A        |            |
+   |        | denial is required to be conveyed as        |            |
+   |        | an explicit error response.                 |            |
+   +--------+---------------------------------------------+------------+
+   | B2-3   | The protocol is required to define          | Transport, |
+   |        | the valid responses to an                   | Security   |
+   |        | authorization checkpoint, including         |            |
+   |        | at minimum: approve, deny, and              |            |
+   |        | approve with modified parameters.  A        |            |
+   |        | denial is required to be conveyed as        |            |
+   |        | an explicit error response.                 |            |
    +--------+---------------------------------------------+------------+
 
                                   Table 4
@@ -517,9 +527,9 @@ Table of Contents
    the task alone.  The agent that receives the initial request
    dynamically delegates subtasks to peer agents based on their
    advertised capabilities.  Any agent may itself delegate further to
-   other agents, forming a dynamic collaboration graph.  Each agent
-   remains opaque to others, collaborating only through the protocol
-   interface.
+   other agents and use other tools, forming a dynamic collaboration
+   graph.  Each agent remains opaque to others, collaborating only
+   through the protocol interface.
 
    This use case introduces multi-hop delegation chains that are not
    present in Section 4.2.  Each agent in the chain may delegate further
@@ -538,19 +548,17 @@ Table of Contents
     +--------+  +--------+
     |Agent-2 |  |Agent-3 |
     +--------+  +--------+
-         |
-         v
-    +--------+
-    |Agent-4 |
-    +--------+
+         |          |
+         v          v
+    +--------+  +--------+
+    |Agent-4 |  | Tools  |
+    +--------+  +--------+
 
-4.4.3.  Protocol Requirements
+4.4.3.  Additional Protocol Requirements
 
    This use case builds on the requirements defined for Section 4.2 and
    introduces additional requirements specific to multi-hop delegation
    chains.
-
-4.4.4.  Additional Protocol Requirements
 
    +========+=======================================+=================+
    | REQ-ID | Description                           | Tag             |
@@ -639,7 +647,7 @@ Table of Contents
    communicate only through the coordinator, which acts as the central
    hub for all message exchange.  In the second, agents may also
    communicate directly with each other to exchange intermediate
-   reasoning outputs without routing through the coordinator.  The
+   reasoning outputs without routing through the coordinator agent.  The
    second topology introduces the same multi-hop authorization
    requirements defined in Section 4.4.
 
@@ -647,9 +655,9 @@ Table of Contents
 
    The coordinator-mediated topology:
 
-                    +--------------+
-                    | Coordinator  |
-                    +--------------+
+                   +--------------------+
+                   | Coordinator agent  |
+                   +--------------------+
                      /      |      \
                     v       v       v
               +--------+ +--------+ +--------+
@@ -712,10 +720,10 @@ Table of Contents
    for protocol translation and for presenting the appropriate
    credentials to the target system on behalf of the requesting agent.
 
-   The mediator may additionally act as a router, dispatching requests
-   to appropriate agents or tools based on the content and context of
-   the request, without requiring the requesting agent to have prior
-   knowledge of which agent or tool is most appropriate.
+   The mediator may additionally act as a request router, dispatching
+   requests to appropriate agents or tools based on the content and
+   context of the request, without requiring the requesting agent to
+   have prior knowledge of which agent or tool is most appropriate.
 
    The mediator may also validate agent requests before invocation,
    checking whether the action being requested matches the authorization
@@ -757,13 +765,13 @@ Table of Contents
    |        | due to potential unintended or              |            |
    |        | irreversible side effects.                  |            |
    +--------+---------------------------------------------+------------+
-   | B5-2   | The mediator is required to produce a       | Security   |
-   |        | structured audit record for each action     |            |
-   |        | performed on behalf of a requesting         |            |
-   |        | agent, including the requesting agent's     |            |
-   |        | identity, the authorization credential      |            |
-   |        | presented, the action taken, and the        |            |
-   |        | outcome.                                    |            |
+   | B5-2   | The protocol is required to support         | Security   |
+   |        | exchange of structured (audit) record       |            |
+   |        | for each action performed on behalf of a    |            |
+   |        | requesting agent, including the             |            |
+   |        | requesting agent's identity, the            |            |
+   |        | authorization credential presented, the     |            |
+   |        | action taken, and the outcome.              |            |
    +--------+---------------------------------------------+------------+
 
                                   Table 7
@@ -775,14 +783,24 @@ Table of Contents
    each use case.  Agent identity and authentication mechanisms are
    further discussed in [KLRC].
 
+   Agent identity information is considered to be sensitive,
+   particularly in multi-domain deployments.  Use of persistent
+   identifiers across sessions and domains can enable tracking and
+   correlation of agent activity.  Protocol designers need to consider
+   mechanisms such as pseudonymous or temporary identifiers to reduce
+   linkability, while preserving the ability to audit and enforce
+   accountability where required.  The trade-offs between privacy,
+   accountability, and traceability need to be considered in the design
+   of agent identity mechanisms.
+
 6.  IANA Considerations
 
    This document has no IANA actions.
 
 Acknowledgements
 
-   Thanks to Julien Maisonneuve, Parisa Foroughi, Borislava Gajic and
-   Sina Khatibi for the discussion and comments.
+   Thanks to Borislava Gajic, Julien Maisonneuve, Parisa Foroughi, Peter
+   Leis and Sina Khatibi for the discussions and comments.
 
 Informative References
 
@@ -808,15 +826,9 @@ Informative References
               "OpenAI Agents SDK", n.d.,
               <https://openai.github.io/openai-agents-python/>.
 
-   [RFC6749]  "The OAuth 2.0 Authorization Framework", n.d.,
-              <https://www.rfc-editor.org/rfc/rfc6749>.
-
    [RFC7696]  "Guidelines for Cryptographic Algorithm Agility and
               Selecting Mandatory-to-Implement Algorithms", n.d.,
               <https://www.rfc-editor.org/rfc/rfc7696>.
-
-   [RFC9635]  "Grant Negotiation and Authorization Protocol (GNAP)",
-              n.d., <https://www.rfc-editor.org/rfc/rfc9635>.
 
    [ROSENBERG]
               "Framework, Use Cases and Requirements for AI Agent
@@ -849,3 +861,8 @@ Authors' Addresses
    Zaheduzzaman Sarker
    Nokia
    Email: zaheduzzaman.sarker@nokia.com
+
+
+   Kehan Yao
+   China Mobile
+   Email: yaokehan@chinamobile.com
