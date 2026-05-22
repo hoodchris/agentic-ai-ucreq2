@@ -112,9 +112,9 @@ environment, maintains internal state, and executes actions to achieve
 specified goals, potentially including communication with other agents
 or invocation of external tools.
 
-**Agent Identity**: An identifier associated with
-an AI agent, used for authentication and accountability
-within agentic communication systems.
+**Agent Identity**: Identity information associated with an AI agent, 
+used for authentication and accountability within agentic communication 
+systems.
 
 **Agentic AI Communication System**: A system comprising one or more
 AI agents that communicate with each other, with users, and with
@@ -164,7 +164,7 @@ sub-tasks and delegating those sub-tasks to appropriate agents.
 **Peer Agent**: An agent that receives delegated subtasks from another
 agent and may itself delegate further to other agents.
 
-**Session**: A logical communication context shared between two or more
+**Session**: A logical communication exchange shared between two or more
 agents over a period of time, which may persist across multiple
 individual message exchanges and network connections. A session can carry
 and maintain one or more contexts shared between agents.
@@ -544,5 +544,4 @@ This document has no IANA actions.
 # Acknowledgements
 {:numbered="false"}
 
-Thanks to Borislava Gajic, Julien Maisonneuve, Parisa Foroughi, Peter Leis and
-Sina Khatibi for the discussions and comments.
+Thanks to Borislava Gajic, Julien Maisonneuve, Parisa Foroughi, Laurent Ciavaglia, Peter Leis and Sina Khatibi for the discussions and comments.
