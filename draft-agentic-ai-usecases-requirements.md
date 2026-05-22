@@ -172,7 +172,7 @@ and maintain one or more contexts shared between agents.
 **Task**: A unit of work submitted by a user to an agent, or
 delegated by one agent to another.
 
-**Task State**: The current execution status of a task (e.g., pending, 
+**Task State**: The current execution status of a task (e.g., pending,
 in-progress, completed, failed).
 
 **Tool**: An external service invoked by an agent to retrieve data or
