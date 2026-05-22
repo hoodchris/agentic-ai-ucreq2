@@ -112,8 +112,8 @@ environment, maintains internal state, and executes actions to achieve
 specified goals, potentially including communication with other agents
 or invocation of external tools.
 
-**Agent Identity**: Identity information associated with an AI agent, 
-used for authentication and accountability within agentic communication 
+**Agent Identity**: Identity information associated with an AI agent,
+used for authentication and accountability within agentic communication
 systems.
 
 **Agentic AI Communication System**: A system comprising one or more
