@@ -341,7 +341,7 @@ and introduces additional requirements specific to authorization checkpoints in 
 |--------|-------------|-----|
 | B2-1  | The protocol is required to support agent-initiated progress notifications to the delegating agent during task execution. | Transport |
 | B2-2  | The protocol is required to define an authorization checkpoint message by which an agent pauses task execution and requests explicit authorization from the orchestrator before proceeding. The message is required to include sufficient context for the authorizing party to make an informed decision, including the action to be taken and its potential consequences. | Transport, Security |
-| B2-3  | The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. A denial is required to be conveyed as an explicit error response. |  Transport, Security | 
+| B2-3  | The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. A denial is required to be conveyed as an explicit error response. |  Transport, Security |
 
 ## Peer Collaborative Multi-Agent Problem Solving {#peer-collaborative}
 
