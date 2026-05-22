@@ -117,9 +117,9 @@ environment, maintains internal state, and executes actions to achieve
 specified goals, potentially including communication with other agents
 or invocation of external tools.
 
-**Agent Identity**: An identifier associated with
-an AI agent, used for authentication and accountability
-within agentic communication systems.
+**Agent Identity**: Identity information associated with an AI agent,
+used for authentication and accountability within agentic communication
+systems.
 
 **Agentic AI Communication System**: A system comprising one or more
 AI agents that communicate with each other, with users, and with
@@ -150,7 +150,7 @@ a task on its behalf.
 delegates subtasks to peer agents. Any peer agent may itself delegate
 further to other agents without routing through the initiating agent.
 
-**Mediator Agent**: An agent that serves as a proxy or mediator for
+**Mediator**: An entity that serves as a proxy or mediator for
 external tools, APIs, databases, or other resources that other agents
 require but cannot directly access.
 
@@ -169,7 +169,7 @@ sub-tasks and delegating those sub-tasks to appropriate agents.
 **Peer Agent**: An agent that receives delegated subtasks from another
 agent and may itself delegate further to other agents.
 
-**Session**: A logical communication context shared between two or more
+**Session**: A logical communication exchange shared between two or more
 agents over a period of time, which may persist across multiple
 individual message exchanges and network connections. A session can carry
 and maintain one or more contexts shared between agents.
@@ -177,7 +177,7 @@ and maintain one or more contexts shared between agents.
 **Task**: A unit of work submitted by a user to an agent, or
 delegated by one agent to another.
 
-**Task State**: The current execution status of a task (e.g., pending, Expand
+**Task State**: The current execution status of a task (e.g., pending,
 in-progress, completed, failed).
 
 **Tool**: An external service invoked by an agent to retrieve data or
@@ -187,7 +187,7 @@ in agent-to-agent communication.
 **User**: A human that initiates interaction with an
 AI agent by submitting a request or task.
 
-# Common Requirements {#common-requirements}
+# Common Protocol Requirements {#common-requirements}
 
 The following baseline requirements apply to both agent-to-agent and agent-to-tool protocol interactions across all use cases and are not repeated per use case.
 
@@ -207,7 +207,7 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 | CMN-5  | Structured error responses are required, distinguishing at minimum: authentication failure, authorization failure, timeout, and internal error. | Transport |
 | CMN-6  | The protocol provides a means to signal task priority so that critical-path tasks can be scheduled ahead of lower-priority ones. | Transport |
 | CMN-7  | The protocol is required to support cryptographic algorithm agility, ensuring that cryptographic algorithms used for encryption, authentication, credential verification, and integrity protection can be negotiated and updated over time, in accordance with {{RFC7696}}. | Security, Authentication |
-| CMN-8  | The protocol is required to provide a means to verify the authenticate credentials validity used by agents at the time of use. | Authentication |
+| CMN-8  | The protocol is required to provide a means to verify the agent authentication credentials validity used by agents at the time of use. | Authentication |
 | CMN-9  | The protocol is required to support signaling credential revocation and invalid credential outcomes. | Security |
 
 # Use Cases {#usecases}
@@ -316,7 +316,7 @@ and is implemented in deployed multi-agent frameworks including
 ### Description
 
 An orchestrator agent delegates a long-running task to other agents.
-The delegated agents executes the task autonomously and sends progress
+The delegated agent executes the task autonomously and sends progress
 notifications to the orchestrator. At any certain point one or more delegated
 agents pause and request explicit authorization from the orchestrator
 before proceeding further. The orchestrator may relay this authorization
@@ -340,7 +340,7 @@ defined in [A2A].
 ### Additional Protocol Requirements {#b2-protocol-requirements}
 
 This use case builds on the requirements defined for {{orchestrator-agent}}
-and introduces additional requirements specific to multi-hop delegation chains.
+and introduces additional requirements specific to authorization checkpoints in delegated tasks.
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
@@ -398,9 +398,10 @@ and introduces additional requirements specific to multi-hop delegation chains.
 | B3-2  | The protocol is required to preserve the identity of the originating entity across all hops in the delegation chain, such that any agent in the chain can determine the identity of the entity that originally authorized the task. | Authentication, Security |
 | B3-3  | The protocol is required to support transferable credentials that carry the original authorization constraints across all hops in the delegation chain. Each receiving agent is required to be able to cryptographically verify that the credential presented to it was issued by the delegating agent and that the chain of delegation traces back to the original authorization. | Authentication, Security |
 | B3-4  | The protocol is required to ensure that authorization granted to an agent in a delegation chain, including for tool invocations, is derived from the authorization issued by the initiating agent, and not from the identity or authorization scope of any intermediate agent in the chain. | Authentication, Security |
-| B3-5  | The protocol is required to define a capability advertisement mechanism by which agents publish their supported functions, supported protocols, rate limits, authentication methods, authorization mechanisms, and authorization scopes to a registry, and by which other agents can query the registry to discover and select appropriate peers at runtime without requiring prior configuration. | Discovery |
-| B3-6  | The protocol is required to define an agent identifier format that uniquely represents an agent identity and is resolvable to the agent's communication endpoint using an appropriate discovery mechanism. | Discovery |
-| B3-7  | The protocol is required to ensure that advertised capabilities are integrity-protected, such that a discovering agent can verify they have not been tampered with. | Discovery, Security |
+| B3-5  | The protocol is required to define a capability registration mechanism by which agents can publish metadata describing their capabilities, supported protocols, rate limits, authentication methods, authorization mechanisms, and authorization scopes to a discovery service or registry. | Registration, Discovery |
+| B3-6  | The protocol is required to define a capability discovery mechanism by which agents can query a discovery service or registry to discover and select appropriate peer agents at runtime without requiring prior peer-specific configuration. | Discovery |
+| B3-7  | The protocol is required to define an agent identifier format that uniquely represents an agent identity and is resolvable to the agent's communication endpoint using an appropriate discovery mechanism. | Discovery |
+| B3-8  | The protocol is required to ensure that advertised capabilities are integrity-protected, such that a discovering agent can verify they have not been tampered with. | Discovery, Security |
 
 ## Cooperative Reasoning and Consensus Formation {#cooperative-reasoning}
 
@@ -470,13 +471,13 @@ and introduces additional requirements specific to group message delivery.
 
 In many multi-agent deployments, access to external resources —
 APIs, databases, enterprise systems, or hardware interfaces — is
-intentionally mediated through a designated mediator agent. Other agents
-request the mediator agent to perform actions or retrieve data on their
+intentionally mediated through a designated mediator. Other agents
+request the mediator to perform actions or retrieve data on their
 behalf, rather than directly invoking external systems. This
 architecture allows access control, auditing, rate limiting, and
 schema normalization to be applied uniformly at the mediation layer.
 
-The mediator agent may also serve as an adapter between the agent
+The mediator may also serve as an adapter between the agent
 protocol and non-agent systems or other services that do not natively
 support agent communication protocols, or between different agent
 communication protocols such as translating between the agentic
@@ -513,16 +514,17 @@ in [MCP] and the agent routing patterns discussed in [A2A].
        +--------------+
        /       |       \
       v        v        v
-+--------+ +--------+ +--------+
-|Agent-1 | |Tool-1  | |Agent-2 |
-+--------+ +--------+ +--------+
++--------+ +---------+  +--------+
+| Agent-1 | | Tool   |  | Agent-2 |
++--------+ +---------+  +--------+
 ~~~
 
 ### Additional Protocol Requirements {#b5-protocol-requirements}
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
-| B5-1  | The protocol is required to define error response types for request validation failure and protocol translation failure, distinct from authorization failure. A request validation failure is returned when a request is rejected due to potential unintended or irreversible side effects. | Transport, Security |
+| B5-1  | The protocol is required to define error response types for request validation failure and protocol translation failure, distinct from authorization failure. A request validation failure is returned when a request is rejected due to potential unintended or irreversible side effects. A protocol translation failure is returned when the mediator is unable to successfully translate a request or response between supported protocols. | Transport, Security |
+
 | B5-2  | The protocol is required to support exchange of structured (audit) record for each action performed on behalf of a requesting agent, including the requesting agent's identity, the authorization credential presented, the action taken, and the outcome. | Security |
 
 # Security Considerations {#security}
@@ -548,5 +550,4 @@ This document has no IANA actions.
 # Acknowledgements
 {:numbered="false"}
 
-Thanks to Borislava Gajic, Julien Maisonneuve, Parisa Foroughi, Peter Leis and
-Sina Khatibi for the discussions and comments.
+Thanks to Borislava Gajic, Julien Maisonneuve, Parisa Foroughi, Laurent Ciavaglia, Peter Leis and Sina Khatibi for the discussions and comments.
