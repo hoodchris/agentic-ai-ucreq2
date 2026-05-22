@@ -371,9 +371,9 @@ This use case is described in [A2A] and [ROSENBERG].
 ### Interaction Flow
 
 ~~~
-+------------------+
-| Initiating Agent |
-+------------------+
+  +------------------+
+  | Initiating Agent |
+  +------------------+
       |         |
       v         v
  +--------+  +--------+
@@ -440,16 +440,16 @@ The coordinator-mediated topology:
 The direct agent-to-agent topology:
 
 ~~~
-                 +--------------+
-                 | Coordinator  |
-                 +--------------+
-                 /       |        \
-                v        v         v
-           +-------+   +-------+   +-------+
-           |Agent-1|<->|Agent-2|<->|Agent-3|
-           +-------+   +-------+   +-------+
-               ^                       ^
-               |_______________________|
+                 +--------------------+
+                 | Coordinator agent  |
+                 +--------------------+
+                 /          |         \
+                v           v          v
+           +-------+     +-------+     +-------+
+           |Agent-1| <-> |Agent-2| <-> |Agent-3|
+           +-------+     +-------+     +-------+
+               ^                           ^
+               |___________________________|
 ~~~
 
 ### Protocol Requirements
