@@ -182,7 +182,7 @@ in agent-to-agent communication.
 **User**: A human that initiates interaction with an
 AI agent by submitting a request or task.
 
-# Common Requirements {#common-requirements}
+# Common Protocol Requirements {#common-requirements}
 
 The following baseline requirements apply to both agent-to-agent and agent-to-tool protocol interactions across all use cases and are not repeated per use case.
 
@@ -518,7 +518,7 @@ in [MCP] and the agent routing patterns discussed in [A2A].
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
-| B5-1  | The protocol is required to define error response types for request validation failure and protocol translation failure, distinct from authorization failure. A request validation failure is returned when a request is rejected due to potential unintended or irreversible side effects. A protocol translation failure is returned when the mediator is unable to successfully translate a request or response between supported protocols or interface formats. | Transport, Security |
+| B5-1  | The protocol is required to define error response types for request validation failure and protocol translation failure, distinct from authorization failure. A request validation failure is returned when a request is rejected due to potential unintended or irreversible side effects. A protocol translation failure is returned when the mediator is unable to successfully translate a request or response between supported protocols. | Transport, Security |
 
 | B5-2  | The protocol is required to support exchange of structured (audit) record for each action performed on behalf of a requesting agent, including the requesting agent's identity, the authorization credential presented, the action taken, and the outcome. | Security |
 
