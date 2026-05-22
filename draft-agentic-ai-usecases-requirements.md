@@ -172,7 +172,7 @@ and maintain one or more contexts shared between agents.
 **Task**: A unit of work submitted by a user to an agent, or
 delegated by one agent to another.
 
-**Task State**: The current execution status of a task (e.g., pending, Expand
+**Task State**: The current execution status of a task (e.g., pending, 
 in-progress, completed, failed).
 
 **Tool**: An external service invoked by an agent to retrieve data or
@@ -202,7 +202,7 @@ Each per-use-case requirement is tagged with one or more of the following protoc
 | CMN-5  | Structured error responses are required, distinguishing at minimum: authentication failure, authorization failure, timeout, and internal error. | Transport |
 | CMN-6  | The protocol provides a means to signal task priority so that critical-path tasks can be scheduled ahead of lower-priority ones. | Transport |
 | CMN-7  | The protocol is required to support cryptographic algorithm agility, ensuring that cryptographic algorithms used for encryption, authentication, credential verification, and integrity protection can be negotiated and updated over time, in accordance with {{RFC7696}}. | Security, Authentication |
-| CMN-8  | The protocol is required to provide a means to verify the authenticate credentials validity used by agents at the time of use. | Authentication |
+| CMN-8  | The protocol is required to provide a means to verify the agent authentication credentials validity used by agents at the time of use. | Authentication |
 | CMN-9  | The protocol is required to support signaling credential revocation and invalid credential outcomes. | Security |
 
 # Use Cases {#usecases}
@@ -311,7 +311,7 @@ and is implemented in deployed multi-agent frameworks including
 ### Description
 
 An orchestrator agent delegates a long-running task to other agents.
-The delegated agents executes the task autonomously and sends progress
+The delegated agent executes the task autonomously and sends progress
 notifications to the orchestrator. At any certain point one or more delegated
 agents pause and request explicit authorization from the orchestrator
 before proceeding further. The orchestrator may relay this authorization
@@ -335,14 +335,13 @@ defined in [A2A].
 ### Additional Protocol Requirements {#b2-protocol-requirements}
 
 This use case builds on the requirements defined for {{orchestrator-agent}}
-and introduces additional requirements specific to multi-hop delegation chains.
+and introduces additional requirements specific to authorization checkpoints in delegated tasks.
 
 | REQ-ID | Description | Tag |
 |--------|-------------|-----|
 | B2-1  | The protocol is required to support agent-initiated progress notifications to the delegating agent during task execution. | Transport |
 | B2-2  | The protocol is required to define an authorization checkpoint message by which an agent pauses task execution and requests explicit authorization from the orchestrator before proceeding. The message is required to include sufficient context for the authorizing party to make an informed decision, including the action to be taken and its potential consequences. | Transport, Security |
 | B2-3  | The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. A denial is required to be conveyed as an explicit error response. |  Transport, Security | 
-| B2-3  | The protocol is required to define the valid responses to an authorization checkpoint, including at minimum: approve, deny, and approve with modified parameters. A denial is required to be conveyed as an explicit error response. |  Transport, Security |
 
 ## Peer Collaborative Multi-Agent Problem Solving {#peer-collaborative}
 
